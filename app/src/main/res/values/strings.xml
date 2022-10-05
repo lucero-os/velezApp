@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">VelezApp</string>
+    <string name="item_entradas_name">Entradas</string>
+    <string name="item_perfil_name">Mi Perfil</string>
+    <string name="item_home_name">Home</string>
+    <string name="vs">VS</string>
+
+</resources>

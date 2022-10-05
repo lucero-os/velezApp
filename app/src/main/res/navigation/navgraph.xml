@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navgraph"
+    app:startDestination="@id/miPerfilFragment1">
+
+    <fragment
+        android:id="@+id/miPerfilFragment1"
+        android:name="com.example.recview.fragments.MiPerfilFragment"
+        android:label="fragment_mi_perfil"
+        tools:layout="@layout/fragment_mi_perfil" />
+    <fragment
+        android:id="@+id/ventaEntradasFragment1"
+        android:name="com.example.recview.fragments.VentaEntradasFragment"
+        android:label="fragment_venta_entradas"
+        tools:layout="@layout/fragment_venta_entradas" />
+    <fragment
+        android:id="@+id/partidoFragment"
+        android:name="com.example.recview.fragments.PartidoFragment"
+        android:label="fragment_partido"
+        tools:layout="@layout/fragment_partido" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.recview.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+</navigation>
