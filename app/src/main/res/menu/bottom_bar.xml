@@ -7,7 +7,7 @@
         android:title="@string/item_home_name" />
 
     <item
-        android:id="@+id/ventaEntradasFragment1"
+        android:id="@+id/ventaEntradasFragment"
         android:icon="@drawable/football_icon"
         android:title="@string/item_entradas_name" />
 

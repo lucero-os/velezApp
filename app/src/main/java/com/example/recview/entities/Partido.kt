@@ -2,6 +2,7 @@ package com.example.recview.entities
 
 import android.os.Parcel
 import android.os.Parcelable
+import android.widget.Button
 
 
 class Partido (id:Int?,equipo:String?, rival: String?, torneo: String?) {

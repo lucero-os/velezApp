@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navgraph"
-    app:startDestination="@id/miPerfilFragment1">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/miPerfilFragment1"
@@ -11,10 +11,14 @@
         android:label="fragment_mi_perfil"
         tools:layout="@layout/fragment_mi_perfil" />
     <fragment
-        android:id="@+id/ventaEntradasFragment1"
+        android:id="@+id/ventaEntradasFragment"
         android:name="com.example.recview.fragments.VentaEntradasFragment"
         android:label="fragment_venta_entradas"
-        tools:layout="@layout/fragment_venta_entradas" />
+        tools:layout="@layout/fragment_venta_entradas" >
+        <action
+            android:id="@+id/action_ventaEntradasFragment_to_buyTicketActivity"
+            app:destination="@id/buyTicketActivity" />
+    </fragment>
     <fragment
         android:id="@+id/partidoFragment"
         android:name="com.example.recview.fragments.PartidoFragment"
@@ -25,4 +29,9 @@
         android:name="com.example.recview.fragments.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+    <activity
+        android:id="@+id/buyTicketActivity"
+        android:name="com.example.recview.activities.BuyTicketActivity"
+        android:label="activity_buy_ticket"
+        tools:layout="@layout/activity_buy_ticket" />
 </navigation>

@@ -2,10 +2,13 @@ package com.example.recview.fragments
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.text.Layout
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recview.R
@@ -20,6 +23,7 @@ class VentaEntradasFragment : Fragment() {
 
     lateinit var recPartidos : RecyclerView
     private lateinit var linearLayoutManager: LinearLayoutManager
+    private lateinit var goToComprar: Button
 
     private lateinit var partidosAdapter: PartidosAdapter
 
@@ -49,23 +53,23 @@ class VentaEntradasFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        partidos.add(Partido(1,"Velez","Boca","Superliga"))
-        partidos.add(Partido(2,"Velez","River","Superliga"))
-        partidos.add(Partido(3,"Velez","Ferro","Superliga"))
-        partidos.add(Partido(4,"Velez","Sanlo","Superliga"))
-        partidos.add(Partido(5,"Velez","Racing","Superliga"))
+        partidos.add(Partido(1, "Velez", "Boca", "Superliga"))
+        partidos.add(Partido(2, "Velez", "River", "Superliga"))
+        partidos.add(Partido(3, "Velez", "Ferro", "Superliga"))
+        partidos.add(Partido(4, "Velez", "Sanlo", "Superliga"))
+        partidos.add(Partido(5, "Velez", "Racing", "Superliga"))
 
         recPartidos.setHasFixedSize(true)
         linearLayoutManager = LinearLayoutManager(context)
-        recPartidos.layoutManager=linearLayoutManager
+        recPartidos.layoutManager = linearLayoutManager
 
-        partidosAdapter = PartidosAdapter(partidos)
+        partidosAdapter = PartidosAdapter(partidos) { pos ->
+
+            val action = VentaEntradasFragmentDirections.actionVentaEntradasFragmentToBuyTicketActivity()
+            v.findNavController().navigate(action)
+        }
+
         recPartidos.adapter = partidosAdapter
-
-
-    }
-    fun onItemClick ( position : Int )  {
-        Snackbar.make(v,position.toString(),Snackbar.LENGTH_SHORT).show()
     }
 
 }

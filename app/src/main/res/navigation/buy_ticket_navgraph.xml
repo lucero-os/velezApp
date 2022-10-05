@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/buy_ticket_navgraph"
+    app:startDestination="@id/ticketDetail">
+    <fragment
+        android:id="@+id/ticketDetail"
+        android:name="com.example.recview.fragments.buyTicket.TicketDetail"
+        android:label="fragment_ticket_detail"
+        tools:layout="@layout/fragment_ticket_detail" >
+        <action
+            android:id="@+id/action_ticketDetail_to_confirmarCompra"
+            app:destination="@id/confirmarCompra" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmarCompra"
+        android:name="com.example.recview.fragments.buyTicket.ConfirmarCompra"
+        android:label="fragment_confirmar_compra"
+        tools:layout="@layout/fragment_confirmar_compra" >
+        <action
+            android:id="@+id/action_confirmarCompra_to_resultadoCompra"
+            app:destination="@id/resultadoCompra" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultadoCompra"
+        android:name="com.example.recview.fragments.buyTicket.ResultadoCompra"
+        android:label="fragment_resultado_compra"
+        tools:layout="@layout/fragment_resultado_compra" >
+        <action
+            android:id="@+id/action_resultadoCompra_to_mainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.recview.activities.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+</navigation>
