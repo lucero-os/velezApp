@@ -12,7 +12,7 @@
         android:title="@string/item_entradas_name" />
 
     <item
-        android:id="@+id/miPerfilFragment1"
+        android:id="@+id/miPerfilFragment"
         android:icon="@drawable/profile_icon"
         android:title="@string/item_perfil_name" />
 </menu>
