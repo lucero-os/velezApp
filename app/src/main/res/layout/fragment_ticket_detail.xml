@@ -11,14 +11,13 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="169dp"
-        android:layout_marginTop="334dp"
-        android:layout_marginEnd="184dp"
-        android:layout_marginBottom="378dp"
-        android:text="Detalle de entrada"
+        android:layout_marginStart="109dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="109dp"
+        android:text="@string/ticketDetailTitle"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,12 +26,97 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="158dp"
-        android:layout_marginTop="81dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="159dp"
-        android:layout_marginBottom="242dp"
-        android:text="Agregar al carrito"
+        android:layout_marginBottom="50dp"
+        android:text="@string/carritoBtnTxt"
+        android:textColor="#263238"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.462"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/vs"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="TextContrastCheck,TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/rivalName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginBottom="40dp"
+        android:text=""
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/agregarCarritoBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.96"
+        app:layout_constraintStart_toEndOf="@+id/vs" />
+
+    <TextView
+        android:id="@+id/equipoName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="40dp"
+        android:text=""
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/agregarCarritoBtn"
+        app:layout_constraintEnd_toStartOf="@+id/vs"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/vs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="79dp"
+        android:layout_marginEnd="44dp"
+        android:text="@string/vsTxt"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/agregarCarritoBtn"
+        app:layout_constraintEnd_toStartOf="@+id/rivalName"
+        app:layout_constraintStart_toEndOf="@+id/equipoName"
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
+    <ImageView
+        android:id="@+id/canchaVelezImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/cancha_velez"
+        app:layout_constraintBottom_toTopOf="@+id/vs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.0"
+        android:contentDescription="@string/canchaVelezContentDesc" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="264dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="40dp"
+        android:contentDescription="@string/spinnerContentDesc"
+        app:layout_constraintBottom_toTopOf="@+id/vs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sectorTitle"
+        app:layout_constraintTop_toBottomOf="@+id/canchaVelezImg" />
+
+    <TextView
+        android:id="@+id/sectorTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:layout_marginBottom="96dp"
+        android:text="@string/sectorTxt"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/equipoName"
+        app:layout_constraintEnd_toStartOf="@+id/spinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/canchaVelezImg" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
