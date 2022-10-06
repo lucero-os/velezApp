@@ -7,135 +7,95 @@
     android:layout_height="match_parent"
     tools:context=".fragments.miPerfil.CarnetFragment" >
 
-    <TextView
-        android:id="@+id/numeroSocio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="392dp"
-        android:text="10000"
+    <FrameLayout
+        android:id="@+id/frameLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/labelNumero"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/apellidoSocio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="93dp"
-        android:layout_marginBottom="129dp"
-        android:text="Gareca"
-        app:layout_constraintBottom_toTopOf="@+id/imageView2"
-        app:layout_constraintEnd_toStartOf="@+id/tipoSocio"
-        app:layout_constraintStart_toEndOf="@+id/labelApellido"
-        app:layout_constraintTop_toBottomOf="@+id/nombreSocio" />
-
-    <TextView
-        android:id="@+id/labelNumero"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="91dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="10dp"
-        android:text="Socio NÂ° "
-        app:layout_constraintBottom_toTopOf="@+id/tipoSocio"
-        app:layout_constraintStart_toEndOf="@+id/nombreSocio"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-    <TextView
-        android:id="@+id/labelApellido"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="362dp"
-        android:text="Apellido: "
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/apellidoSocio"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/labelNombre" />
-
-    <TextView
-        android:id="@+id/labelNombre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="7dp"
-        android:layout_marginBottom="9dp"
-        android:text="Nombre: "
-        app:layout_constraintBottom_toTopOf="@+id/labelApellido"
-        app:layout_constraintEnd_toStartOf="@+id/nombreSocio"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-    <TextView
-        android:id="@+id/nombreSocio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="91dp"
-        android:layout_marginBottom="9dp"
-        android:text="Ricardo"
-        app:layout_constraintBottom_toTopOf="@+id/apellidoSocio"
-        app:layout_constraintEnd_toStartOf="@+id/labelNumero"
-        app:layout_constraintStart_toEndOf="@+id/labelNombre"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-    <TextView
-        android:id="@+id/tipoSocio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="130dp"
-        android:layout_marginBottom="129dp"
-        android:text="Pleno"
-        app:layout_constraintBottom_toTopOf="@+id/imageView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/apellidoSocio"
-        app:layout_constraintTop_toBottomOf="@+id/labelNumero" />
-
-    <TextView
-        android:id="@+id/carnetTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:text="@string/carnet"
-        android:textColor="@color/velez"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.050000012" />
+        tools:context=".micarnet2">>
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="329dp"
-        android:layout_height="184dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginBottom="432dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/carnetTitle"
-        tools:src="@tools:sample/avatars" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="165dp"
-        android:layout_height="143dp"
-        android:layout_marginBottom="91dp"
-        android:src="@mipmap/ic_launcher"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+            <!-- Media -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="194dp"
+                android:contentDescription="string/content_description_media"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/carnet" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Title, secondary and supporting text -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mi Carnet"
+                    android:textAppearance="?attr/textAppearanceHeadline6" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Nombre: Ricardo"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?android:attr/textColorSecondary" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Apellido: Gareca"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?android:attr/textColorSecondary" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Socio N° 1300"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?android:attr/textColorSecondary" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="PLENO"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?android:attr/textColorSecondary" />
+
+            </LinearLayout>
+
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:contentDescription="string/content_description_media"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/codigoqr" />
+
+
+        </LinearLayout>
+    </FrameLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/miCarnet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout5"
+        app:layout_constraintEnd_toStartOf="@+id/frameLayout5"
+        app:layout_constraintStart_toEndOf="@+id/frameLayout5"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </com.google.android.material.card.MaterialCardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
