@@ -1,4 +1,4 @@
-package com.example.recview.fragments.miPerfil
+package com.example.recview.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -47,20 +47,20 @@ class MiPerfilFragment : Fragment() {
 
         }
         btnMisEntradas.setOnClickListener {
-            val action2 = MiPerfilFragmentDirections.actionMiPerfilFragmentToMisEntradasFragment()
-            v.findNavController().navigate(action2)
+            val action = MiPerfilFragmentDirections.actionMiPerfilFragmentToMisEntradasFragment()
+            v.findNavController().navigate(action)
 
         }
 
         btnMisPagos.setOnClickListener {
-            val action3 = MiPerfilFragmentDirections.actionMiPerfilFragmentToMisPagosFragment()
-            v.findNavController().navigate(action3)
+            val action = MiPerfilFragmentDirections.actionMiPerfilFragmentToMisPagosFragment()
+            v.findNavController().navigate(action)
 
         }
 
         btnHaceteSocio.setOnClickListener {
-            val action4 = MiPerfilFragmentDirections.actionMiPerfilFragmentToHaceteSocioFragment()
-            v.findNavController().navigate(action4)
+            val action = MiPerfilFragmentDirections.actionMiPerfilFragmentToHaceteSocioFragment()
+            v.findNavController().navigate(action)
 
         }
 

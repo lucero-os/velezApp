@@ -6,10 +6,23 @@
     app:startDestination="@id/homeFragment">
 
     <fragment
-        android:id="@+id/miPerfilFragment1"
+        android:id="@+id/miPerfilFragment"
         android:name="com.example.recview.fragments.MiPerfilFragment"
         android:label="fragment_mi_perfil"
-        tools:layout="@layout/fragment_mi_perfil" />
+        tools:layout="@layout/fragment_mi_perfil" >
+        <action
+            android:id="@+id/action_miPerfilFragment_to_carnetFragment"
+            app:destination="@id/carnetFragment" />
+        <action
+            android:id="@+id/action_miPerfilFragment_to_misPagosFragment"
+            app:destination="@id/misPagosFragment" />
+        <action
+            android:id="@+id/action_miPerfilFragment_to_haceteSocioFragment"
+            app:destination="@id/haceteSocioFragment" />
+        <action
+            android:id="@+id/action_miPerfilFragment_to_misEntradasFragment"
+            app:destination="@id/misEntradasFragment" />
+    </fragment>
     <fragment
         android:id="@+id/ventaEntradasFragment"
         android:name="com.example.recview.fragments.VentaEntradasFragment"
@@ -20,11 +33,6 @@
             app:destination="@id/buyTicketActivity" />
     </fragment>
     <fragment
-        android:id="@+id/partidoFragment"
-        android:name="com.example.recview.fragments.PartidoFragment"
-        android:label="fragment_partido"
-        tools:layout="@layout/fragment_partido" />
-    <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.recview.fragments.HomeFragment"
         android:label="fragment_home"
@@ -34,4 +42,24 @@
         android:name="com.example.recview.activities.BuyTicketActivity"
         android:label="activity_buy_ticket"
         tools:layout="@layout/activity_buy_ticket" />
+    <fragment
+        android:id="@+id/haceteSocioFragment"
+        android:name="com.example.recview.fragments.miPerfil.HaceteSocioFragment"
+        android:label="fragment_hacete_socio"
+        tools:layout="@layout/fragment_hacete_socio" />
+    <fragment
+        android:id="@+id/misEntradasFragment"
+        android:name="com.example.recview.fragments.miPerfil.MisEntradasFragment"
+        android:label="fragment_mis_entradas"
+        tools:layout="@layout/fragment_mis_entradas" />
+    <fragment
+        android:id="@+id/misPagosFragment"
+        android:name="com.example.recview.fragments.miPerfil.MisPagosFragment"
+        android:label="fragment_mis_pagos"
+        tools:layout="@layout/fragment_mis_pagos" />
+    <fragment
+        android:id="@+id/carnetFragment"
+        android:name="com.example.recview.fragments.miPerfil.CarnetFragment"
+        android:label="fragment_carnet"
+        tools:layout="@layout/fragment_carnet" />
 </navigation>
