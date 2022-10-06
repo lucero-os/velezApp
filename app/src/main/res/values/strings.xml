@@ -14,6 +14,13 @@
     <string name="spinnerContentDesc">Sector</string>
     <string name="canchaVelezContentDesc">Cancha de Velez</string>
     <string name="ticketDetailTitle">Detalle de Entrada</string>
-
-
+    <string name="news1Title">Velez 0 - Boca 1</string>
+    <string name="news1SecTxt">Derrota en la Bombonera</string>
+    <string name="news1SuppTxt">Gol del Toro Morales</string>
+    <string name="news1MediaDesc">Foto boca velez</string>
+    <string name="news2Title">Velez 1 - Flamengo 6</string>
+    <string name="news2SecTxt">Derrota en semis</string>
+    <string name="news2SuppTxt">4 de Pedro</string>
+    <string name="news2MediaDesc">Foto flamengo velez</string>
+    <string name="homeTitle">VelezNews</string>
 </resources>
