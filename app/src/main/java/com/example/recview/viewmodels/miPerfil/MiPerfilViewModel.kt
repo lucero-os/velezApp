@@ -1,4 +1,4 @@
-package com.example.recview.viewmodels
+package com.example.recview.viewmodels.miPerfil
 
 import androidx.lifecycle.ViewModel
 

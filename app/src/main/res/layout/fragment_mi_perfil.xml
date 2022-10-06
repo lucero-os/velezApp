@@ -5,7 +5,7 @@
     android:id="@+id/miPerfil"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.MiPerfilFragment">
+    tools:context=".fragments.miPerfil.MiPerfilFragment">
 
     <TextView
         android:id="@+id/miPerfilTitle"
@@ -20,6 +20,62 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.092" />
+
+    <Button
+        android:id="@+id/btnMiPerfilToCarnet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="67dp"
+        android:layout_marginTop="271dp"
+        android:layout_marginBottom="152dp"
+        android:text="@string/carnet"
+        android:textColor="#263238"
+        app:layout_constraintBottom_toTopOf="@+id/btnMiPerfilToMisPagos"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextContrastCheck,TextContrastCheck" />
+
+    <Button
+        android:id="@+id/btnMiPerfilToMisEntradas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="271dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginBottom="152dp"
+        android:text="@string/mis_entradas"
+        android:textColor="#263238"
+        app:layout_constraintBottom_toTopOf="@+id/btnMiPerfilToHaceteSocio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextContrastCheck,TextContrastCheck" />
+
+    <Button
+        android:id="@+id/btnMiPerfilToHaceteSocio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginBottom="212dp"
+        android:text="@string/hacete_socio"
+        android:textColor="#263238"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnMiPerfilToMisEntradas"
+        tools:ignore="TextContrastCheck,TextContrastCheck,TextContrastCheck" />
+
+    <Button
+        android:id="@+id/btnMiPerfilToMisPagos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="212dp"
+        android:text="@string/mis_pagos"
+        android:textColor="#263238"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnMiPerfilToCarnet"
+        tools:ignore="TextContrastCheck,TextContrastCheck" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
