@@ -8,7 +8,12 @@
     <string name="mis_entradas">Mis Entradas</string>
     <string name="mis_pagos">Mis Pagos</string>
     <string name="hacete_socio">Hacete Socio</string>
-
+    <string name="vsTxt">VS</string>
+    <string name="sectorTxt">Sector:</string>
+    <string name="carritoBtnTxt">Agregar al Carrito</string>
+    <string name="spinnerContentDesc">Sector</string>
+    <string name="canchaVelezContentDesc">Cancha de Velez</string>
+    <string name="ticketDetailTitle">Detalle de Entrada</string>
 
 
 </resources>

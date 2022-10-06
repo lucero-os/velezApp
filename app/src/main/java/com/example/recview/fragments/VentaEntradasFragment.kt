@@ -1,21 +1,20 @@
 package com.example.recview.fragments
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import android.text.Layout
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recview.R
+import com.example.recview.activities.MainActivity
 import com.example.recview.adapters.PartidosAdapter
 import com.example.recview.entities.Partido
 import com.example.recview.viewmodels.VentaEntradasViewModel
-import com.google.android.material.snackbar.Snackbar
 
 class VentaEntradasFragment : Fragment() {
 
@@ -65,6 +64,7 @@ class VentaEntradasFragment : Fragment() {
 
         partidosAdapter = PartidosAdapter(partidos) { pos ->
 
+            (activity as MainActivity).saveTeam(partidos[pos].equipo, partidos[pos].rival)
             val action = VentaEntradasFragmentDirections.actionVentaEntradasFragmentToBuyTicketActivity()
             v.findNavController().navigate(action)
         }

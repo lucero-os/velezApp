@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sectores_array">
+        <item>Norte</item>
+        <item>Este</item>
+        <item>Sur Baja</item>
+        <item>Sur Alta</item>
+        <item>Oeste</item>
+        <item>Visitante</item>
+    </string-array>
+</resources>
