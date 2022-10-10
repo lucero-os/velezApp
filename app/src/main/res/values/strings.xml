@@ -36,5 +36,6 @@
     <string name="passwordSignUp">Contraseña</string>
     <string name="termsSignUp">Acepto los términos y condiciones</string>
     <string name="registrarseBtn">Registrarse</string>
+    <string name="debAu">Deseo débito automático</string>
 
 </resources>

@@ -34,6 +34,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Mis pagos"
+                    android:textColor="@color/velez"
+                    android:textSize="24sp"
                     android:textAppearance="?attr/textAppearanceHeadline6" />
 
                 <TextView
@@ -69,7 +71,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:text="Pagar" />
+                    android:text="Pagar"
+                    android:textColor="@color/velez"
+                    android:textSize="20sp"/>
             </LinearLayout>
 
         </LinearLayout>
