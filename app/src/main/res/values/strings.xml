@@ -23,4 +23,18 @@
     <string name="news2SuppTxt">4 de Pedro</string>
     <string name="news2MediaDesc">Foto flamengo velez</string>
     <string name="homeTitle">VelezNews</string>
+    <string name="btnComprarTxt">Comprar</string>
+    <string name="btnLogin">Ingresar</string>
+    <string name="signUpLogin">No tenés cuenta?</string>
+    <string name="signUpBtn">Registrate</string>
+    <string name="signUpTitle">Registrate</string>
+    <string name="nombreSignUp">Nombre</string>
+    <string name="apellidoSignUp">Apellido</string>
+    <string name="dniSignUp">Dni</string>
+    <string name="emailSignUp">Email</string>
+    <string name="celularSignUp">Celular</string>
+    <string name="passwordSignUp">Contraseña</string>
+    <string name="termsSignUp">Acepto los términos y condiciones</string>
+    <string name="registrarseBtn">Registrarse</string>
+
 </resources>
