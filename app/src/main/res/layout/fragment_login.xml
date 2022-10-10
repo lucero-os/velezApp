@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Email"
+
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
