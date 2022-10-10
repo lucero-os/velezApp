@@ -14,7 +14,7 @@ class BuyTicketActivity : AppCompatActivity() {
     fun getEquipo(): String? {
         // Retrieving the value using its keys the file name
         // must be same in both saving and retrieving the data
-        val sh: SharedPreferences = getSharedPreferences("MySharedPref", MODE_WORLD_READABLE)
+        val sh: SharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE)
 
         // We can then use the data
         return sh.getString("equipo", "")
@@ -23,7 +23,7 @@ class BuyTicketActivity : AppCompatActivity() {
     fun getRival(): String? {
         // Retrieving the value using its keys the file name
         // must be same in both saving and retrieving the data
-        val sh: SharedPreferences = getSharedPreferences("MySharedPref", MODE_WORLD_READABLE)
+        val sh: SharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE)
 
         // We can then use the data
         return sh.getString("rival", "")
