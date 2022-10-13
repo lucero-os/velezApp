@@ -6,10 +6,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import com.example.recview.R
 import com.example.recview.viewmodels.miPerfil.HaceteSocioViewModel
+import com.google.android.material.snackbar.Snackbar
 
 class HaceteSocioFragment : Fragment() {
+
+
+    lateinit var v : View
+    lateinit var btnHaceteSocio: Button
 
     companion object {
         fun newInstance() = HaceteSocioFragment()
@@ -21,13 +27,19 @@ class HaceteSocioFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_hacete_socio, container, false)
+        v= inflater.inflate(R.layout.fragment_hacete_socio, container, false)
+        btnHaceteSocio = v.findViewById(R.id.haceteSocioButton)
+        return v
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(HaceteSocioViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onStart() {
+        super.onStart()
+        btnHaceteSocio.setOnClickListener(){
+            val contextView = v
+
+            Snackbar.make(contextView, "Tu solicitud ha sido enviada y esta sujeta a aprobacion", Snackbar.LENGTH_SHORT)
+                .show()
+        }
     }
 
 }
