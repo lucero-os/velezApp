@@ -37,5 +37,10 @@
     <string name="termsSignUp">Acepto los términos y condiciones</string>
     <string name="registrarseBtn">Registrarse</string>
     <string name="debAu">Deseo débito automático</string>
+    <string name="tiendaVirtual">Tienda Virtual</string>
+    <string name="Instagram">Instagram</string>
+    <string name="comprar_entrada">Comprar Entrada</string>
+    <string name="cerrar_sesion">Cerrar Sesion</string>
+    <string name="info_novedades">Novedades</string>
 
 </resources>
