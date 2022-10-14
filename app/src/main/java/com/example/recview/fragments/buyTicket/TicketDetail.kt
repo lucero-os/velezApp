@@ -1,6 +1,5 @@
 package com.example.recview.fragments.buyTicket
 
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,8 +12,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.example.recview.R
-import com.example.recview.activities.BuyTicketActivity
 import com.example.recview.activities.MainActivity
+import com.example.recview.entities.Partido
 import com.example.recview.viewmodels.buyTicket.TicketDetailViewModel
 
 
@@ -30,6 +29,7 @@ class TicketDetail : Fragment() {
     private lateinit var equipoName: TextView
     private lateinit var rivalName: TextView
     private lateinit var spinner: Spinner
+    private lateinit var partido: Partido
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,6 +40,7 @@ class TicketDetail : Fragment() {
         equipoName = v.findViewById(R.id.equipoName)
         rivalName = v.findViewById(R.id.rivalName)
         spinner = v.findViewById(R.id.spinner)
+        partido = TicketDetailArgs.fromBundle(requireArguments()).partido
         return v
     }
 
@@ -52,12 +53,12 @@ class TicketDetail : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        equipoName.text = (activity as BuyTicketActivity).getEquipo()
-        rivalName.text = (activity as BuyTicketActivity).getRival()
+        equipoName.text = partido.equipo
+        rivalName.text = partido.rival
 
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter.createFromResource(
-            (activity as BuyTicketActivity),
+            (activity as MainActivity),
             R.array.sectores_array,
             android.R.layout.simple_spinner_item
         ).also { adapter ->

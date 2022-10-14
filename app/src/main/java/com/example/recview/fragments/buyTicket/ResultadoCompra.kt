@@ -41,7 +41,7 @@ class ResultadoCompra : Fragment() {
 
         goToHomeBtn.setOnClickListener {
 
-            val action = ResultadoCompraDirections.actionResultadoCompraToMainActivity()
+            val action = ResultadoCompraDirections.actionResultadoCompraToVentaEntradasFragment()
             v.findNavController().navigate(action)
         }
     }

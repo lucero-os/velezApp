@@ -1,30 +1,13 @@
 package com.example.recview.entities
 
-import android.os.Parcel
 import android.os.Parcelable
-import android.widget.Button
+import kotlinx.parcelize.Parcelize
 
-
-class Partido (id:Int?,equipo:String?, rival: String?, torneo: String?) {
-
-    var id : Int = 0;
-    var equipo : String = "";
-    var rival : String = "";
-    var torneo : String = "";
-
-    class Constants {
-        companion object {
-            val equipo = "Velez"
-        }
-    }
+@Parcelize
+class Partido (var id:Int,var equipo:String,var rival: String,var torneo: String) : Parcelable {
 
     init {
-        this.id = id!!
-        this.equipo = equipo!!
-        this.rival = rival!!
-        this.torneo = torneo!!
+        this.id = 0
     }
-
-
 
 }

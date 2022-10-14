@@ -20,6 +20,7 @@ class ConfirmarCompra : Fragment() {
     private lateinit var viewModel: ConfirmarCompraViewModel
     private lateinit var v: View
     private lateinit var goToComprarBtn: Button
+    private lateinit var cancelBtn: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,6 +28,7 @@ class ConfirmarCompra : Fragment() {
     ): View? {
         v = inflater.inflate(R.layout.fragment_confirmar_compra, container, false)
         goToComprarBtn = v.findViewById(R.id.comprarBtn)
+        cancelBtn = v.findViewById(R.id.cancelBtn)
         return v
     }
 
@@ -42,6 +44,12 @@ class ConfirmarCompra : Fragment() {
         goToComprarBtn.setOnClickListener {
 
             val action = ConfirmarCompraDirections.actionConfirmarCompraToResultadoCompra()
+            v.findNavController().navigate(action)
+        }
+
+        cancelBtn.setOnClickListener {
+
+            val action = ConfirmarCompraDirections.actionConfirmarCompraToVentaEntradasFragment()
             v.findNavController().navigate(action)
         }
     }

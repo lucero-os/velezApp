@@ -29,19 +29,14 @@
         android:label="fragment_venta_entradas"
         tools:layout="@layout/fragment_venta_entradas" >
         <action
-            android:id="@+id/action_ventaEntradasFragment_to_buyTicketActivity"
-            app:destination="@id/buyTicketActivity" />
+            android:id="@+id/action_ventaEntradasFragment_to_ticketDetail"
+            app:destination="@id/ticketDetail" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.recview.fragments.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
-    <activity
-        android:id="@+id/buyTicketActivity"
-        android:name="com.example.recview.activities.BuyTicketActivity"
-        android:label="activity_buy_ticket"
-        tools:layout="@layout/activity_buy_ticket" />
     <fragment
         android:id="@+id/haceteSocioFragment"
         android:name="com.example.recview.fragments.miPerfil.HaceteSocioFragment"
@@ -62,4 +57,37 @@
         android:name="com.example.recview.fragments.miPerfil.CarnetFragment"
         android:label="fragment_carnet"
         tools:layout="@layout/fragment_carnet" />
+    <fragment
+        android:id="@+id/ticketDetail"
+        android:name="com.example.recview.fragments.buyTicket.TicketDetail"
+        android:label="fragment_ticket_detail"
+        tools:layout="@layout/fragment_ticket_detail" >
+        <action
+            android:id="@+id/action_ticketDetail_to_confirmarCompra"
+            app:destination="@id/confirmarCompra" />
+        <argument
+            android:name="Partido"
+            app:argType="com.example.recview.entities.Partido" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmarCompra"
+        android:name="com.example.recview.fragments.buyTicket.ConfirmarCompra"
+        android:label="fragment_confirmar_compra"
+        tools:layout="@layout/fragment_confirmar_compra" >
+        <action
+            android:id="@+id/action_confirmarCompra_to_resultadoCompra"
+            app:destination="@id/resultadoCompra" />
+        <action
+            android:id="@+id/action_confirmarCompra_to_ventaEntradasFragment"
+            app:destination="@id/ventaEntradasFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultadoCompra"
+        android:name="com.example.recview.fragments.buyTicket.ResultadoCompra"
+        android:label="fragment_resultado_compra"
+        tools:layout="@layout/fragment_resultado_compra" >
+        <action
+            android:id="@+id/action_resultadoCompra_to_ventaEntradasFragment"
+            app:destination="@id/ventaEntradasFragment" />
+    </fragment>
 </navigation>

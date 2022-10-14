@@ -37,5 +37,7 @@
     <string name="termsSignUp">Acepto los términos y condiciones</string>
     <string name="registrarseBtn">Registrarse</string>
     <string name="debAu">Deseo débito automático</string>
+    <string name="comprar">Comprar</string>
+    <string name="cancelar">Cancelar</string>
 
 </resources>

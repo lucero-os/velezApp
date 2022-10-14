@@ -64,8 +64,7 @@ class VentaEntradasFragment : Fragment() {
 
         partidosAdapter = PartidosAdapter(partidos) { pos ->
 
-            (activity as MainActivity).saveTeam(partidos[pos].equipo, partidos[pos].rival)
-            val action = VentaEntradasFragmentDirections.actionVentaEntradasFragmentToBuyTicketActivity()
+            val action = VentaEntradasFragmentDirections.actionVentaEntradasFragmentToTicketDetail(partidos[pos])
             v.findNavController().navigate(action)
         }
 
