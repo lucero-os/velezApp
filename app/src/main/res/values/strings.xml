@@ -42,5 +42,6 @@
     <string name="comprar_entrada">Comprar Entrada</string>
     <string name="cerrar_sesion">Cerrar Sesion</string>
     <string name="info_novedades">Novedades</string>
+    <string name="estadio_name">Estadio Jose Amalfitani</string>
 
 </resources>

@@ -1,5 +1,7 @@
 package com.example.recview.fragments
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -81,7 +83,17 @@ class MiPerfilFragment : Fragment() {
             val action = MiPerfilFragmentDirections.actionMiPerfilFragmentToVentaEntradasFragment()
             v.findNavController().navigate(action)
         }
+        btnInstagram.setOnClickListener {
+            val openURL = Intent(Intent.ACTION_VIEW)
+            openURL.data = Uri.parse("https://www.instagram.com/velez/")
+            startActivity(openURL)
+        }
 
+        btnTiendVirtual.setOnClickListener {
+            val openURL = Intent(Intent.ACTION_VIEW)
+            openURL.data = Uri.parse("https://www.tiendavelez.com.ar/")
+            startActivity(openURL)
+        }
 
     }
 
