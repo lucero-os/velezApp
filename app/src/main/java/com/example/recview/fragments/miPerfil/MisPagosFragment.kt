@@ -1,5 +1,7 @@
 package com.example.recview.fragments.miPerfil
 
+import android.content.Intent
+import android.net.Uri
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -63,10 +65,9 @@ class MisPagosFragment : Fragment() {
         recyclerView.adapter = adapter
 
         btnPagar.setOnClickListener(){
-            val contextView = v
-
-            Snackbar.make(contextView, "Entra a mercadopago", Snackbar.LENGTH_SHORT)
-                .show()
+            val openURL = Intent(Intent.ACTION_VIEW)
+            openURL.data = Uri.parse("https://velez.com.ar/socios/notas/2022/03/14/171040_nuevos-valores")
+            startActivity(openURL)
         }
 
     }
