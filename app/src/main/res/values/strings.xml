@@ -39,5 +39,9 @@
     <string name="debAu">Deseo débito automático</string>
     <string name="comprar">Comprar</string>
     <string name="cancelar">Cancelar</string>
-
+    <string name="Instagram">Instagram</string>
+    <string name="comprar_entrada">Comprar Entrada</string>
+    <string name="cerrar_sesion">Cerrar Sesion</string>
+    <string name="info_novedades">Novedades</string>
+    <string name="tienda_virtual">Tienda Virtual</string>
 </resources>
