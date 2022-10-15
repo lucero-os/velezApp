@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_miPerfilFragment_to_misEntradasFragment"
             app:destination="@id/misEntradasFragment" />
+        <action
+            android:id="@+id/action_miPerfilFragment_to_ventaEntradasFragment"
+            app:destination="@id/ventaEntradasFragment" />
     </fragment>
     <fragment
         android:id="@+id/ventaEntradasFragment"
