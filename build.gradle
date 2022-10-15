@@ -5,6 +5,11 @@ buildscript {
         mavenCentral()
         maven{url 'https://jitpack.io'}
     }
+
+    dependencies {
+        // Add the dependency for the Google services Gradle plugin
+        classpath 'com.google.gms:google-services:4.3.13'
+    }
 }
 
 plugins {
@@ -13,6 +18,14 @@ plugins {
     id 'org.jetbrains.kotlin.android' version '1.7.10' apply false
     id 'androidx.navigation.safeargs' version '2.5.2' apply false
 }
+
+//allprojects {
+//    repositories {
+//        google()  // Google's Maven repository
+//        mavenCentral()  // Maven Central repository
+//
+//    }
+//}
 
 task clean(type: Delete) {
     delete rootProject.buildDir
