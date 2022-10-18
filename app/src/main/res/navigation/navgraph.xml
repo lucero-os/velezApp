@@ -92,5 +92,11 @@
         <action
             android:id="@+id/action_resultadoCompra_to_ventaEntradasFragment"
             app:destination="@id/ventaEntradasFragment" />
+        <argument
+            android:name="resultadoCompra"
+            app:argType="boolean" />
+        <action
+            android:id="@+id/action_resultadoCompra_to_confirmarCompra"
+            app:destination="@id/confirmarCompra" />
     </fragment>
 </navigation>

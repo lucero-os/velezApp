@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.navigation.findNavController
 import com.example.recview.R
 import com.example.recview.viewmodels.buyTicket.ResultadoCompraViewModel
@@ -20,6 +21,8 @@ class ResultadoCompra : Fragment() {
     private lateinit var viewModel: ResultadoCompraViewModel
     private lateinit var v: View
     private lateinit var goToHomeBtn: Button
+    private var resultado = false
+    private lateinit var resultadoTitle : TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,6 +30,8 @@ class ResultadoCompra : Fragment() {
     ): View? {
         v = inflater.inflate(R.layout.fragment_resultado_compra, container, false)
         goToHomeBtn = v.findViewById(R.id.goToHomeBtn)
+        resultadoTitle = v.findViewById(R.id.resultadoTitle)
+        resultado = ResultadoCompraArgs.fromBundle(requireArguments()).resultadoCompra
         return v
     }
 
@@ -39,11 +44,28 @@ class ResultadoCompra : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        goToHomeBtn.setOnClickListener {
+        if(resultado){
+            resultadoTitle.setText(R.string.compraOk)
+            goToHomeBtn.setOnClickListener {
 
-            val action = ResultadoCompraDirections.actionResultadoCompraToVentaEntradasFragment()
-            v.findNavController().navigate(action)
+                val action = ResultadoCompraDirections.actionResultadoCompraToVentaEntradasFragment()
+                v.findNavController().navigate(action)
+            }
         }
+        else{
+            resultadoTitle.setText(R.string.compraNotOk)
+            with(goToHomeBtn) {
+                setText(R.string.compraNotOkBtn)
+                setTextColor(resources.getColor(R.color.white))
+                setBackgroundColor(resources.getColor(R.color.red))
+            }
+            goToHomeBtn.setOnClickListener {
+
+                val action = ResultadoCompraDirections.actionResultadoCompraToConfirmarCompra()
+                v.findNavController().navigate(action)
+            }
+        }
+
     }
 
 }

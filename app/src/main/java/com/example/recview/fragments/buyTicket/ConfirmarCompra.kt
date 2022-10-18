@@ -43,7 +43,7 @@ class ConfirmarCompra : Fragment() {
 
         goToComprarBtn.setOnClickListener {
 
-            val action = ConfirmarCompraDirections.actionConfirmarCompraToResultadoCompra()
+            val action = ConfirmarCompraDirections.actionConfirmarCompraToResultadoCompra(viewModel.resultadoCompra())
             v.findNavController().navigate(action)
         }
 

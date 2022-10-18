@@ -46,4 +46,8 @@
     <string name="tienda_virtual">Tienda Virtual</string>
     <string name="confirmarTitle">Confirmar Compra</string>
     <string name="resumen">Resumen</string>
+    <string name="volver">Volver</string>
+    <string name="compraOk">Compra realizada. Puede ver la entrada en su perfil.</string>
+    <string name="compraNotOk">Algo salió mal! Revisa los datos e intentalo nuevamente</string>
+    <string name="compraNotOkBtn">Volver a Comprar</string>
 </resources>
