@@ -12,25 +12,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="148dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="205dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/confirmarTitle"
         android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/orderDetailCard"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.37"
+        app:layout_constraintHorizontal_bias="0.372"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/orderDetailCard"
-        android:layout_width="214dp"
-        android:layout_height="296dp"
+        android:layout_width="311dp"
+        android:layout_height="177dp"
         android:layout_margin="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="90dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="125dp"
-        app:layout_constraintBottom_toTopOf="@+id/comprarBtn"
+        app:layout_constraintBottom_toTopOf="@+id/debitCardDetail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -71,31 +72,110 @@
 
     </com.google.android.material.card.MaterialCardView>
 
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/debitCardDetail"
+        android:layout_width="309dp"
+        android:layout_height="264dp"
+        android:layout_margin="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="17dp"
+        app:layout_constraintBottom_toTopOf="@+id/comprarBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/orderDetailCard">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <!-- Title, secondary and supporting text -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nroTarjeta"
+                android:textAppearance="?attr/textAppearanceBody1"
+                tools:layout_editor_absoluteX="64dp"
+                tools:layout_editor_absoluteY="343dp" />
+
+            <EditText
+                android:id="@+id/editTextTextPersonName7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/nroTarjetaHINT"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                android:textColorHint="#757575" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fecVencimiento"
+                android:textAppearance="?attr/textAppearanceBody1"
+                tools:layout_editor_absoluteX="64dp"
+                tools:layout_editor_absoluteY="378dp" />
+
+            <EditText
+                android:id="@+id/editTextTextPersonName8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/fecVencimientoHINT"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                android:textColorHint="#757575" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:text="@string/cvv"
+                android:textAppearance="?attr/textAppearanceBody1"
+                tools:layout_editor_absoluteX="64dp"
+                tools:layout_editor_absoluteY="413dp" />
+
+            <EditText
+                android:id="@+id/editTextTextPersonName9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/cvvHINT"
+                android:inputType="textPersonName"
+                android:minHeight="48dp" />
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
     <Button
         android:id="@+id/comprarBtn"
         android:layout_width="178dp"
         android:layout_height="72dp"
-        android:layout_marginStart="158dp"
-        android:layout_marginTop="429dp"
-        android:layout_marginEnd="159dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/colorPrimary"
         android:text="@string/comprar"
-        android:textColor="#263238"
+        app:layout_constraintBottom_toTopOf="@+id/cancelBtn"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/debitCardDetail" />
 
     <Button
         android:id="@+id/cancelBtn"
         android:layout_width="178dp"
         android:layout_height="72dp"
-        android:layout_marginStart="158dp"
-        android:layout_marginEnd="159dp"
-        android:layout_marginBottom="65dp"
+        android:layout_marginBottom="32dp"
         android:backgroundTint="@color/design_default_color_error"
         android:text="@string/cancelar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/comprarBtn" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
