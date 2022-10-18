@@ -60,7 +60,7 @@ class VentaEntradasFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 
-//      partidos = viewModel.getPartidos()
+        partidos = viewModel.getPartidos()
 
         recPartidos.setHasFixedSize(true)
         linearLayoutManager = LinearLayoutManager(context)
