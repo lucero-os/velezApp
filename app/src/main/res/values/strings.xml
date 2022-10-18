@@ -46,4 +46,11 @@
     <string name="tienda_virtual">Tienda Virtual</string>
     <string name="confirmarTitle">Confirmar Compra</string>
     <string name="resumen">Resumen</string>
+    <string name="nroTarjeta">Número de tarjeta</string>
+    <string name="fecVencimiento">Fecha de vencimiento</string>
+    <string name="cvv">CVV</string>
+    <string name="nroTarjetaHINT">XXXX-XXXX-XXXX-XXXX</string>
+    <string name="fecVencimientoHINT">MM-AAAA</string>
+    <string name="cvvHINT">XXX</string>
+
 </resources>
