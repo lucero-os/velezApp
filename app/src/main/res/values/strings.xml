@@ -44,4 +44,6 @@
     <string name="cerrar_sesion">Cerrar Sesion</string>
     <string name="info_novedades">Novedades</string>
     <string name="tienda_virtual">Tienda Virtual</string>
+    <string name="confirmarTitle">Confirmar Compra</string>
+    <string name="resumen">Resumen</string>
 </resources>
