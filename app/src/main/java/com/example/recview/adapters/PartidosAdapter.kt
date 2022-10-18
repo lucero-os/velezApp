@@ -50,7 +50,7 @@ class PartidosAdapter (
 
     override fun onBindViewHolder(holder: PartidoHolder, position: Int) {
 
-        holder.setName(partidosList[position].equipo)
+        holder.setRival("Velez")
         holder.setRival(partidosList[position].rival)
         holder.getCardView().setOnClickListener {
             onClick(position)

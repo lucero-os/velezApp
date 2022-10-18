@@ -53,7 +53,7 @@ class TicketDetail : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        equipoName.text = partido.equipo
+        equipoName.text = "Velez"
         rivalName.text = partido.rival
 
         // Create an ArrayAdapter using the string array and a default spinner layout

@@ -1,6 +1,7 @@
 package com.example.recview.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -59,12 +60,7 @@ class VentaEntradasFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 
-//        partidos.add(Partido(1, "Velez", "Boca", "Superliga"))
-//        partidos.add(Partido(2, "Velez", "River", "Superliga"))
-//        partidos.add(Partido(3, "Velez", "Ferro", "Superliga"))
-//        partidos.add(Partido(4, "Velez", "Sanlo", "Superliga"))
-//        partidos.add(Partido(5, "Velez", "Racing", "Superliga"))
-        partidos = viewModel.getPartidos()
+//      partidos = viewModel.getPartidos()
 
         recPartidos.setHasFixedSize(true)
         linearLayoutManager = LinearLayoutManager(context)

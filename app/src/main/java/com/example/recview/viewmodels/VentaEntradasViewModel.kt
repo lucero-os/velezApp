@@ -1,5 +1,6 @@
 package com.example.recview.viewmodels
 
+import android.content.ContentValues.TAG
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.example.recview.entities.Partido
@@ -16,17 +17,16 @@ class VentaEntradasViewModel : ViewModel() {
     fun getPartidos() : MutableList<Partido>{
         db.collection("partidos").get()
             .addOnSuccessListener { snapshot ->
-                //TODO: LOG
                 if(snapshot != null){
                     partidos.clear()
-                    for(partido in snapshot){
+                }
+                for(partido in snapshot){
                         partidos.add(partido.toObject())
-                    }
-                    Log.d("Partido" , partidos[0].toString())
+                        Log.d("Partido" , partidos[0].toString())
                 }
             }
             .addOnFailureListener { exception ->
-                //TODO: LOG
+                Log.d(TAG, "Error al traer los partidos: ", exception)
             }
 
         return this.partidos
