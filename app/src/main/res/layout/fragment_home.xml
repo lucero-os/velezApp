@@ -5,66 +5,66 @@
     android:id="@+id/home"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="5dp"
     tools:context=".fragments.HomeFragment">
 
     <TextView
         android:id="@+id/homeTitle"
-        android:layout_width="174dp"
+        android:layout_width="wrap_content"
         android:layout_height="37dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="137dp"
+        android:layout_marginEnd="137dp"
         android:text="@string/homeTitle"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/orderDetailCard"
+        android:textAllCaps="true"
+        android:textColor="@color/velez"
+        android:textSize="20sp"
+        android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.574"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/orderDetailCard"
-        android:layout_width="match_parent"
-        android:layout_height="316dp"
+        android:id="@+id/noticia1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="92dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/news2card"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/homeTitle">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="310dp"
             android:orientation="vertical">
 
             <!-- Media -->
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="194dp"
+                android:layout_height="163dp"
                 android:contentDescription="@string/news1MediaDesc"
                 android:scaleType="centerCrop"
                 app:srcCompat="@drawable/boca_velez" />
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="5dp">
 
                 <!-- Title, secondary and supporting text -->
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/news1Title"
                     android:textAppearance="?attr/textAppearanceHeadline6" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="@string/news1SecTxt"
@@ -72,8 +72,8 @@
                     android:textColor="?android:attr/textColorSecondary" />
 
                 <TextView
-                    android:layout_width="174dp"
-                    android:layout_height="34dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="@string/news1SuppTxt"
                     android:textAppearance="?attr/textAppearanceBody2"
@@ -86,36 +86,36 @@
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/news2card"
-        android:layout_width="match_parent"
+        android:id="@+id/noticia2"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_margin="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="92dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/noticia1">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <!-- Media -->
 
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="194dp"
+                android:layout_width="wrap_content"
+                android:layout_height="164dp"
                 android:contentDescription="@string/news1MediaDesc"
                 android:scaleType="centerCrop"
                 app:srcCompat="@drawable/velez_flamengo" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="5dp">
 
                 <!-- Title, secondary and supporting text -->
                 <TextView

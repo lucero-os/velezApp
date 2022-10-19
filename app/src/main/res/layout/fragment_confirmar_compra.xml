@@ -17,14 +17,14 @@
         android:layout_marginBottom="8dp"
         android:text="@string/confirmarTitle"
         android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/orderDetailCard"
+        app:layout_constraintBottom_toTopOf="@+id/noticia1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.372"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/orderDetailCard"
+        android:id="@+id/noticia1"
         android:layout_width="311dp"
         android:layout_height="177dp"
         android:layout_margin="8dp"
@@ -85,7 +85,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/orderDetailCard">
+        app:layout_constraintTop_toBottomOf="@+id/noticia1">
 
         <LinearLayout
             android:layout_width="match_parent"
