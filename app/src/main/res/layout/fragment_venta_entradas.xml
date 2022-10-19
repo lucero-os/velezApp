@@ -13,8 +13,11 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="233dp"
         android:text="@string/item_entradas_name"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@color/velez"
-        android:textSize="24sp"
+        android:textSize="20sp"
+        android:textStyle="bold|italic"
         app:layout_constraintBottom_toTopOf="@+id/rec_partidos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
