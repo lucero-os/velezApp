@@ -5,8 +5,6 @@ import java.util.*
 
 class ConfirmarCompraViewModel : ViewModel() {
 
-    private var resultadoCompra = false
-
     object DebitCardConstants {
         const val DEBIT_CARD_LENGTH = 16
         const val CVV_LENGTH = 3
