@@ -22,12 +22,12 @@ class CarnetViewModel : ViewModel() {
             .addOnSuccessListener { document ->
                 if (document != null) {
                     myAccount.clear()
-                }
+
                 for(document in document) {
                     myAccount.add(document.toObject<User>())
                     Log.d("User", myAccount[0].toString())
                 }
-            }
+            }}
             .addOnFailureListener { exception ->
                 Log.w(ContentValues.TAG, "Error getting user profile: ", exception)
             }

@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.navigation.findNavController
 import com.example.recview.R
+import com.example.recview.entities.Partido
 import com.example.recview.entities.Ticket
 import com.example.recview.viewmodels.buyTicket.ConfirmarCompraViewModel
 import org.w3c.dom.Text
@@ -26,6 +27,7 @@ class ConfirmarCompra : Fragment() {
     private lateinit var goToComprarBtn: Button
     private lateinit var cancelBtn: Button
     private lateinit var ticket : Ticket
+    private lateinit var partido: Partido
 
     private lateinit var tituloTicket : TextView
     private lateinit var equipos : TextView
@@ -39,6 +41,7 @@ class ConfirmarCompra : Fragment() {
     ): View? {
         v = inflater.inflate(R.layout.fragment_confirmar_compra, container, false)
         ticket = ConfirmarCompraArgs.fromBundle(requireArguments()).ticket
+        partido = ConfirmarCompraArgs.fromBundle(requireArguments()).partido
         goToComprarBtn = v.findViewById(R.id.comprarBtn)
         cancelBtn = v.findViewById(R.id.cancelBtn)
         tituloTicket = v.findViewById(R.id.tituloTicket)

@@ -86,6 +86,9 @@
         <argument
             android:name="Ticket"
             app:argType="com.example.recview.entities.Ticket" />
+        <argument
+            android:name="partido"
+            app:argType="com.example.recview.entities.Partido" />
     </fragment>
     <fragment
         android:id="@+id/resultadoCompra"

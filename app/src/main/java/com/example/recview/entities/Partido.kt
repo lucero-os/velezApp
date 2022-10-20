@@ -7,6 +7,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 class Partido(var fechaFin: String? = "",
               var fechaInicio: String? = "",
+              var id: Int = 0,
               var rival: String = "",
               var sectorEste: Int = 0,
               var sectorNorte: Int = 0,
@@ -17,7 +18,7 @@ class Partido(var fechaFin: String? = "",
               var torneo: String? = ""):
     Parcelable{
 
-    constructor() : this("","","",0,0,0,0,0,0,"")
+    constructor() : this("","",0,"",0,0,0,0,0,0,"")
 
     override fun toString(): String {
         return "Partido(equipo='Velez', rival='$rival', torneo='$torneo')"

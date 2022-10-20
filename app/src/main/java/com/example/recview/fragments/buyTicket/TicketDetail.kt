@@ -74,7 +74,7 @@ class TicketDetail : Fragment() {
             var ticket = viewModel.generateTicket(true, partido, spinner.selectedItem.toString(), 36397441)
 
             if(ticket != null){
-                val action = TicketDetailDirections.actionTicketDetailToConfirmarCompra(ticket)
+                val action = TicketDetailDirections.actionTicketDetailToConfirmarCompra(ticket, partido)
                 v.findNavController().navigate(action)
             }
             else{
