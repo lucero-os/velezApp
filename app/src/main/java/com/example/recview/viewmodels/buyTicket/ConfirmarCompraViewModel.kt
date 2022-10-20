@@ -13,7 +13,6 @@ import com.google.firebase.ktx.Firebase
 class ConfirmarCompraViewModel : ViewModel() {
 
     private val db = Firebase.firestore
-    private var resultadoCompra = false
     private var miPartido : MutableList<Partido> = mutableListOf()
 
     object DebitCardConstants {
