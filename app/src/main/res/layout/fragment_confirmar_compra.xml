@@ -118,12 +118,12 @@
                 tools:layout_editor_absoluteY="343dp" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName7"
+                android:id="@+id/debitCardNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="@string/nroTarjetaHINT"
-                android:inputType="textPersonName"
+                android:inputType="number"
                 android:minHeight="48dp"
                 android:textColorHint="#757575" />
 
@@ -136,14 +136,16 @@
                 tools:layout_editor_absoluteY="378dp" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName8"
+                android:id="@+id/expDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="@string/fecVencimientoHINT"
-                android:inputType="textPersonName"
+                android:inputType="date"
                 android:minHeight="48dp"
-                android:textColorHint="#757575" />
+                android:textColorHint="#757575"
+                tools:ignore="DuplicateSpeakableTextCheck,DuplicateSpeakableTextCheck" />
+
 
             <TextView
                 android:layout_width="wrap_content"
@@ -154,13 +156,14 @@
                 tools:layout_editor_absoluteY="413dp" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName9"
+                android:id="@+id/cvv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="@string/cvvHINT"
-                android:inputType="textPersonName"
-                android:minHeight="48dp" />
+                android:inputType="number"
+                android:minHeight="48dp"
+                android:textColorHint="#757575" />
 
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>

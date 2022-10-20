@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import androidx.navigation.findNavController
 import com.example.recview.R
@@ -33,6 +34,9 @@ class ConfirmarCompra : Fragment() {
     private lateinit var valor : TextView
     private lateinit var code : TextView
 
+    private lateinit var debitCardNumber: EditText
+    private lateinit var cvv: EditText
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -46,6 +50,8 @@ class ConfirmarCompra : Fragment() {
         sector = v.findViewById(R.id.sector)
         valor = v.findViewById(R.id.valor)
         code = v.findViewById(R.id.code)
+        cvv = v.findViewById(R.id.cvv)
+        debitCardNumber = v.findViewById(R.id.debitCardNumber)
         return v
     }
 
@@ -62,7 +68,10 @@ class ConfirmarCompra : Fragment() {
 
         goToComprarBtn.setOnClickListener {
 
-            val action = ConfirmarCompraDirections.actionConfirmarCompraToResultadoCompra(viewModel.resultadoCompra(),ticket)
+            val d = debitCardNumber.text.toString()
+            val c = Integer.parseInt(cvv.text.toString())
+
+            val action = ConfirmarCompraDirections.actionConfirmarCompraToResultadoCompra(viewModel.resultadoCompra(d, c),ticket)
             v.findNavController().navigate(action)
         }
 
