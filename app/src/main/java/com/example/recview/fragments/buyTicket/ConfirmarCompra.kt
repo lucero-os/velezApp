@@ -25,7 +25,7 @@ class ConfirmarCompra : Fragment() {
     private lateinit var v: View
     private lateinit var goToComprarBtn: Button
     private lateinit var cancelBtn: Button
-    private var ticket = ConfirmarCompraArgs.fromBundle(requireArguments()).ticket
+    private lateinit var ticket : Ticket
 
     private lateinit var tituloTicket : TextView
     private lateinit var equipos : TextView
@@ -38,6 +38,7 @@ class ConfirmarCompra : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         v = inflater.inflate(R.layout.fragment_confirmar_compra, container, false)
+        ticket = ConfirmarCompraArgs.fromBundle(requireArguments()).ticket
         goToComprarBtn = v.findViewById(R.id.comprarBtn)
         cancelBtn = v.findViewById(R.id.cancelBtn)
         tituloTicket = v.findViewById(R.id.tituloTicket)
