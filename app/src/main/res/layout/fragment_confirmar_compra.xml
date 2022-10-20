@@ -48,14 +48,14 @@
             <!-- Title, secondary and supporting text -->
             <TextView
                 android:id="@+id/tituloTicket"
-                android:layout_width="wrap_content"
+                android:layout_width="279dp"
                 android:layout_height="wrap_content"
                 android:text=""
                 android:textAppearance="?attr/textAppearanceHeadline6" />
 
             <TextView
                 android:id="@+id/equipos"
-                android:layout_width="wrap_content"
+                android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text=""
@@ -64,7 +64,7 @@
 
             <TextView
                 android:id="@+id/sector"
-                android:layout_width="26dp"
+                android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text=""
