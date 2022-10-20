@@ -107,5 +107,8 @@
         <argument
             android:name="ticket"
             app:argType="com.example.recview.entities.Ticket" />
+        <argument
+            android:name="partido"
+            app:argType="com.example.recview.entities.Partido" />
     </fragment>
 </navigation>

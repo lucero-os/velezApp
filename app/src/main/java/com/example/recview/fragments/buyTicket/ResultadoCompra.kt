@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.navigation.findNavController
 import com.example.recview.R
+import com.example.recview.entities.Partido
 import com.example.recview.entities.Ticket
 import com.example.recview.viewmodels.buyTicket.ResultadoCompraViewModel
 
@@ -25,6 +26,7 @@ class ResultadoCompra : Fragment() {
     private var resultado = false
     private lateinit var resultadoTitle : TextView
     private lateinit var ticket : Ticket
+    private lateinit var partido : Partido
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,6 +37,7 @@ class ResultadoCompra : Fragment() {
         goToHomeBtn = v.findViewById(R.id.goToHomeBtn)
         resultadoTitle = v.findViewById(R.id.resultadoTitle)
         resultado = ResultadoCompraArgs.fromBundle(requireArguments()).resultadoCompra
+        partido = ResultadoCompraArgs.fromBundle(requireArguments()).partido
         return v
     }
 
@@ -64,7 +67,7 @@ class ResultadoCompra : Fragment() {
             }
             goToHomeBtn.setOnClickListener {
 
-                val action = ResultadoCompraDirections.actionResultadoCompraToConfirmarCompra(ticket)
+                val action = ResultadoCompraDirections.actionResultadoCompraToConfirmarCompra(ticket, partido)
                 v.findNavController().navigate(action)
             }
         }

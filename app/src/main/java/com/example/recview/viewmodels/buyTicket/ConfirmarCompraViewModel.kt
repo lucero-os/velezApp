@@ -40,7 +40,7 @@ class ConfirmarCompraViewModel : ViewModel() {
         return cvv.toString().length == DebitCardConstants.CVV_LENGTH
     }
 
-    fun checkDisponibilidad(partido: Partido, ticket: Ticket): Boolean{
+    private fun checkDisponibilidad(partido: Partido, ticket: Ticket): Boolean{
         var cantidad = 0
         db.collection("partidos")
             .whereEqualTo("id",partido.id)
@@ -78,10 +78,11 @@ class ConfirmarCompraViewModel : ViewModel() {
                 Log.w(ContentValues.TAG, "Error getting partido: ", exception)
             }
 
+        Log.d("CANTIDAD", cantidad.toString())
         return cantidad > 0
     }
 
-    fun confirmarCompra(partido: Partido,ticket: Ticket){
+    private fun confirmarCompra(partido: Partido, ticket: Ticket){
 
         crearTicket(ticket)
         val cantSector = descontarCantidadSector(partido, ticket)
@@ -90,7 +91,7 @@ class ConfirmarCompraViewModel : ViewModel() {
 
     }
 
-    fun restarSector(partidoID : String, cantSector : Partido){
+    private fun restarSector(partidoID : String, cantSector : Partido){
 
         val updatePartido = hashMapOf(
             "sectorEste" to cantSector.sectorEste,
@@ -107,7 +108,7 @@ class ConfirmarCompraViewModel : ViewModel() {
             .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
     }
 
-    fun crearTicket(ticket: Ticket){
+    private fun crearTicket(ticket: Ticket){
         val nuevoTicket = hashMapOf(
             "equipo" to "Velez",
             "idUser" to ticket.idUser,
@@ -126,7 +127,7 @@ class ConfirmarCompraViewModel : ViewModel() {
             }
     }
 
-    fun obtenerPartidoID(partido: Partido, ticket: Ticket) : String{
+    private fun obtenerPartidoID(partido: Partido, ticket: Ticket) : String{
         var partidoID : String = ""
 
         db.collection("partidos").whereEqualTo("id",partido.id)
@@ -144,7 +145,7 @@ class ConfirmarCompraViewModel : ViewModel() {
         return partidoID
     }
 
-    fun descontarCantidadSector(partido : Partido, ticket: Ticket) : Partido{
+    private fun descontarCantidadSector(partido : Partido, ticket: Ticket) : Partido{
         db.collection("partidos")
             .whereEqualTo("id",partido.id)
             .get()
@@ -182,5 +183,24 @@ class ConfirmarCompraViewModel : ViewModel() {
             }
 
         return miPartido[0]
+    }
+
+    fun comprar(debitCardNumber: String, cvv: Int, partido: Partido, ticket: Ticket) : Boolean {
+        var rtdo = validateCard(debitCardNumber, cvv)
+        Log.d("RESULTADO_CARD", rtdo.toString())
+
+        if(rtdo){
+
+            rtdo = checkDisponibilidad(partido, ticket)
+            Log.d("RESULTADO_DISP", rtdo.toString())
+
+            if(rtdo) {
+
+                confirmarCompra(partido, ticket)
+                Log.d("RESULTADO_COMPRA", rtdo.toString())
+            }
+        }
+
+        return rtdo
     }
 }

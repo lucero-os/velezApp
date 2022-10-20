@@ -2,6 +2,7 @@ package com.example.recview.fragments.buyTicket
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -74,7 +75,7 @@ class ConfirmarCompra : Fragment() {
             val d = debitCardNumber.text.toString()
             val c = Integer.parseInt(cvv.text.toString())
 
-            val action = ConfirmarCompraDirections.actionConfirmarCompraToResultadoCompra(viewModel.resultadoCompra(d, c),ticket)
+            val action = ConfirmarCompraDirections.actionConfirmarCompraToResultadoCompra(viewModel.comprar(d, c, partido, ticket),ticket, partido)
             v.findNavController().navigate(action)
         }
 
