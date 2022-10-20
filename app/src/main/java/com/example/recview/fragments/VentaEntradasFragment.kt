@@ -1,11 +1,13 @@
 package com.example.recview.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,10 +20,16 @@ import com.example.recview.viewmodels.VentaEntradasViewModel
 
 class VentaEntradasFragment : Fragment() {
 
+    class Constants{
+        companion object{
+            val nombreLocal = "Velez"
+        }
+    }
     lateinit var v: View
 
     lateinit var recPartidos : RecyclerView
     private lateinit var linearLayoutManager: LinearLayoutManager
+    //TODO: Se podria implementar binding
     private lateinit var goToComprar: Button
 
     private lateinit var partidosAdapter: PartidosAdapter
@@ -32,7 +40,7 @@ class VentaEntradasFragment : Fragment() {
         fun newInstance() = PartidoFragment()
     }
 
-    private lateinit var viewModel: VentaEntradasViewModel
+    private val viewModel: VentaEntradasViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,23 +53,20 @@ class VentaEntradasFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(VentaEntradasViewModel::class.java)
+//        viewModel = ViewModelProvider(this).get(VentaEntradasViewModel::class.java)
         // TODO: Use the ViewModel
     }
 
     override fun onStart() {
         super.onStart()
 
-        partidos.add(Partido(1, "Velez", "Boca", "Superliga"))
-        partidos.add(Partido(2, "Velez", "River", "Superliga"))
-        partidos.add(Partido(3, "Velez", "Ferro", "Superliga"))
-        partidos.add(Partido(4, "Velez", "Sanlo", "Superliga"))
-        partidos.add(Partido(5, "Velez", "Racing", "Superliga"))
+        partidos = viewModel.getPartidos()
 
         recPartidos.setHasFixedSize(true)
         linearLayoutManager = LinearLayoutManager(context)
         recPartidos.layoutManager = linearLayoutManager
 
+        //TODO: Llegan objetos de firebase, pero no se renderizan
         partidosAdapter = PartidosAdapter(partidos) { pos ->
 
             val action = VentaEntradasFragmentDirections.actionVentaEntradasFragmentToTicketDetail(partidos[pos])
