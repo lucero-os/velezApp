@@ -23,6 +23,7 @@ class ResultadoCompra : Fragment() {
     private lateinit var goToHomeBtn: Button
     private var resultado = false
     private lateinit var resultadoTitle : TextView
+    private var ticket = ResultadoCompraArgs.fromBundle(requireArguments()).ticket
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -61,7 +62,7 @@ class ResultadoCompra : Fragment() {
             }
             goToHomeBtn.setOnClickListener {
 
-                val action = ResultadoCompraDirections.actionResultadoCompraToConfirmarCompra()
+                val action = ResultadoCompraDirections.actionResultadoCompraToConfirmarCompra(ticket)
                 v.findNavController().navigate(action)
             }
         }
