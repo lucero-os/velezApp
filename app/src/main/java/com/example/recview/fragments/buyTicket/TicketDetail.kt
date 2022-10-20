@@ -15,6 +15,7 @@ import com.example.recview.R
 import com.example.recview.activities.MainActivity
 import com.example.recview.entities.Partido
 import com.example.recview.viewmodels.buyTicket.TicketDetailViewModel
+import com.google.android.material.snackbar.Snackbar
 
 
 class TicketDetail : Fragment() {
@@ -70,8 +71,16 @@ class TicketDetail : Fragment() {
 
         agregarCarritoBtn.setOnClickListener {
 
-            val action = TicketDetailDirections.actionTicketDetailToConfirmarCompra()
-            v.findNavController().navigate(action)
+            var ticket = viewModel.generateTicket(true, partido, spinner.selectedItem.toString(), 36397441)
+
+            if(ticket != null){
+                val action = TicketDetailDirections.actionTicketDetailToConfirmarCompra(ticket)
+                v.findNavController().navigate(action)
+            }
+            else{
+                Snackbar.make(v, "No quedan más entradas en el sector seleccionado", Snackbar.LENGTH_SHORT)
+                    .show()
+            }
         }
     }
 }

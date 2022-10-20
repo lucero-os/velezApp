@@ -1,16 +1,14 @@
 package com.example.recview.entities
 
 import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
-class Ticket (var code: String? = "",
-              var equipo: String? = "",
-              var idEvento: Int? = 0,
+@Parcelize
+class Ticket (var equipo: String? = "",
               var idUser: Int? = 0,
-              var isSocio: Boolean? = false,
-              var idSector: Int? = 0,
+              var idSector: String? = "",
               var rival: String? = "",
               var titulo: String? = "",
-              var valor: Double? = 0.0)
-{
-    constructor() : this("","",0,0,false,0,"","",0.0)
+              var valor: Double? = 0.0) : Parcelable {
+    constructor() : this("",0,"","","",0.0)
 }

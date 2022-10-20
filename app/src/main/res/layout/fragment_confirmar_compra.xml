@@ -47,12 +47,14 @@
 
             <!-- Title, secondary and supporting text -->
             <TextView
+                android:id="@+id/tituloTicket"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=""
                 android:textAppearance="?attr/textAppearanceHeadline6" />
 
             <TextView
+                android:id="@+id/equipos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -61,12 +63,23 @@
                 android:textColor="?android:attr/textColorSecondary" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="34dp"
+                android:id="@+id/sector"
+                android:layout_width="26dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text=""
                 android:textAppearance="?attr/textAppearanceBody2"
                 android:textColor="?android:attr/textColorSecondary" />
+
+            <TextView
+                android:id="@+id/valor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
 

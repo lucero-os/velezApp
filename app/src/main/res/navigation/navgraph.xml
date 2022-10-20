@@ -83,6 +83,9 @@
         <action
             android:id="@+id/action_confirmarCompra_to_ventaEntradasFragment"
             app:destination="@id/ventaEntradasFragment" />
+        <argument
+            android:name="Ticket"
+            app:argType="com.example.recview.entities.Ticket" />
     </fragment>
     <fragment
         android:id="@+id/resultadoCompra"
