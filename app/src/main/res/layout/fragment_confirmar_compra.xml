@@ -170,11 +170,12 @@
 
     <Button
         android:id="@+id/comprarBtn"
-        android:layout_width="178dp"
-        android:layout_height="72dp"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
         android:layout_marginTop="20dp"
         android:backgroundTint="@color/colorPrimary"
         android:text="@string/comprar"
+        app:cornerRadius="30dp"
         app:layout_constraintBottom_toTopOf="@+id/cancelBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.476"
@@ -183,15 +184,19 @@
 
     <Button
         android:id="@+id/cancelBtn"
-        android:layout_width="178dp"
-        android:layout_height="72dp"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
         android:layout_marginBottom="32dp"
-        android:backgroundTint="@color/design_default_color_error"
+        android:backgroundTint="#FFEEEE"
         android:text="@string/cancelar"
+        android:textColor="#E91E63"
+        app:cornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/comprarBtn" />
+        app:layout_constraintTop_toBottomOf="@+id/comprarBtn"
+        app:strokeColor="@color/red"
+        app:strokeWidth="3dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
