@@ -77,7 +77,7 @@
                 android:textColorHighlight="@color/velez"
                 android:textSize="14sp"
                 android:textStyle="bold|italic"
-                app:cornerRadius="5dp"
+                app:cornerRadius="80dp"
                 app:iconPadding="8dp" />
 
         </LinearLayout>

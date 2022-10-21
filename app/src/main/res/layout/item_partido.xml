@@ -8,20 +8,20 @@
     android:layout_height="wrap_content"
     android:layout_margin="50dp"
     app:cardBackgroundColor="@color/teal_700"
-    app:cardCornerRadius="5dp"
-    app:cardElevation="10dp">
+    app:cardCornerRadius="20dp"
+    app:cardElevation="20dp">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="293dp"
-        android:layout_height="120dp">
+        android:layout_width="300dp"
+        android:layout_height="110dp">
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginTop="36dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="50dp"
             android:layout_marginBottom="34dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -29,44 +29,47 @@
             app:srcCompat="@drawable/velez_logo" />
 
         <TextView
-            android:id="@+id/txt_name_item"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
-            android:text="Velez"
-            android:textAllCaps="true"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textSize="15sp"
-            android:textStyle="bold|italic"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
             android:id="@+id/txt_rival_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
             android:text="Boca"
             android:textAllCaps="true"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            android:textSize="20sp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/white"
+            android:textSize="20dp"
             android:textStyle="bold|italic"
             app:layout_constraintStart_toEndOf="@+id/txt_vs"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_name_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:text="Velez"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toStartOf="@+id/txt_vs"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/txt_vs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="24dp"
             android:text="@string/vs"
             android:textAllCaps="true"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textSize="15sp"
+            android:textColor="@color/white"
+            android:textSize="20dp"
             android:textStyle="bold|italic"
             app:layout_constraintEnd_toStartOf="@+id/txt_rival_item"
             app:layout_constraintStart_toEndOf="@+id/txt_name_item"
@@ -76,32 +79,36 @@
             android:id="@+id/txt_comprar_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:fontFamily="sans-serif-smallcaps"
             android:text="Comprar Entrada"
             android:textAllCaps="true"
             android:textAppearance="@style/TextAppearance.AppCompat.Display2"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="12dp"
             android:textStyle="bold|italic"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintEnd_toStartOf="@+id/imageView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_estadio_item" />
 
         <TextView
             android:id="@+id/txt_estadio_item"
-            android:layout_width="168dp"
-            android:layout_height="19dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginBottom="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
             android:fontFamily="sans-serif-smallcaps"
-            android:text="AMALFITANI"
+            android:text="Estadio José Amalfitani"
             android:textAllCaps="true"
             android:textAppearance="@style/TextAppearance.AppCompat.Display2"
             android:textColor="@color/white"
-            android:textSize="12sp"
-            android:textStyle="bold|italic"
+            android:textSize="13dp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/txt_comprar_item"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintEnd_toStartOf="@+id/imageView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_vs"
+            app:layout_constraintVertical_bias="0.414" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
