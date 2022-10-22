@@ -34,10 +34,6 @@ class PartidosAdapter (
             txt.text = name
         }
 
-        fun getCardLayout(): CardView {
-            return view.findViewById(R.id.card_package_item)
-        }
-
         fun getCardView () : CardView {
             return view.findViewById(R.id.card_package_item)
         }
@@ -50,7 +46,7 @@ class PartidosAdapter (
 
     override fun onBindViewHolder(holder: PartidoHolder, position: Int) {
 
-        holder.setRival("Velez")
+        holder.setName("Velez")
         holder.setRival(partidosList[position].rival)
         holder.getCardView().setOnClickListener {
             onClick(position)

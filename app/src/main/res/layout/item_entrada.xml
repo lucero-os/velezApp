@@ -5,18 +5,22 @@
     android:id="@+id/card_package_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:backgroundTintMode="add"
+    android:layout_margin="5dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="5dp"
+    android:backgroundTintMode="multiply"
     app:cardCornerRadius="5dp"
     app:cardElevation="10dp">
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/news1card"
+        android:id="@+id/entrada"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_margin="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
+        app:cardCornerRadius="5dp"
         app:layout_constraintBottom_toTopOf="@+id/news2card"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,54 +28,47 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="5dp">
 
-            <!-- Media -->
+            <!-- Title, secondary and supporting text -->
+            <TextView
+                android:id="@+id/equipoRival"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Velez - Boca"
+                android:textAllCaps="true"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textColor="@color/velez"
+                android:textStyle="bold|italic" />
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/fecha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="01/02/2022"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="?android:attr/textColorSecondary" />
+
+            <TextView
+                android:id="@+id/torneo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:paddingBottom="5dp"
+                android:text="Campeonato Local"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="?android:attr/textColorSecondary" />
+
+            <Button
+                android:id="@+id/btn_detalle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <!-- Title, secondary and supporting text -->
-                <TextView
-                    android:id="@+id/equipoRival"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Velez - Boca"
-                    android:textAppearance="?attr/textAppearanceHeadline6" />
-
-                <TextView
-                    android:id="@+id/fecha"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="01/02/2022"
-                    android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="?android:attr/textColorSecondary" />
-
-                <TextView
-                    android:id="@+id/torneo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:paddingBottom="5dp"
-                    android:text="Campeonato Local"
-                    android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="?android:attr/textColorSecondary" />
-
-                <Button
-                    android:id="@+id/btn_detalle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="#0180EF"
-                    android:text="Ver Detalle"
-                    app:cornerRadius="30dp" />
-
-            </LinearLayout>
-
+                android:backgroundTint="@color/velez"
+                android:text="Ver Detalle"
+                app:cornerRadius="30dp" />
 
         </LinearLayout>
 
