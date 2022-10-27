@@ -36,6 +36,8 @@ class ConfirmarCompra : Fragment() {
     private lateinit var sector : TextView
     private lateinit var valor : TextView
     private lateinit var code : TextView
+    //private lateinit var detalle : TextView
+
 
     private lateinit var debitCardNumber: EditText
     private lateinit var cvv: EditText
@@ -50,6 +52,7 @@ class ConfirmarCompra : Fragment() {
         goToComprarBtn = v.findViewById(R.id.comprarBtn)
         cancelBtn = v.findViewById(R.id.cancelBtn)
         tituloTicket = v.findViewById(R.id.tituloTicket)
+        //detalle = v.findViewById(R.id.detallesTitle)
         equipos = v.findViewById(R.id.equipos)
         sector = v.findViewById(R.id.sector)
         valor = v.findViewById(R.id.valor)
@@ -73,7 +76,7 @@ class ConfirmarCompra : Fragment() {
         goToComprarBtn.setOnClickListener {
 
             val d = debitCardNumber.text.toString()
-            val c = Integer.parseInt(cvv.text.toString())
+            val c = cvv.text.toString()
 
             val action = ConfirmarCompraDirections.actionConfirmarCompraToResultadoCompra(viewModel.comprar(d, c, partido, ticket),ticket, partido)
             v.findNavController().navigate(action)
@@ -87,11 +90,11 @@ class ConfirmarCompra : Fragment() {
     }
 
     private fun setTicket(ticket : Ticket){
-
+        //detalle.text = "Detalle de entrada"
         tituloTicket.text = ticket.titulo
         equipos.text = ticket.equipo + " VS " + ticket.rival
-        sector.text = ticket.idSector
-        valor.text = ticket.valor.toString()
-        code.text = Random(123).nextInt(10000000).toString()
+        sector.text = "Sector: " + ticket.idSector
+        valor.text = "Precio: $" + ticket.valor.toString()
+        code.text ="Codigo de compra: #" + Random(123).nextInt(10000000).toString()
     }
 }

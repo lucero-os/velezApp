@@ -23,12 +23,12 @@ class ConfirmarCompraViewModel : ViewModel() {
         const val CVV_LENGTH = 3
     }
 
-    fun resultadoCompra(debitCardNumber: String, cvv: Int): Boolean{
+    //fun resultadoCompra(debitCardNumber: String, cvv: String): Boolean{
         //hay que investigar tema fechas y su validación
-        return validateCard(debitCardNumber, cvv)
-    }
+        //return validateCard(debitCardNumber, cvv)
+    //}
 
-    private fun validateCard(debitCardNumber: String, cvv: Int): Boolean{
+    private fun validateCard(debitCardNumber: String, cvv: String): Boolean{
 
         return validateDebitCardNumber(debitCardNumber) && validateCvv(cvv)
     }
@@ -38,9 +38,9 @@ class ConfirmarCompraViewModel : ViewModel() {
         return debitCardNumber.length == DebitCardConstants.DEBIT_CARD_LENGTH
     }
 
-    private fun validateCvv(cvv: Int) : Boolean{
+    private fun validateCvv(cvv: String) : Boolean{
 
-        return cvv.toString().length == DebitCardConstants.CVV_LENGTH
+        return cvv.length == DebitCardConstants.CVV_LENGTH
     }
 
     private suspend fun checkDisponibilidad(partido: Partido, ticket: Ticket): Boolean{
@@ -191,7 +191,7 @@ class ConfirmarCompraViewModel : ViewModel() {
         return miPartido[0]
     }
 
-    fun comprar(debitCardNumber: String, cvv: Int, partido: Partido, ticket: Ticket) : Boolean {
+    fun comprar(debitCardNumber: String, cvv: String, partido: Partido, ticket: Ticket) : Boolean {
         var rtdo = validateCard(debitCardNumber, cvv)
         Log.d("RESULTADO_CARD", rtdo.toString())
 

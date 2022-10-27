@@ -3,12 +3,13 @@
     <string name="item_entradas_name">Entradas</string>
     <string name="item_perfil_name">Mi Perfil</string>
     <string name="item_home_name">Home</string>
-    <string name="vs">VS</string>
+    <string name="vs">X</string>
     <string name="carnet">Carnet</string>
     <string name="mis_entradas">Mis Entradas</string>
     <string name="mis_pagos">Mis Pagos</string>
     <string name="hacete_socio">Hacete Socio</string>
-    <string name="vsTxt">VS</string>
+    <string name="titleEntradas">JUEGA VELEZ</string>
+    <string name="vsTxt">X</string>
     <string name="sectorTxt">Sector:</string>
     <string name="carritoBtnTxt">Agregar al Carrito</string>
     <string name="spinnerContentDesc">Sector</string>
