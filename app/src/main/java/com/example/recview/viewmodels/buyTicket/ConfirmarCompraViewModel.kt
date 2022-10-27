@@ -4,11 +4,14 @@ import android.content.ContentValues
 import android.content.ContentValues.TAG
 import android.util.Log
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.recview.entities.Partido
 import com.example.recview.entities.Ticket
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
 
 class ConfirmarCompraViewModel : ViewModel() {
 
@@ -40,46 +43,49 @@ class ConfirmarCompraViewModel : ViewModel() {
         return cvv.toString().length == DebitCardConstants.CVV_LENGTH
     }
 
-    private fun checkDisponibilidad(partido: Partido, ticket: Ticket): Boolean{
+    private suspend fun checkDisponibilidad(partido: Partido, ticket: Ticket): Boolean{
         var cantidad = 0
-        db.collection("partidos")
-            .whereEqualTo("id",partido.id)
-            .get()
-            .addOnSuccessListener { document ->
-                if (document != null) {
-                    miPartido.clear()
+        val partidosRef = db.collection("partidos")
+        var resultado = false
 
-                    for(document in document) {
-                        miPartido.add(document.toObject<Partido>())
-                        Log.d("Partido", miPartido[0].toString())
-                    }
+        try {
+            val partidos = partidosRef.whereEqualTo("id",partido.id).get().await()
 
-                    if(ticket.idSector.equals("Norte")){
-                        cantidad = miPartido[0].sectorNorte
-                    }
-                    else if(ticket.idSector.equals("Este")){
-                        cantidad = miPartido[0].sectorEste
-                    }
-                    else if(ticket.idSector.equals("SurBaja")){
-                        cantidad = miPartido[0].sectorSurBaja
-                    }
-                    else if(ticket.idSector.equals("SurAlta")){
-                        cantidad = miPartido[0].sectorSurAlta
-                    }
-                    else if(ticket.idSector.equals("Oeste")){
-                        cantidad = miPartido[0].sectorOeste
-                    }
-                    else {
-                        cantidad = miPartido[0].sectorVisitante
-                    }
+            if (partidos != null) {
+                miPartido.clear()
+
+                for(document in partidos) {
+                    miPartido.add(document.toObject<Partido>())
+                    Log.d("Partido", miPartido[0].toString())
+                }
+
+                if(ticket.idSector.equals("Norte")){
+                    cantidad = miPartido[0].sectorNorte
+                }
+                else if(ticket.idSector.equals("Este")){
+                    cantidad = miPartido[0].sectorEste
+                }
+                else if(ticket.idSector.equals("SurBaja")){
+                    cantidad = miPartido[0].sectorSurBaja
+                }
+                else if(ticket.idSector.equals("SurAlta")){
+                    cantidad = miPartido[0].sectorSurAlta
+                }
+                else if(ticket.idSector.equals("Oeste")){
+                    cantidad = miPartido[0].sectorOeste
+                }
+                else {
+                    cantidad = miPartido[0].sectorVisitante
                 }
             }
-            .addOnFailureListener { exception ->
-                Log.w(ContentValues.TAG, "Error getting partido: ", exception)
-            }
+
+            resultado = cantidad > 0
+        }catch (e : Exception){
+            Log.w(ContentValues.TAG, "Error getting partido: ", e)
+        }
 
         Log.d("CANTIDAD", cantidad.toString())
-        return cantidad > 0
+        return resultado
     }
 
     private fun confirmarCompra(partido: Partido, ticket: Ticket){
@@ -191,13 +197,15 @@ class ConfirmarCompraViewModel : ViewModel() {
 
         if(rtdo){
 
-            rtdo = checkDisponibilidad(partido, ticket)
-            Log.d("RESULTADO_DISP", rtdo.toString())
+            viewModelScope.launch {
+                rtdo = checkDisponibilidad(partido, ticket)
+                Log.d("RESULTADO_DISP", rtdo.toString())
 
-            if(rtdo) {
+                if(rtdo) {
 
-                confirmarCompra(partido, ticket)
-                Log.d("RESULTADO_COMPRA", rtdo.toString())
+                    confirmarCompra(partido, ticket)
+                    Log.d("RESULTADO_COMPRA", rtdo.toString())
+                }
             }
         }
 
