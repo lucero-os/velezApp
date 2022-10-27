@@ -88,7 +88,7 @@ class ConfirmarCompraViewModel : ViewModel() {
         return resultado
     }
 
-    private fun confirmarCompra(partido: Partido, ticket: Ticket){
+    private suspend fun confirmarCompra(partido: Partido, ticket: Ticket){
 
         crearTicket(ticket)
         val cantSector = descontarCantidadSector(partido, ticket)
@@ -97,8 +97,8 @@ class ConfirmarCompraViewModel : ViewModel() {
 
     }
 
-    private fun restarSector(partidoID : String, cantSector : Partido){
-
+    private suspend fun restarSector(partidoID : String, cantSector : Partido){
+        val partidosRef = db.collection("partidos")
         val updatePartido = hashMapOf(
             "sectorEste" to cantSector.sectorEste,
             "sectorNorte" to cantSector.sectorNorte,
@@ -107,15 +107,19 @@ class ConfirmarCompraViewModel : ViewModel() {
             "sectorSurBaja" to cantSector.sectorSurBaja,
             "sectorvisitante" to cantSector.sectorVisitante
         )
+        try {
+            val partidos = partidosRef.document(partidoID).set(updatePartido).await()
+            Log.d(TAG, "DocumentSnapshot successfully written!")
+        }catch (e: Exception){
+            Log.w(TAG, "Error writing document", e)
+        }
 
-        db.collection("partidos").document(partidoID)
-            .set(updatePartido)
-            .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!") }
-            .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
     }
 
-    private fun crearTicket(ticket: Ticket){
+    private suspend fun crearTicket(ticket: Ticket){
+
         val nuevoTicket = hashMapOf(
+
             "equipo" to "Velez",
             "idUser" to ticket.idUser,
             "idSector" to ticket.idSector,
@@ -123,71 +127,68 @@ class ConfirmarCompraViewModel : ViewModel() {
             "titulo" to ticket.titulo,
             "valor" to ticket.valor
         )
-        db.collection("tickets")
-            .add(nuevoTicket)
-            .addOnSuccessListener { documentReference ->
-                Log.d(TAG, "DocumentSnapshot written with ID: ${documentReference.id}")
-            }
-            .addOnFailureListener { e ->
-                Log.w(TAG, "Error adding document", e)
-            }
+        val ticketsRef = db.collection("tickets")
+
+        try {
+            ticketsRef.add(nuevoTicket).await()
+            Log.d(TAG, "DocumentSnapshot written")
+        }catch (e: Exception) {
+            Log.w(TAG, "Error adding document", e)
+        }
     }
 
-    private fun obtenerPartidoID(partido: Partido, ticket: Ticket) : String{
+    private suspend fun obtenerPartidoID(partido: Partido, ticket: Ticket) : String{
         var partidoID : String = ""
-
-        db.collection("partidos").whereEqualTo("id",partido.id)
-            .get()
-            .addOnSuccessListener { documents ->
-                for (document in documents) {
-                    Log.d(TAG, "${document.id} => ${document.data}")
-                    partidoID = document.id
-                }
+        val partidosRef = db.collection("partidos")
+        try {
+            val partido = partidosRef.whereEqualTo("id",partido.id).get().await()
+            for (document in partido) {
+                Log.d(TAG, "${document.id} => ${document.data}")
+                partidoID = document.id
             }
-            .addOnFailureListener { exception ->
-                Log.w(TAG, "Error getting documents: ", exception)
-            }
-
+        }catch (e: Exception){
+            Log.w(TAG, "Error getting documents: ", e)
+        }
         return partidoID
     }
 
-    private fun descontarCantidadSector(partido : Partido, ticket: Ticket) : Partido{
-        db.collection("partidos")
-            .whereEqualTo("id",partido.id)
-            .get()
-            .addOnSuccessListener { document ->
-                if (document != null) {
-                    miPartido.clear()
+    private suspend fun descontarCantidadSector(partido : Partido, ticket: Ticket) : Partido{
 
-                    for(document in document) {
-                        miPartido.add(document.toObject<Partido>())
-                        Log.d("Partido", miPartido[0].toString())
-                    }
+        val partidosRef = db.collection("partidos")
+        try {
+            val partidos = partidosRef.whereEqualTo("id",partido.id).get().await()
+            Log.d("Partido", miPartido[0].toString())
+            if (partidos != null) {
+                miPartido.clear()
 
-                    if(ticket.idSector.equals("Norte")){
-                        miPartido[0].sectorNorte = miPartido[0].sectorNorte - 1
-                    }
-                    else if(ticket.idSector.equals("Este")){
-                        miPartido[0].sectorEste = miPartido[0].sectorEste - 1
-                    }
-                    else if(ticket.idSector.equals("SurBaja")){
-                        miPartido[0].sectorSurBaja = miPartido[0].sectorSurBaja - 1
-                    }
-                    else if(ticket.idSector.equals("SurAlta")){
-                        miPartido[0].sectorSurAlta = miPartido[0].sectorSurAlta - 1
-                    }
-                    else if(ticket.idSector.equals("Oeste")){
-                        miPartido[0].sectorOeste = miPartido[0].sectorOeste - 1
-                    }
-                    else {
-                        miPartido[0].sectorVisitante = miPartido[0].sectorVisitante - 1
-                    }
+                for(document in partidos) {
+                    miPartido.add(document.toObject<Partido>())
+                    Log.d("Partido", miPartido[0].toString())
+                }
+
+                if(ticket.idSector.equals("Norte")){
+                    miPartido[0].sectorNorte = miPartido[0].sectorNorte - 1
+                }
+                else if(ticket.idSector.equals("Este")){
+                    miPartido[0].sectorEste = miPartido[0].sectorEste - 1
+                }
+                else if(ticket.idSector.equals("SurBaja")){
+                    miPartido[0].sectorSurBaja = miPartido[0].sectorSurBaja - 1
+                }
+                else if(ticket.idSector.equals("SurAlta")){
+                    miPartido[0].sectorSurAlta = miPartido[0].sectorSurAlta - 1
+                }
+                else if(ticket.idSector.equals("Oeste")){
+                    miPartido[0].sectorOeste = miPartido[0].sectorOeste - 1
+                }
+                else {
+                    miPartido[0].sectorVisitante = miPartido[0].sectorVisitante - 1
                 }
             }
-            .addOnFailureListener { exception ->
-                Log.w(ContentValues.TAG, "Error getting partido: ", exception)
-            }
 
+        }catch (e: Exception){
+            Log.w(ContentValues.TAG, "Error getting partido: ", e)
+        }
         return miPartido[0]
     }
 
