@@ -108,7 +108,7 @@ class ConfirmarCompraViewModel : ViewModel() {
             "sectorvisitante" to cantSector.sectorVisitante
         )
         try {
-            partidosRef.document(partidoID).set(updatePartido).await()
+            partidosRef.document(partidoID).update(updatePartido as Map<String, Any>)
             Log.d(TAG, "DocumentSnapshot successfully written!")
         }catch (e: Exception){
             Log.w(TAG, "Error writing document", e)

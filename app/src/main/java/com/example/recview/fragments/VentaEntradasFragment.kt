@@ -1,5 +1,6 @@
 package com.example.recview.fragments
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -55,20 +57,22 @@ class VentaEntradasFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        partidos = viewModel.getPartidos()
+        viewModel.getPartidos()
 
         recPartidos.setHasFixedSize(true)
         linearLayoutManager = LinearLayoutManager(context)
         recPartidos.layoutManager = linearLayoutManager
 
-        //TODO: Llegan objetos de firebase, pero no se renderizan
-        partidosAdapter = PartidosAdapter(partidos) { pos ->
+        viewModel.partidos.observe(viewLifecycleOwner, Observer { result ->
+            partidos = result.toMutableList()
 
-            val action = VentaEntradasFragmentDirections.actionVentaEntradasFragmentToTicketDetail(partidos[pos])
-            v.findNavController().navigate(action)
-        }
+            partidosAdapter = PartidosAdapter(partidos) { pos ->
+                val action = VentaEntradasFragmentDirections.actionVentaEntradasFragmentToTicketDetail(partidos[pos])
+                v.findNavController().navigate(action)
+            }
 
-        recPartidos.adapter = partidosAdapter
+            recPartidos.adapter = partidosAdapter
+        })
     }
 
 }

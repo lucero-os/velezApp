@@ -1,5 +1,7 @@
 package com.example.recview.viewmodels.buyTicket
 
+import android.content.ContentValues
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.example.recview.entities.Partido
 import com.example.recview.entities.Ticket
@@ -22,6 +24,7 @@ class TicketDetailViewModel : ViewModel() {
     }
 
     private fun generateValor(isSocio: Boolean) : Double{
+        Log.d(ContentValues.TAG, "ES SOCIO?" + isSocio)
 
         var valor : Double = if(isSocio){
             1000.0
