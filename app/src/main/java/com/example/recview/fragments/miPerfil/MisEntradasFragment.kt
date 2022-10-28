@@ -7,12 +7,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.recview.R
 import com.example.recview.adapters.EntradasAdapter
+import com.example.recview.adapters.PartidosAdapter
 import com.example.recview.entities.EntradaHist
+import com.example.recview.entities.Partido
+import com.example.recview.entities.Ticket
+import com.example.recview.fragments.VentaEntradasFragmentDirections
 import com.example.recview.viewmodels.miPerfil.MisEntradasViewModel
 
 
@@ -25,8 +31,8 @@ class MisEntradasFragment : Fragment() {
     private lateinit var viewModel: MisEntradasViewModel
     lateinit var v : View
 
+    var ticketList : MutableList<Ticket> = ArrayList<Ticket>()
 
-    var entradasList : MutableList<EntradaHist> = mutableListOf()
     lateinit var adapter : EntradasAdapter
     lateinit var recyclerView: RecyclerView
     //lateinit var imageView: ImageView
@@ -40,13 +46,6 @@ class MisEntradasFragment : Fragment() {
         recyclerView = v.findViewById(R.id.recEntradas)
         //imageView = v.findViewById(R.id.imagen)
 
-        entradasList.add(EntradaHist("01/02/2022","River", "campeonato local", "https://cloud10.todocoleccion.online/entradas-futbol/tc/2016/03/22/10/55228685.jpg"))
-        entradasList.add(EntradaHist("01/02/2022","Boca", "campeonato local", "https://www.finanzzas.com/wp-content/uploads/precios-entradas-Liga-de-F%C3%BAtbol-Profesional.jpg"))
-        entradasList.add(EntradaHist("01/02/2022","Flamengo", "copa libertadores", "https://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/05/18/14951392754691.png"))
-        entradasList.add(EntradaHist("01/02/2022","River", "campeonato local", "https://cloud10.todocoleccion.online/entradas-futbol/tc/2016/03/22/10/55228685.jpg"))
-        entradasList.add(EntradaHist("01/02/2022","Boca", "campeonato local", "https://www.finanzzas.com/wp-content/uploads/precios-entradas-Liga-de-F%C3%BAtbol-Profesional.jpg"))
-        entradasList.add(EntradaHist("01/02/2022","Flamengo", "copa libertadores", "https://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/05/18/14951392754691.png"))
-
         return v
     }
 
@@ -59,12 +58,19 @@ class MisEntradasFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 
+        viewModel.getTickets(36397441)
+
+
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        adapter = EntradasAdapter(entradasList)
+        viewModel.tickets.observe(viewLifecycleOwner, Observer { result ->
+            ticketList = result.toMutableList()
 
-        recyclerView.adapter = adapter
+            adapter = EntradasAdapter(ticketList)
+
+            recyclerView.adapter = adapter
+        })
 
   /*      Glide
             .with(v)

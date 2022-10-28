@@ -20,24 +20,7 @@ class VentaEntradasViewModel : ViewModel() {
     // Access a Cloud Firestore instance from your Activity
     private val db = Firebase.firestore
 
-//    fun getPartidos() : MutableList<Partido>{
-//        db.collection("partidos").get()
-//            .addOnSuccessListener { snapshot ->
-//                if(snapshot != null){
-//                    partidos.clear()
-//                }
-//                for(partido in snapshot){
-//                        partidos.add(partido.toObject())
-//                        Log.d("Partido" , partidos[0].toString())
-//                }
-//            }
-//            .addOnFailureListener { exception ->
-//                Log.d(TAG, "Error al traer los partidos: ", exception)
-//            }
-//
-//        return this.partidos
-//    }
-    public fun getPartidos(){
+    fun getPartidos(){
         viewModelScope.launch {
             partidos.value = getAll().toMutableList()
         }

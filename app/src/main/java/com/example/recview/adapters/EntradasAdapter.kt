@@ -8,8 +8,9 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recview.R
 import com.example.recview.entities.EntradaHist
+import com.example.recview.entities.Ticket
 
-class EntradasAdapter(var entradaList: MutableList<EntradaHist>) :
+class EntradasAdapter(var entradaList: MutableList<Ticket>) :
     RecyclerView.Adapter<EntradasAdapter.EntradaHolder>() {
 
     class EntradaHolder(v: View) : RecyclerView.ViewHolder(v) {
@@ -32,9 +33,9 @@ class EntradasAdapter(var entradaList: MutableList<EntradaHist>) :
             txt.text = name
         }
 
-        fun setFecha(name: String) {
+        fun setValor(valor: Double) {
             val txt: TextView = view.findViewById(R.id.fecha)
-            txt.text = name
+            txt.text = valor.toString()
         }
 
         fun setTorneo(name: String) {
@@ -59,9 +60,9 @@ class EntradasAdapter(var entradaList: MutableList<EntradaHist>) :
 
     override fun onBindViewHolder(holder: EntradaHolder, position: Int) {
         //holder.setImagen(entradaList[position].imagen)
-        holder.setEquipoRival(entradaList[position].equipoRival)
-        holder.setFecha(entradaList[position].fecha)
-        holder.setTorneo(entradaList[position].torneo)
+        holder.setEquipoRival(entradaList[position].rival)
+        holder.setValor(entradaList[position].valor)
+        holder.setTorneo(entradaList[position].titulo)
 
     }
 
