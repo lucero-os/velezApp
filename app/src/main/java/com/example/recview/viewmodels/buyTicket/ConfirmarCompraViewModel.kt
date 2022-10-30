@@ -17,6 +17,7 @@ class ConfirmarCompraViewModel : ViewModel() {
 
     private val db = Firebase.firestore
     private var miPartido : MutableList<Partido> = mutableListOf()
+    private var miTicket : MutableList<Ticket> = mutableListOf()
 
     object DebitCardConstants {
         const val DEBIT_CARD_LENGTH = 16
@@ -90,11 +91,37 @@ class ConfirmarCompraViewModel : ViewModel() {
 
     private suspend fun confirmarCompra(partido: Partido, ticket: Ticket){
 
-        crearTicket(ticket)
+        //var partidoComprado = validarSiYaCompro(partido) //hay que agregar el usuario o el dni
+        crearTicket(ticket,partido)
         val cantSector = descontarCantidadSector(partido, ticket)
         val partidoID = obtenerPartidoID(partido,ticket)
         restarSector(partidoID, cantSector)
 
+    }
+
+
+    // TODO: Hay que agregar el DNI del usuario logueado (cuando lo tengamos implementado)
+    private suspend fun validarSiYaCompro(partido: Partido) : Boolean{
+        val ticketsRef = db.collection("tickets")
+        var state : Boolean = false
+        miTicket.clear()
+
+        try {
+            val ticketsPartido = ticketsRef.whereEqualTo("idPartido", partido.id).whereEqualTo("idUser", 36397441).get().await()
+
+                for (document in ticketsPartido) {
+                    miTicket.add(document.toObject<Ticket>())
+                    Log.d("Ticket", miTicket[0].toString())
+                }
+
+            if (miTicket.size > 0){
+                state = true
+                Log.d("Ya compro para este partido", "ya tiene un ticket adquirido")
+            }
+        }catch (e: Exception){
+        Log.w(ContentValues.TAG, "Error si ya compró ticket: ", e)
+    }
+    return state
     }
 
     private suspend fun restarSector(partidoID : String, cantSector : Partido){
@@ -116,11 +143,12 @@ class ConfirmarCompraViewModel : ViewModel() {
 
     }
 
-    private suspend fun crearTicket(ticket: Ticket){
+    private suspend fun crearTicket(ticket: Ticket, partido: Partido){
 
         val nuevoTicket = hashMapOf(
 
             "equipo" to "Velez",
+            "idPartido" to partido.id,
             "idUser" to ticket.idUser,
             "idSector" to ticket.idSector,
             "rival" to ticket.rival,

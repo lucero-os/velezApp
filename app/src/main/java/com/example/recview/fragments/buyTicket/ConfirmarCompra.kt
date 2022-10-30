@@ -65,7 +65,7 @@ class ConfirmarCompra : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(ConfirmarCompraViewModel::class.java)
-        // TODO: Use the ViewModel
+
     }
 
     override fun onStart() {
