@@ -101,7 +101,7 @@ class ConfirmarCompraViewModel : ViewModel() {
 
 
     // TODO: Hay que agregar el DNI del usuario logueado (cuando lo tengamos implementado)
-    private suspend fun validarSiYaCompro(partido: Partido) : Boolean{
+    suspend fun validarSiYaCompro(partido: Partido) : Boolean{
         val ticketsRef = db.collection("tickets")
         var state : Boolean = false
         miTicket.clear()
