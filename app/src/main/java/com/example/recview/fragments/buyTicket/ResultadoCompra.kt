@@ -25,6 +25,7 @@ class ResultadoCompra : Fragment() {
     private lateinit var goToHomeBtn: Button
     private var resultado = false
     private lateinit var resultadoTitle : TextView
+    private lateinit var resultadoTitle2 : TextView
     private lateinit var ticket : Ticket
     private lateinit var partido : Partido
 
@@ -36,6 +37,7 @@ class ResultadoCompra : Fragment() {
         ticket = ResultadoCompraArgs.fromBundle(requireArguments()).ticket
         goToHomeBtn = v.findViewById(R.id.goToHomeBtn)
         resultadoTitle = v.findViewById(R.id.resultadoTitle)
+        resultadoTitle2 = v.findViewById(R.id.resultadoTitle2)
         resultado = ResultadoCompraArgs.fromBundle(requireArguments()).resultadoCompra
         partido = ResultadoCompraArgs.fromBundle(requireArguments()).partido
         return v
@@ -52,6 +54,7 @@ class ResultadoCompra : Fragment() {
 
         if(resultado){
             resultadoTitle.setText(R.string.compraOk)
+            resultadoTitle2.setText(R.string.compraOk2)
             goToHomeBtn.setOnClickListener {
 
                 val action = ResultadoCompraDirections.actionResultadoCompraToVentaEntradasFragment()
@@ -59,6 +62,7 @@ class ResultadoCompra : Fragment() {
             }
         }
         else{
+            resultadoTitle.setTextColor(resources.getColor(R.color.red))
             resultadoTitle.setText(R.string.compraNotOk)
             with(goToHomeBtn) {
                 setText(R.string.compraNotOkBtn)
