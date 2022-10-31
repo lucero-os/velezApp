@@ -16,8 +16,26 @@ class CarnetViewModel : ViewModel() {
     private var myAccount : MutableList<User> = mutableListOf()
     private val db = Firebase.firestore
 
-    // TODO: hay que agregar para que reciba el dni del usuario logueado
-    suspend fun getUser() : User {
+    fun getUser() : MutableList<User> {
+        db.collection("usuarios")
+            .whereEqualTo("dni", 36397441)
+            .get()
+            .addOnSuccessListener { document ->
+                if (document != null) {
+                    myAccount.clear()
+
+                    for(document in document) {
+                        myAccount.add(document.toObject<User>())
+                        Log.d("User", myAccount[0].toString())
+                    }
+                }}
+            .addOnFailureListener { exception ->
+                Log.w(ContentValues.TAG, "Error getting user profile: ", exception)
+            }
+        return myAccount
+    }
+    // TODO: Habría que hacerlo asi 
+    /*suspend fun getUser() : MutableList<User> {
         val db = Firebase.firestore
         val userRef = db.collection("usuarios")
         myAccount.clear()
@@ -35,6 +53,8 @@ class CarnetViewModel : ViewModel() {
         } catch (e: Exception) {
             Log.w(ContentValues.TAG, "Error si ya compró ticket: ", e)
         }
-        return myAccount[0]
-    }
+        return myAccount
+    }*/    
+    
+    
 }
