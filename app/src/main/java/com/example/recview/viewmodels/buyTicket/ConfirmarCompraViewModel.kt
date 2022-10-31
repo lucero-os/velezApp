@@ -20,7 +20,7 @@ class ConfirmarCompraViewModel : ViewModel() {
     private var miTicket : MutableList<Ticket> = mutableListOf()
 
     object DebitCardConstants {
-        const val DEBIT_CARD_LENGTH = 16
+        const val DEBIT_CARD_LENGTH = 12
         const val CVV_LENGTH = 3
     }
 

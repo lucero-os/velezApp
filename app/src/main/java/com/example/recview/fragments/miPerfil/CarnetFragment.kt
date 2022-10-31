@@ -22,23 +22,19 @@ class CarnetFragment : Fragment() {
         fun newInstance() = CarnetFragment()
     }
     lateinit var v: View
-    private var myAccount : MutableList<User> = ArrayList<User>()
+
 
     private val viewModel: CarnetViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
        v = inflater.inflate(R.layout.fragment_carnet, container, false)
         return v
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-       // viewModel = ViewModelProvider(this).get(CarnetViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
+
 
     /*override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,7 +43,7 @@ class CarnetFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        myAccount = viewModel.getUser()
+        viewModel.getUser()
 
     }
 
