@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "377086971999",
+    "project_id": "velezapp-4b1a8",
+    "storage_bucket": "velezapp-4b1a8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:377086971999:android:fb9db299144b290e9a8bea",
+        "android_client_info": {
+          "package_name": "com.example.recview"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "377086971999-ulvp4mv6p5bbs7acbm4ehlsdcnb65lu7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIKHxw46TUyBu3wsdSDSdfeyoj9hojFSA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "377086971999-ulvp4mv6p5bbs7acbm4ehlsdcnb65lu7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
