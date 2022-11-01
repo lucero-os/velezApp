@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.recview.R
@@ -24,6 +25,7 @@ class HaceteSocioFragment : Fragment() {
     lateinit var haceteSocioMail: TextView
     lateinit var haceteSocioDni: TextView
     lateinit var haceteSocioCelular: TextView
+    lateinit var checkBoxTermsHaceteSocio: CheckBox
 
     private var correo: Array<String> = arrayOf("ivanra48@gmail.com")
 
@@ -44,6 +46,7 @@ class HaceteSocioFragment : Fragment() {
         haceteSocioMail = v.findViewById(R.id.haceteSocioMail)
         haceteSocioDni = v.findViewById(R.id.haceteSocioDni)
         haceteSocioCelular = v.findViewById(R.id.haceteSocioCelular)
+        checkBoxTermsHaceteSocio = v.findViewById((R.id.checkBoxTermsHaceteSocio))
         return v
     }
 
@@ -53,20 +56,51 @@ class HaceteSocioFragment : Fragment() {
             val contextView = v
             val packageManager = requireActivity().packageManager
 
-            var solicitudSocio : String = haceteSocioNombre.text.toString() + "\n" + haceteSocioApellido.text.toString() +  "\n" + haceteSocioMail.text.toString() + "\n" + haceteSocioDni.text.toString() + "\n" + haceteSocioCelular.text.toString()
+            val nombre = haceteSocioNombre.text.toString()
+            val apellido = haceteSocioApellido.text.toString()
+            val mail = haceteSocioMail.text.toString()
+            val dni = haceteSocioDni.text.toString()
+            val celular = haceteSocioCelular.text.toString()
 
-            val intent = Intent(Intent.ACTION_SENDTO).apply {
-                data = Uri.parse("mailto:") // only email apps should handle this
-                putExtra(Intent.EXTRA_EMAIL, correo)
-                putExtra(Intent.EXTRA_SUBJECT, "solicitud de socio")
-                putExtra(Intent.EXTRA_TEXT, solicitudSocio)
+
+            var validacionCampos : Boolean = validarCampos(nombre,apellido,mail,dni,celular)
+
+            var solicitudSocio : String = ""
+
+            if(checkBoxTermsHaceteSocio.isChecked){
+                try {
+                    if (validacionCampos) {
+                        solicitudSocio = haceteSocioNombre.text.toString() + "\n" + haceteSocioApellido.text.toString() +  "\n" + haceteSocioMail.text.toString() + "\n" + haceteSocioDni.text.toString() + "\n" + haceteSocioCelular.text.toString()
+                        val intent = Intent(Intent.ACTION_SENDTO).apply {
+                            data = Uri.parse("mailto:") // only email apps should handle this
+                            putExtra(Intent.EXTRA_EMAIL, correo)
+                            putExtra(Intent.EXTRA_SUBJECT, "solicitud de socio")
+                            putExtra(Intent.EXTRA_TEXT, solicitudSocio)
+                        }
+                        if (intent.resolveActivity(packageManager) != null) {
+                            startActivity(intent)
+                        }
+                    } else {
+                        Snackbar.make(contextView,"Debe completar todos los datos solicitados",Snackbar.LENGTH_SHORT).show()
+                    }
+                }catch (e: Exception){}
+
+            /*Snackbar.make(contextView, "Tu solicitud ha sido enviada y esta sujeta a aprobacion", Snackbar.LENGTH_SHORT)
+                .show()*/
+        }else{
+                Snackbar.make(contextView, "Debe leer y aceptar los terminos y condiciones", Snackbar.LENGTH_SHORT)
+                    .show()
             }
-            if (intent.resolveActivity(packageManager) != null) {
-                startActivity(intent)
-            }
-            Snackbar.make(contextView, "Tu solicitud ha sido enviada y esta sujeta a aprobacion", Snackbar.LENGTH_SHORT)
-                .show()
         }
+    }
+
+    private fun validarCampos(n : String, a : String, m : String, d : String, c : String) : Boolean{
+        var state = false
+        if(haceteSocioNombre.text.toString() != "" && haceteSocioApellido.text.toString() != "" && haceteSocioMail.text.toString() != "" && haceteSocioDni.text.toString() != "" && haceteSocioCelular.text.toString() != "")
+        {
+            state = true
+        }
+        return state
     }
 
 }
