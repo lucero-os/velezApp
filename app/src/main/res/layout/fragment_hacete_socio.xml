@@ -16,10 +16,10 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.092" />
+        app:layout_constraintVertical_bias="0.045" />
 
     <EditText
         android:id="@+id/haceteSocioNombre"
@@ -30,6 +30,7 @@
         android:hint="@string/nombreSignUp"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        android:textColorHint="#757575"
         app:layout_constraintBottom_toTopOf="@+id/haceteSocioApellido"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,6 +44,7 @@
         android:hint="@string/apellidoSignUp"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        android:textColorHint="#757575"
         app:layout_constraintBottom_toTopOf="@+id/haceteSocioMail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
@@ -57,6 +59,7 @@
         android:hint="@string/emailSignUp"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        android:textColorHint="#757575"
         app:layout_constraintBottom_toTopOf="@+id/haceteSocioDni"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,6 +73,7 @@
         android:hint="@string/dniSignUp"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        android:textColorHint="#757575"
         app:layout_constraintBottom_toTopOf="@+id/haceteSocioCelular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -83,35 +87,10 @@
         android:hint="@string/celularSignUp"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/haceteSocioContraseña"
+        android:textColorHint="#757575"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/haceteSocioDni" />
-
-    <EditText
-        android:id="@+id/haceteSocioContraseña"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:ems="10"
-        android:hint="@string/passwordSignUp"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/checkBox"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/haceteSocioCelular" />
-
-    <CheckBox
-        android:id="@+id/checkBoxDebAu"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:text="@string/debAu"
-        app:layout_constraintBottom_toTopOf="@+id/checkBoxTermsHaceteSocio"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/haceteSocioContraseña" />
 
     <CheckBox
         android:id="@+id/checkBoxTermsHaceteSocio"
@@ -121,17 +100,19 @@
         app:layout_constraintBottom_toTopOf="@+id/haceteSocioButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxDebAu" />
+        app:layout_constraintTop_toBottomOf="@+id/haceteSocioCelular" />
 
     <Button
         android:id="@+id/haceteSocioButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hacete_socio"
+        android:textColor="#263238"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxTermsHaceteSocio" />
+        app:layout_constraintTop_toBottomOf="@+id/haceteSocioCelular"
+        tools:ignore="DuplicateSpeakableTextCheck" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
