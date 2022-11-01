@@ -25,7 +25,7 @@ class HaceteSocioFragment : Fragment() {
     lateinit var haceteSocioDni: TextView
     lateinit var haceteSocioCelular: TextView
 
-    private var correo: Array<String> = arrayOf("solicitudSocio@velez.com.ar")
+    private var correo: Array<String> = arrayOf("ivanra48@gmail.com")
 
     companion object {
         fun newInstance() = HaceteSocioFragment()
