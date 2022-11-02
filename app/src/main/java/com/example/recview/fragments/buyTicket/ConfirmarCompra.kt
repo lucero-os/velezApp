@@ -78,8 +78,10 @@ class ConfirmarCompra : Fragment() {
             val d = debitCardNumber.text.toString()
             val c = cvv.text.toString()
 
-            val action = ConfirmarCompraDirections.actionConfirmarCompraToResultadoCompra(viewModel.comprar(d, c, partido, ticket),ticket, partido)
-            v.findNavController().navigate(action)
+            try{
+                val action = ConfirmarCompraDirections.actionConfirmarCompraToResultadoCompra(viewModel.comprar(d, c, partido, ticket),ticket, partido)
+                v.findNavController().navigate(action)
+            }catch (e: Exception){}
         }
 
         cancelBtn.setOnClickListener {

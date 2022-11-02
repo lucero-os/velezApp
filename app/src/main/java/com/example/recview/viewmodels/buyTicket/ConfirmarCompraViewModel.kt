@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.recview.entities.Partido
 import com.example.recview.entities.Ticket
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
@@ -221,23 +222,32 @@ class ConfirmarCompraViewModel : ViewModel() {
     }
 
     fun comprar(debitCardNumber: String, cvv: String, partido: Partido, ticket: Ticket) : Boolean {
-        var rtdo = validateCard(debitCardNumber, cvv)
-        Log.d("RESULTADO_CARD", rtdo.toString())
+        var rtdo = true
+        viewModelScope.launch {
+            try {
+                var rtdo2 = validarSiYaCompro(partido)
+                if (!rtdo2) {
+                    var rtdo = validateCard(debitCardNumber, cvv)
+                    Log.d("RESULTADO_CARD", rtdo.toString())
 
-        if(rtdo){
+                    if (rtdo) {
 
-            viewModelScope.launch {
-                rtdo = checkDisponibilidad(partido, ticket)
-                Log.d("RESULTADO_DISP", rtdo.toString())
+                        rtdo = checkDisponibilidad(partido, ticket)
+                        Log.d("RESULTADO_DISP", rtdo.toString())
 
-                if(rtdo) {
+                        if (rtdo) {
 
-                    confirmarCompra(partido, ticket)
-                    Log.d("RESULTADO_COMPRA", rtdo.toString())
+                            confirmarCompra(partido, ticket)
+                            Log.d("RESULTADO_COMPRA", rtdo.toString())
+                        }
+                    }
+                } else {
+                    Log.d("RESULTADO_ENTRADA", "YA POSEE ENTRADA PARA ESTE PARTIDO")
+                    rtdo = false
                 }
-            }
+            } catch (e: Exception) {
+                }
         }
-
         return rtdo
     }
 }
