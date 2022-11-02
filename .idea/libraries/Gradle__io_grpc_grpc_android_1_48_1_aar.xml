@@ -3,6 +3,7 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/fde906346dfebd5ea1c2d2ee60ab5eac/transformed/grpc-android-1.48.1/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/fde906346dfebd5ea1c2d2ee60ab5eac/transformed/grpc-android-1.48.1/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/fde906346dfebd5ea1c2d2ee60ab5eac/transformed/grpc-android-1.48.1/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.grpc/grpc-android/1.48.1/92745c99bdae38ca7c2847d52fb0cb33458a6c61/grpc-android-1.48.1-javadoc.jar!/" />

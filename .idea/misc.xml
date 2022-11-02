@@ -21,7 +21,10 @@
         <entry key="..\:/Users/guido/Documents/TP3/VelezApp1/app/src/main/res/layout/item_entrada.xml" value="0.33" />
         <entry key="..\:/Users/guido/Documents/TP3/VelezApp1/app/src/main/res/layout/item_pago.xml" value="0.17657657657657658" />
         <entry key="..\:/Users/guido/Documents/TP3/VelezApp1/app/src/main/res/layout/item_partido.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_confirmar_compra.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/item_partido.xml" value="0.1" />
       </map>
     </option>
