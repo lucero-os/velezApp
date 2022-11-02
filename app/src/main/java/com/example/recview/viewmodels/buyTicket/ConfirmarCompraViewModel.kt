@@ -3,6 +3,8 @@ package com.example.recview.viewmodels.buyTicket
 import android.content.ContentValues
 import android.content.ContentValues.TAG
 import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.recview.entities.Partido
@@ -19,6 +21,7 @@ class ConfirmarCompraViewModel : ViewModel() {
     private val db = Firebase.firestore
     private var miPartido : MutableList<Partido> = mutableListOf()
     private var miTicket : MutableList<Ticket> = mutableListOf()
+    var compraExitosa = MutableLiveData<Boolean>()
 
     object DebitCardConstants {
         const val DEBIT_CARD_LENGTH = 12
@@ -221,33 +224,37 @@ class ConfirmarCompraViewModel : ViewModel() {
         return miPartido[0]
     }
 
-    fun comprar(debitCardNumber: String, cvv: String, partido: Partido, ticket: Ticket) : Boolean {
-        var rtdo = true
+    fun comprar(debitCardNumber: String, cvv: String, partido: Partido, ticket: Ticket) {
+
         viewModelScope.launch {
             try {
                 var rtdo2 = validarSiYaCompro(partido)
                 if (!rtdo2) {
-                    var rtdo = validateCard(debitCardNumber, cvv)
-                    Log.d("RESULTADO_CARD", rtdo.toString())
+                    rtdo2 = validateCard(debitCardNumber, cvv)
+                    Log.d("RESULTADO_CARD", rtdo2.toString())
 
-                    if (rtdo) {
+                    if (rtdo2) {
 
-                        rtdo = checkDisponibilidad(partido, ticket)
-                        Log.d("RESULTADO_DISP", rtdo.toString())
+                        rtdo2 = checkDisponibilidad(partido, ticket)
+                        Log.d("RESULTADO_DISP", rtdo2.toString())
 
-                        if (rtdo) {
-
+                        if (rtdo2) {
                             confirmarCompra(partido, ticket)
-                            Log.d("RESULTADO_COMPRA", rtdo.toString())
+                            compraExitosa.value = true
+                            Log.d("RESULTADO_COMPRA", rtdo2.toString())
+                        }else{
+                            compraExitosa.value = rtdo2
                         }
+                    }else{
+                        compraExitosa.value = rtdo2
                     }
                 } else {
                     Log.d("RESULTADO_ENTRADA", "YA POSEE ENTRADA PARA ESTE PARTIDO")
-                    rtdo = false
+                    compraExitosa.value = !rtdo2
                 }
             } catch (e: Exception) {
+                compraExitosa.value = false
                 }
         }
-        return rtdo
     }
 }
