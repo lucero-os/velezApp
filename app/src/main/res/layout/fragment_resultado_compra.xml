@@ -39,12 +39,15 @@
 
     <Button
         android:id="@+id/goToHomeBtn"
-        android:layout_width="178dp"
-        android:layout_height="72dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:layout_marginBottom="80dp"
         android:backgroundTint="@color/colorPrimary"
         android:text="@string/volver"
         android:textColor="@color/white"
+        app:cornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
