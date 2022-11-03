@@ -86,7 +86,8 @@
                         android:id="@+id/socioNombre"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:layout_gravity="left"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -106,7 +107,8 @@
                         android:id="@+id/dniSocio"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:layout_gravity="left"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -126,7 +128,8 @@
                         android:id="@+id/sectorSocio"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:layout_gravity="left"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -146,7 +149,8 @@
                         android:id="@+id/valorEntrada"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:layout_gravity="left"/>
                 </LinearLayout>
 
             </LinearLayout>

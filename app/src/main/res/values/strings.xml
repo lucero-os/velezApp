@@ -27,7 +27,7 @@
     <string name="homeSubtitle">Noticias</string>
     <string name="btnComprarTxt">Comprar</string>
     <string name="btnLogin">Ingresar</string>
-    <string name="signUpLogin">No tenés cuenta?</string>
+    <string name="signUpLogin">¿No tenés cuenta?</string>
     <string name="signUpBtn">Registrate</string>
     <string name="signUpTitle">Registrate</string>
     <string name="nombreSignUp">Nombre</string>

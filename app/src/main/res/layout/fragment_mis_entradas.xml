@@ -11,14 +11,13 @@
         android:id="@+id/textMisEntradas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="145dp"
-        android:layout_marginEnd="145dp"
         android:text="Mis Entradas"
         android:textAllCaps="true"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@color/velez"
         android:textSize="20sp"
         android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/recEntradas"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,10 +27,10 @@
         android:id="@+id/recEntradas"
         android:layout_width="0dp"
         android:layout_height="704dp"
-        android:layout_marginTop="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textMisEntradas" />
+        app:layout_constraintTop_toBottomOf="@+id/textMisEntradas"
+        app:layout_constraintVertical_bias="0.187" />
 </androidx.constraintlayout.widget.ConstraintLayout>
