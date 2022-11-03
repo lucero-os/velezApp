@@ -5,7 +5,8 @@
     android:id="@+id/carnet"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.miPerfil.CarnetFragment" >
+    android:layout_margin="5dp"
+    tools:context=".fragments.miPerfil.CarnetFragment">
 
     <LinearLayout
         android:id="@+id/alineacion_carnet"
@@ -189,7 +190,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
-                    android:layout_marginTop="110dp"
+                    android:layout_marginTop="90dp"
                     android:fontFamily="sans-serif-black"
                     android:text="@string/un_gran_club"
                     android:textColor="@color/velez"
