@@ -67,17 +67,13 @@ class MisEntradasFragment : Fragment() {
         viewModel.tickets.observe(viewLifecycleOwner, Observer { result ->
             ticketList = result.toMutableList()
 
-            adapter = EntradasAdapter(ticketList)
+            adapter = EntradasAdapter(ticketList) { pos ->
+                val action = MisEntradasFragmentDirections.actionMisEntradasFragmentToDetalleEntrada(ticketList[pos])
+                v.findNavController().navigate(action)
+            }
 
             recyclerView.adapter = adapter
         })
-
-  /*      Glide
-            .with(v)
-            .load("https://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/05/18/14951392754691.png")
-            .centerCrop()
-            //.placeholder(R.drawable.loading_spinner)
-            .into(imageView);*/
 
     }
 

@@ -10,6 +10,8 @@ class Ticket (var equipo: String = "",
               var idSector: String = "",
               var rival: String = "",
               var titulo: String = "",
-              var valor: Double = 0.0) : Parcelable {
-    constructor() : this("",0,0,"","","",0.0)
+              var valor: Double = 0.0,
+              var dia: String = "",
+              var mes: String = "") : Parcelable {
+    constructor() : this("",0,0,"","","",0.0, "", "")
 }

@@ -7,11 +7,12 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recview.R
-import com.example.recview.entities.EntradaHist
 import com.example.recview.entities.Ticket
 
-class EntradasAdapter(var entradaList: MutableList<Ticket>) :
-    RecyclerView.Adapter<EntradasAdapter.EntradaHolder>() {
+class EntradasAdapter(
+    var entradaList: MutableList<Ticket>,
+    val onClick : (Int) -> Unit
+        ) : RecyclerView.Adapter<EntradasAdapter.EntradaHolder>() {
 
     class EntradaHolder(v: View) : RecyclerView.ViewHolder(v) {
 
@@ -20,13 +21,6 @@ class EntradasAdapter(var entradaList: MutableList<Ticket>) :
         init {
             this.view = v
         }
-
-       /*
-       fun setImagen(name: String) {
-            val txt: TextView = view.findViewById(R.id.imagen)
-            txt.text = name
-        }
-        */
 
         fun setEquipoRival(name: String) {
             val txt: TextView = view.findViewById(R.id.equipoRival)
@@ -63,6 +57,10 @@ class EntradasAdapter(var entradaList: MutableList<Ticket>) :
         holder.setEquipoRival(entradaList[position].rival)
         holder.setValor(entradaList[position].valor)
         holder.setTorneo(entradaList[position].titulo)
+
+        holder.getCardView().setOnClickListener {
+            onClick(position)
+        }
 
     }
 
