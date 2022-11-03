@@ -59,4 +59,9 @@
     <string name="compraOk2">En la seccion <b>mis entradas</b> podra observar el detalle de la misma</string>
     <string name="compraNotOk"> <b> Algo salió mal.</b> Revisa los datos e intentalo nuevamente</string>
     <string name="compraNotOkBtn">Volver a Comprar</string>
+    <string name="socio">Socio:</string>
+    <string name="valor">Valor:</string>
+    <string name="texto_vs">%1$s VS %2$s</string>
+    <string name="texto_fecha">%1$s/%2$s</string>
+    <string name="texto_nombre">%1$s %2$s</string>
 </resources>

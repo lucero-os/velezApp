@@ -157,7 +157,9 @@ class ConfirmarCompraViewModel : ViewModel() {
             "idSector" to ticket.idSector,
             "rival" to ticket.rival,
             "titulo" to ticket.titulo,
-            "valor" to ticket.valor
+            "valor" to ticket.valor,
+            "dia" to ticket.dia,
+            "mes" to ticket.mes
         )
         val ticketsRef = db.collection("tickets")
 
