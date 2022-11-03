@@ -17,7 +17,7 @@ class TicketDetailViewModel : ViewModel() {
         var ticket : Ticket? = null
 
         if(quedaLugar(idSector, partido)){
-            ticket = Ticket("Velez", partido.id, idUser, idSector, partido.rival, partido.torneo, valor)
+            ticket = Ticket("Velez", partido.id, idUser, idSector, partido.rival, partido.torneo, valor, partido.dia, partido.mes)
         }
 
         return ticket

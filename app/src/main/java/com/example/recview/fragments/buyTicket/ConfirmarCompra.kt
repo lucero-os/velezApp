@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import com.example.recview.R
 import com.example.recview.entities.Partido
@@ -78,8 +79,13 @@ class ConfirmarCompra : Fragment() {
             val d = debitCardNumber.text.toString()
             val c = cvv.text.toString()
 
-            val action = ConfirmarCompraDirections.actionConfirmarCompraToResultadoCompra(viewModel.comprar(d, c, partido, ticket),ticket, partido)
-            v.findNavController().navigate(action)
+            try{
+                viewModel.comprar(d, c, partido, ticket)
+                viewModel.compraExitosa.observe(viewLifecycleOwner, Observer { result ->
+                    val action = ConfirmarCompraDirections.actionConfirmarCompraToResultadoCompra(result,ticket, partido)
+                    v.findNavController().navigate(action)
+                })
+            }catch (e: Exception){}
         }
 
         cancelBtn.setOnClickListener {

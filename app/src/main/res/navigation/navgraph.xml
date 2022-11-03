@@ -49,7 +49,11 @@
         android:id="@+id/misEntradasFragment"
         android:name="com.example.recview.fragments.miPerfil.MisEntradasFragment"
         android:label="fragment_mis_entradas"
-        tools:layout="@layout/fragment_mis_entradas" />
+        tools:layout="@layout/fragment_mis_entradas" >
+        <action
+            android:id="@+id/action_misEntradasFragment_to_detalleEntrada"
+            app:destination="@id/detalleEntrada" />
+    </fragment>
     <fragment
         android:id="@+id/misPagosFragment"
         android:name="com.example.recview.fragments.miPerfil.MisPagosFragment"
@@ -110,5 +114,14 @@
         <argument
             android:name="partido"
             app:argType="com.example.recview.entities.Partido" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalleEntrada"
+        android:name="com.example.recview.fragments.miPerfil.DetalleEntrada"
+        android:label="fragment_detalle_entrada"
+        tools:layout="@layout/fragment_detalle_entrada" >
+        <argument
+            android:name="Ticket"
+            app:argType="com.example.recview.entities.Ticket" />
     </fragment>
 </navigation>

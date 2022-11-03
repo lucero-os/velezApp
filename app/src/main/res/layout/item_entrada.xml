@@ -41,7 +41,10 @@
                 android:textAllCaps="true"
                 android:textAppearance="?attr/textAppearanceHeadline6"
                 android:textColor="@color/velez"
-                android:textStyle="bold|italic" />
+                android:textStyle="bold|italic"
+                android:layout_gravity="center"
+                android:textSize="25dp"
+                />
 
             <TextView
                 android:id="@+id/fecha"
@@ -50,7 +53,8 @@
                 android:layout_marginTop="8dp"
                 android:text="01/02/2022"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="?android:attr/textColorSecondary" />
+                android:textColor="?android:attr/textColorSecondary"
+                android:layout_gravity="center"/>
 
             <TextView
                 android:id="@+id/torneo"
@@ -60,15 +64,20 @@
                 android:paddingBottom="5dp"
                 android:text="Campeonato Local"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="?android:attr/textColorSecondary" />
+                android:textColor="?android:attr/textColorSecondary"
+                android:layout_gravity="center"
+                android:textSize="20dp"/>
 
-            <Button
+            <TextView
                 android:id="@+id/btn_detalle"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/velez"
                 android:text="Ver Detalle"
-                app:cornerRadius="30dp" />
+                android:layout_gravity="center"
+                android:textColor="@color/velez"
+                android:textSize="15dp"
+                />
 
         </LinearLayout>
 

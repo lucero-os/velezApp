@@ -11,7 +11,7 @@
     <string name="titleEntradas">JUEGA VELEZ</string>
     <string name="vsTxt">X</string>
     <string name="sectorTxt">Sector:</string>
-    <string name="carritoBtnTxt">Agregar al Carrito</string>
+    <string name="carritoBtnTxt">Continuar con el pago</string>
     <string name="spinnerContentDesc">Sector</string>
     <string name="canchaVelezContentDesc">Cancha de Velez</string>
     <string name="ticketDetailTitle">Detalle de Entrada</string>
@@ -27,7 +27,7 @@
     <string name="homeSubtitle">Noticias</string>
     <string name="btnComprarTxt">Comprar</string>
     <string name="btnLogin">Ingresar</string>
-    <string name="signUpLogin">No tenés cuenta?</string>
+    <string name="signUpLogin">¿No tenés cuenta?</string>
     <string name="signUpBtn">Registrate</string>
     <string name="signUpTitle">Registrate</string>
     <string name="nombreSignUp">Nombre</string>
@@ -59,4 +59,23 @@
     <string name="compraOk2">En la seccion <b>mis entradas</b> podra observar el detalle de la misma</string>
     <string name="compraNotOk"> <b> Algo salió mal.</b> Revisa los datos e intentalo nuevamente</string>
     <string name="compraNotOkBtn">Volver a Comprar</string>
+    <string name="socio">Socio:</string>
+    <string name="valor">Valor:</string>
+    <string name="texto_vs">%1$s VS %2$s</string>
+    <string name="texto_fecha">%1$s/%2$s</string>
+    <string name="texto_nombre">%1$s %2$s</string>
+    <string name="logo_nombre">LOGO</string>
+    <string name="club">Club Atletico Velez Sarfield</string>
+    <string name="nombre_socio">Mauro Zarate</string>
+    <string name="numero_socio_text">Numero Socio:</string>
+    <string name="numero_socio_data">0000001</string>
+    <string name="validez_text">Validez</string>
+    <string name="validez_data">20/11/2050</string>
+    <string name="dni_data">30155215</string>
+    <string name="dni_text">DNI</string>
+    <string name="tipo_data">Pleno</string>
+    <string name="tipo_text">Tipo:</string>
+    <string name="qr">QR</string>
+    <string name="un_gran_club">UN GRAN CLUB</string>
+
 </resources>
