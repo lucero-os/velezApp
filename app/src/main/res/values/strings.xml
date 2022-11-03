@@ -11,7 +11,7 @@
     <string name="titleEntradas">JUEGA VELEZ</string>
     <string name="vsTxt">X</string>
     <string name="sectorTxt">Sector:</string>
-    <string name="carritoBtnTxt">Agregar al Carrito</string>
+    <string name="carritoBtnTxt">Continuar con el pago</string>
     <string name="spinnerContentDesc">Sector</string>
     <string name="canchaVelezContentDesc">Cancha de Velez</string>
     <string name="ticketDetailTitle">Detalle de Entrada</string>
