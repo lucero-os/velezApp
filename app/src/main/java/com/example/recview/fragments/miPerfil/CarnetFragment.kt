@@ -18,6 +18,8 @@ import com.example.recview.viewmodels.miPerfil.CarnetViewModel
 
 class CarnetFragment : Fragment() {
 
+
+
     companion object {
         fun newInstance() = CarnetFragment()
     }
