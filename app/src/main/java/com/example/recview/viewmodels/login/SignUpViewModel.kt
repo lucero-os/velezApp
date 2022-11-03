@@ -19,46 +19,27 @@ class SignUpViewModel : ViewModel() {
     var signUpResult : MutableLiveData<Boolean> = MutableLiveData()
 
     fun signUp(name: String, lastname: String, email: String, dni: Int, password: String){
-        //TODO: Primero deberia generarse el auth, luego obtener el uid del FirebaseUser y utilizarlo para generar el registro en "usuarios"
 
         viewModelScope.launch {
-            var createResult : Boolean = newUser(name, lastname, email, dni, password)
+            //Contrasena debe tener 6 caracteres o mas
+            val newUser = hashMapOf(
+                    "nombre" to name,
+                    "apellido" to lastname,
+                    "email" to email,
+                    "dni" to dni )
+            try{
+                //Genero FirebaseUser
+                auth.createUserWithEmailAndPassword(email, password).await()
+                Log.d(ContentValues.TAG, "New user uid" + auth.currentUser!!.uid)
+                //Uso uid generado para registrar usuario
+                db.collection("usuarios").document(auth.currentUser!!.uid).set(newUser).await()
+                Log.d(ContentValues.TAG, "Auth user written")
 
-            if(createResult){
-                try{
-                    auth.createUserWithEmailAndPassword(email, password).await()
-                    Log.d(ContentValues.TAG, "Auth user written")
-                    signUpResult.value = true
-                }catch( e: Exception){
-                    Log.d(ContentValues.TAG, "Error writing auth user" + e)
-                    signUpResult.value = false
-                }
-            }else{
+                signUpResult.value = true
+            }catch( e: Exception){
+                Log.d(ContentValues.TAG, "Error writing auth user" + e)
                 signUpResult.value = false
             }
         }
     }
-    //Contrasena debe tener 6 caracteres o mas
-    suspend fun newUser( name: String, lastname: String, email: String,dni: Int,password: String ) : Boolean {
-
-//        var newUser = User(false, lastname, dni,"", email,"",null, name,"",false)
-        val newUser = hashMapOf(
-            "nombre" to name,
-            "apellido" to lastname,
-            "email" to email,
-            "dni" to dni
-        )
-
-        val usersRef = db.collection("usuarios")
-
-        return try {
-            usersRef.add(newUser).await()
-            Log.d(ContentValues.TAG, "DocumentSnapshot written")
-            true
-        }catch (e: Exception) {
-            Log.w(ContentValues.TAG, "Error adding document", e)
-            false
-        }
-    }
-
 }

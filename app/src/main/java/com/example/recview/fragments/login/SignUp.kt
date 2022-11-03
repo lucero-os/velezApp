@@ -50,15 +50,14 @@ class SignUp : Fragment() {
 //            }else{
 //                Log.d("no paso", name)
 //            }
-            var name = binding.inputName.text.toString()
-            var lastname = binding.inputLastname.text.toString()
-            var email = binding.inputEmail.text.toString()
-            var dni = binding.inputDni.text.toString().toInt()
-            var pass = binding.inputPassword.text.toString()
-            var terms = binding.inputTerms.text.toString()
+            val name = binding.inputName.text.toString()
+            val lastname = binding.inputLastname.text.toString()
+            val email = binding.inputEmail.text.toString()
+            val dni = binding.inputDni.text.toString().toInt()
+            val pass = binding.inputPassword.text.toString()
+            val terms = binding.inputTerms.text.toString()
 
             viewModel.signUp(name, lastname, email, dni, pass)
-
         }
 
         viewModel.signUpResult.observe( viewLifecycleOwner, Observer {
