@@ -27,7 +27,7 @@ class HaceteSocioFragment : Fragment() {
     lateinit var haceteSocioCelular: TextView
     lateinit var checkBoxTermsHaceteSocio: CheckBox
 
-    private var correo: Array<String> = arrayOf("ivanra48@gmail.com")
+    private var correo: Array<String> = arrayOf("solicitudSocio@velez.com.ar")
 
     companion object {
         fun newInstance() = HaceteSocioFragment()
@@ -70,7 +70,7 @@ class HaceteSocioFragment : Fragment() {
             if(checkBoxTermsHaceteSocio.isChecked){
                 try {
                     if (validacionCampos) {
-                        solicitudSocio = haceteSocioNombre.text.toString() + "\n" + haceteSocioApellido.text.toString() +  "\n" + haceteSocioMail.text.toString() + "\n" + haceteSocioDni.text.toString() + "\n" + haceteSocioCelular.text.toString()
+                        solicitudSocio ="Solicitud de socio #000001"+ "\n\n" + "Nombre: " + haceteSocioNombre.text.toString() + "\n" + "Apellido: " + haceteSocioApellido.text.toString() +  "\n"+ "Email: " + haceteSocioMail.text.toString() + "\n"+ "Dni: " + haceteSocioDni.text.toString() + "\n"+ "Celular: " + haceteSocioCelular.text.toString()
                         val intent = Intent(Intent.ACTION_SENDTO).apply {
                             data = Uri.parse("mailto:") // only email apps should handle this
                             putExtra(Intent.EXTRA_EMAIL, correo)
