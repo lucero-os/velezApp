@@ -2,11 +2,14 @@ package com.example.recview.fragments.login
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.recview.R
 import com.example.recview.databinding.FragmentSignUpBinding
@@ -17,21 +20,16 @@ class SignUp : Fragment() {
     companion object {
         fun newInstance() = SignUp()
     }
-    private lateinit var viewModel: SignUpViewModel
-//    private lateinit var v: View
-//    private lateinit var registrarseBtn: Button
-
     //Implement binding
     private var _binding : FragmentSignUpBinding? = null
     private val binding get() = _binding!!
+
+    private lateinit var viewModel: SignUpViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-//        v = inflater.inflate(R.layout.fragment_sign_up, container, false)
-//        registrarseBtn = v.findViewById(R.id.registrarseButton)
-//        return v
         _binding = FragmentSignUpBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -46,9 +44,38 @@ class SignUp : Fragment() {
         super.onStart()
 
         binding.registrarseBtn.setOnClickListener {
-            val action = SignUpDirections.actionSignUpToLogin()
-            findNavController().navigate(action)
+//            if(validateForm(name, lastname, email, dni, cellphone, pass)) {
+//                Log.d("paso", name)
+//
+//            }else{
+//                Log.d("no paso", name)
+//            }
+            var name = binding.inputName.text.toString()
+            var lastname = binding.inputLastname.text.toString()
+            var email = binding.inputEmail.text.toString()
+            var dni = binding.inputDni.text.toString().toInt()
+            var pass = binding.inputPassword.text.toString()
+            var terms = binding.inputTerms.text.toString()
+
+            viewModel.signUp(name, lastname, email, dni, pass)
+
         }
+
+        viewModel.signUpResult.observe( viewLifecycleOwner, Observer {
+            if(it){
+                val action = SignUpDirections.actionSignUpToLogin()
+                findNavController().navigate(action)
+            }
+        })
+    }
+    //TODO: FALTA VALIDAR TERMINOS Y CONDICIONES, QUE TIPO DE DATO ES????
+    fun validateForm(name: String, lastname: String,  email: String, dni: String, password: String) : Boolean {
+        return name.isNotEmpty() &&
+                lastname.isNotEmpty() &&
+                email.isNotEmpty() &&
+                dni.isNotEmpty() &&
+                password.isNotEmpty()
+//                && terms.isNotEmpty()
     }
 
     override fun onDestroyView() {

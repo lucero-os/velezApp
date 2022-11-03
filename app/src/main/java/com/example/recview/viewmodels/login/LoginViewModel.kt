@@ -20,8 +20,12 @@ class LoginViewModel : ViewModel() {
                 user.value = auth.currentUser
             }
             .addOnFailureListener {
-                Log.d(TAG, "signInWithEmail:error")
+                Log.d(TAG, "signInWithEmail:error" + it)
             }
+    }
+
+    fun logout(){
+        auth.signOut()
     }
 
 }

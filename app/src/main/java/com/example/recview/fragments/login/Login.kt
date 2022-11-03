@@ -1,6 +1,8 @@
 package com.example.recview.fragments.login
 
+import android.content.ContentValues
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -48,10 +50,9 @@ class Login : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        //TODO: Verificar si esto sirve para pasar directamente de pantalla si el usuario
-        // ya se encuentra registrado
         viewModel.user.observe( viewLifecycleOwner, Observer {
             if(it != null){
+                Log.d(ContentValues.TAG, "Auth user loggued" + it.uid)
                 val action = LoginDirections.actionLoginToMainActivity2()
                 v.findNavController().navigate(action)
             }
