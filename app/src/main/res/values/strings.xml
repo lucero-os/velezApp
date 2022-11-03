@@ -73,8 +73,8 @@
     <string name="validez_data">20/11/2050</string>
     <string name="dni_data">30155215</string>
     <string name="dni_text">DNI</string>
-    <string name="tipo_data">30155215</string>
-    <string name="tipo_text">DNI</string>
+    <string name="tipo_data">Tipo:</string>
+    <string name="tipo_text">Pleno</string>
     <string name="qr">QR</string>
     <string name="un_gran_club">UN GRAN CLUB</string>
 
