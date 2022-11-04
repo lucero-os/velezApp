@@ -104,7 +104,7 @@ class SignUp : Fragment() {
         return name.isNotEmpty() &&
                 lastname.isNotEmpty() &&
                 pattern.matcher(email).matches() &&
-                (dni.absoluteValue.toString().length in 7..8) &&
+                (dni.absoluteValue.toString().length >= 7 && dni.absoluteValue.toString().length <= 8 ) &&
                 phone.isNotEmpty() &&
                 (pass.length >= 6) &&
                 pass == passCheck
