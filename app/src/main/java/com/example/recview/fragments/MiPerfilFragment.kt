@@ -65,6 +65,12 @@ class MiPerfilFragment : Fragment() {
 
         }
 
+        InfoYNovedades.setOnClickListener {
+            val openURL = Intent(Intent.ACTION_VIEW)
+            openURL.data = Uri.parse("https://velez.com.ar/futbol")
+            startActivity(openURL)
+        }
+
         btnCarnet.setOnClickListener {
             val action = MiPerfilFragmentDirections.actionMiPerfilFragmentToCarnetFragment()
             v.findNavController().navigate(action)
