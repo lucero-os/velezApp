@@ -1,6 +1,7 @@
 package com.example.recview.fragments.login
 
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
@@ -14,8 +15,20 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.recview.R
 import com.example.recview.databinding.FragmentSignUpBinding
+import com.example.recview.entities.Partido
+import com.example.recview.entities.Ticket
+import com.example.recview.entities.User
+import com.example.recview.entities.UserSingleton
 import com.example.recview.viewmodels.login.SignUpViewModel
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.toObject
+import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
 import java.util.regex.Pattern
 import kotlin.math.absoluteValue
 
@@ -32,6 +45,8 @@ class SignUp : Fragment() {
     lateinit var passCheck: TextView
     lateinit var phone: TextView
     lateinit var terms: CheckBox
+    private val db = Firebase.firestore
+    private var miUser : MutableList<User> = mutableListOf()
 
     companion object {
         fun newInstance() = SignUp()
@@ -66,8 +81,12 @@ class SignUp : Fragment() {
         super.onStart()
         val contextView = v
 
+        val scope = CoroutineScope(
+            Job() + Dispatchers.Main
+        )
+
         btnRegistrarse.setOnClickListener() {
-//
+
             val name = name.text.toString()
             val lastname = lastname.text.toString()
             val email = email.text.toString()
@@ -82,12 +101,13 @@ class SignUp : Fragment() {
             val terms = terms.isChecked
 
             try{
-                if (validateForm(name,lastname,email,dni,pass,passCheck,phone) && terms){
-                    viewModel.signUp(name, lastname, email, dni, pass, phone)
-                }else{
-                    Snackbar.make(contextView,"Debe completar todos los datos solicitados y aceptar terminos y condiciones",Snackbar.LENGTH_SHORT).show()
+                scope.launch {
+                    if (validateForm(name,lastname,email,dni,pass,passCheck,phone) && terms && checkDni(dni)){
+                        viewModel.signUp(name, lastname, email, dni, pass, phone)
+                    }else{
+                        Snackbar.make(contextView,"Debe completar todos los datos solicitados y aceptar terminos y condiciones",Snackbar.LENGTH_SHORT).show()
+                    }
                 }
-
             }catch (e: Exception){}
         }
 
@@ -108,5 +128,25 @@ class SignUp : Fragment() {
                 phone.isNotEmpty() &&
                 (pass.length >= 6) &&
                 pass == passCheck
+    }
+
+    suspend fun checkDni(dni : Int) : Boolean{
+        val usersRef = db.collection("usuarios")
+        var state : Boolean = false
+        miUser.clear()
+
+        try{
+            val usuario = usersRef.whereEqualTo("dni", dni).get().await()
+
+            for (document in usuario) {
+                miUser.add(document.toObject<User>())
+                Log.d("Ticket", miUser[0].toString())
+            }
+            state = miUser.isEmpty()
+        }
+        catch (e: Exception){
+
+        }
+    return state
     }
 }
