@@ -5,7 +5,6 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.recview.entities.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
@@ -18,7 +17,14 @@ class SignUpViewModel : ViewModel() {
     private val auth: FirebaseAuth = Firebase.auth
     var signUpResult : MutableLiveData<Boolean> = MutableLiveData()
 
-    fun signUp(name: String, lastname: String, email: String, dni: Int, password: String){
+    fun signUp(
+        name: String,
+        lastname: String,
+        email: String,
+        dni: Int,
+        password: String,
+        phone: String
+    ){
 
         viewModelScope.launch {
             //Contrasena debe tener 6 caracteres o mas
@@ -26,6 +32,7 @@ class SignUpViewModel : ViewModel() {
                     "nombre" to name,
                     "apellido" to lastname,
                     "email" to email,
+                    "telefono" to phone,
                     "dni" to dni )
             try{
                 //Genero FirebaseUser

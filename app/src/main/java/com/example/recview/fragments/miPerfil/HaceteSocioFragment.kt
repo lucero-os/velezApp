@@ -54,7 +54,6 @@ class HaceteSocioFragment : Fragment() {
         super.onStart()
         btnHaceteSocio.setOnClickListener(){
             val contextView = v
-            val packageManager = requireActivity().packageManager
 
             val nombre = haceteSocioNombre.text.toString()
             val apellido = haceteSocioApellido.text.toString()
@@ -77,9 +76,8 @@ class HaceteSocioFragment : Fragment() {
                             putExtra(Intent.EXTRA_SUBJECT, "solicitud de socio")
                             putExtra(Intent.EXTRA_TEXT, solicitudSocio)
                         }
-                        if (intent.resolveActivity(packageManager) != null) {
-                            startActivity(intent)
-                        }
+                        startActivity(intent)
+
                     } else {
                         Snackbar.make(contextView,"Debe completar todos los datos solicitados",Snackbar.LENGTH_SHORT).show()
                     }

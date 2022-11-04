@@ -36,6 +36,7 @@
     <string name="emailSignUp">Email</string>
     <string name="celularSignUp">Celular</string>
     <string name="passwordSignUp">Contraseña</string>
+    <string name="passwordSignUpCheck">Repita contraseña</string>
     <string name="termsSignUp">Acepto los términos y condiciones</string>
     <string name="registrarseBtn">Registrarse</string>
     <string name="debAu">Deseo débito automático</string>
