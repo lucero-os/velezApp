@@ -39,7 +39,7 @@ class MiPerfilFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         v =                 inflater.inflate(R.layout.fragment_mi_perfil, container, false)
         btnCarnet =         v.findViewById(R.id.btnMiPerfilToCarnet)
         btnMisEntradas =    v.findViewById(R.id.btnMiPerfilToMisEntradas)
@@ -60,7 +60,7 @@ class MiPerfilFragment : Fragment() {
 
         btnCerrarSesion.setOnClickListener {
             Firebase.auth.signOut()
-            val action = MiPerfilFragmentDirections.actionMiPerfilFragmentToCarnetFragment()
+            val action = MiPerfilFragmentDirections.actionMiPerfilFragmentToLoginActivity()
             v.findNavController().navigate(action)
 
         }
