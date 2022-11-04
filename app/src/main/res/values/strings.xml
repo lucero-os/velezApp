@@ -78,5 +78,6 @@
     <string name="tipo_text">Tipo:</string>
     <string name="qr">QR</string>
     <string name="un_gran_club">UN GRAN CLUB</string>
+    <string name="fecha_nac">Fecha de nacimiento</string>
 
 </resources>
