@@ -18,6 +18,7 @@ import com.example.recview.adapters.PartidosAdapter
 import com.example.recview.entities.EntradaHist
 import com.example.recview.entities.Partido
 import com.example.recview.entities.Ticket
+import com.example.recview.entities.UserSingleton
 import com.example.recview.fragments.VentaEntradasFragmentDirections
 import com.example.recview.viewmodels.miPerfil.MisEntradasViewModel
 
@@ -58,7 +59,7 @@ class MisEntradasFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        viewModel.getTickets(36397441)
+        viewModel.getTickets(UserSingleton.getDni())
 
 
         recyclerView.setHasFixedSize(true)

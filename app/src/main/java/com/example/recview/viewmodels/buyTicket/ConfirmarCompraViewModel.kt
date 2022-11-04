@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.recview.entities.Partido
 import com.example.recview.entities.Ticket
+import com.example.recview.entities.UserSingleton
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
@@ -103,15 +104,13 @@ class ConfirmarCompraViewModel : ViewModel() {
 
     }
 
-
-    // TODO: Hay que agregar el DNI del usuario logueado (cuando lo tengamos implementado)
     suspend fun validarSiYaCompro(partido: Partido) : Boolean{
         val ticketsRef = db.collection("tickets")
         var state : Boolean = false
         miTicket.clear()
 
         try {
-            val ticketsPartido = ticketsRef.whereEqualTo("idPartido", partido.id).whereEqualTo("idUser", 36397441).get().await()
+            val ticketsPartido = ticketsRef.whereEqualTo("idPartido", partido.id).whereEqualTo("idUser", UserSingleton.getDni()).get().await()
 
                 for (document in ticketsPartido) {
                     miTicket.add(document.toObject<Ticket>())

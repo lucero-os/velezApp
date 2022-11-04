@@ -63,6 +63,8 @@ dependencies {
     // Declare the dependency for the Cloud Firestore library
     implementation 'com.google.firebase:firebase-firestore-ktx'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.1.1'
-
+    // Add the dependency for the Firebase Authentication library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-auth-ktx'
     //implementation "androidx.navigation:navigation-safe-args-gradle-plugin:2.5.2"
 }

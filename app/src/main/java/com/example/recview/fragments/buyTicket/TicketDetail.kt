@@ -14,6 +14,7 @@ import androidx.navigation.findNavController
 import com.example.recview.R
 import com.example.recview.activities.MainActivity
 import com.example.recview.entities.Partido
+import com.example.recview.entities.UserSingleton
 import com.example.recview.viewmodels.buyTicket.TicketDetailViewModel
 import com.google.android.material.snackbar.Snackbar
 
@@ -71,7 +72,7 @@ class TicketDetail : Fragment() {
 
         agregarCarritoBtn.setOnClickListener {
 
-            var ticket = viewModel.generateTicket(true, partido, spinner.selectedItem.toString(), 36397441)
+            var ticket = viewModel.generateTicket(true, partido, spinner.selectedItem.toString(), UserSingleton.getDni())
 
             if(ticket != null){
                 val action = TicketDetailDirections.actionTicketDetailToConfirmarCompra(ticket, partido)

@@ -36,6 +36,7 @@
     <string name="emailSignUp">Email</string>
     <string name="celularSignUp">Celular</string>
     <string name="passwordSignUp">Contraseña</string>
+    <string name="passwordSignUpCheck">Repita contraseña</string>
     <string name="termsSignUp">Acepto los términos y condiciones</string>
     <string name="registrarseBtn">Registrarse</string>
     <string name="debAu">Deseo débito automático</string>
@@ -77,5 +78,6 @@
     <string name="tipo_text">Tipo:</string>
     <string name="qr">QR</string>
     <string name="un_gran_club">UN GRAN CLUB</string>
+    <string name="fecha_nac">Fecha de nacimiento</string>
 
 </resources>

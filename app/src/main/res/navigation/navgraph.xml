@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_miPerfilFragment_to_ventaEntradasFragment"
             app:destination="@id/ventaEntradasFragment" />
+        <action
+            android:id="@+id/action_miPerfilFragment_to_loginActivity"
+            app:destination="@id/loginActivity" />
     </fragment>
     <fragment
         android:id="@+id/ventaEntradasFragment"
@@ -124,4 +127,9 @@
             android:name="Ticket"
             app:argType="com.example.recview.entities.Ticket" />
     </fragment>
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.example.recview.activities.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
 </navigation>
