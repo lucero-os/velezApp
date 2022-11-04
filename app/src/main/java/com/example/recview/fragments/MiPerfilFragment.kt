@@ -62,7 +62,6 @@ class MiPerfilFragment : Fragment() {
             Firebase.auth.signOut()
             val action = MiPerfilFragmentDirections.actionMiPerfilFragmentToLoginActivity()
             v.findNavController().navigate(action)
-
         }
 
         InfoYNovedades.setOnClickListener {
