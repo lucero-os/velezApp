@@ -17,6 +17,8 @@ import com.example.recview.entities.User
 import com.example.recview.entities.UserSingleton
 import com.example.recview.fragments.VentaEntradasFragmentDirections
 import com.example.recview.viewmodels.miPerfil.CarnetViewModel
+import kotlin.random.Random
+
 
 class CarnetFragment : Fragment() {
 
@@ -27,6 +29,9 @@ class CarnetFragment : Fragment() {
     }
     lateinit var v: View
     lateinit var nombreSocio: TextView
+    lateinit var numeroSocio: TextView
+    lateinit var validez: TextView
+    lateinit var dni: TextView
 
 
     private val viewModel: CarnetViewModel by viewModels()
@@ -37,6 +42,9 @@ class CarnetFragment : Fragment() {
     ): View {
        v = inflater.inflate(R.layout.fragment_carnet, container, false)
         nombreSocio = v.findViewById(R.id.nombre_socio)
+        numeroSocio = v.findViewById(R.id.numero_socio_data)
+        validez = v.findViewById(R.id.validez_data)
+        dni= v.findViewById(R.id.dni_data)
         return v
     }
 
@@ -51,6 +59,7 @@ class CarnetFragment : Fragment() {
         super.onStart()
 
         nombreSocio.text = UserSingleton.getNombre() + " " + UserSingleton.getApellido()
+        dni.text = UserSingleton.getDni().toString()
 
     }
 
