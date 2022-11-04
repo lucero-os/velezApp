@@ -14,11 +14,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.recview.R
-import com.example.recview.databinding.FragmentSignUpBinding
-import com.example.recview.entities.Partido
-import com.example.recview.entities.Ticket
 import com.example.recview.entities.User
-import com.example.recview.entities.UserSingleton
 import com.example.recview.viewmodels.login.SignUpViewModel
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.ktx.firestore
@@ -117,6 +113,7 @@ class SignUp : Fragment() {
                 findNavController().navigate(action)
             }
         })
+
     }
 
     fun validateForm(name: String, lastname: String, email: String, dni: Int, pass : String, passCheck : String, phone : String) : Boolean {
