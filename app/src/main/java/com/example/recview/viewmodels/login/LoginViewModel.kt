@@ -22,16 +22,7 @@ class LoginViewModel : ViewModel() {
         auth.signInWithEmailAndPassword(email, pass)
             .addOnSuccessListener{
                 Log.d(TAG, "signInWithEmail:success")
-                val usersRef = db.collection("usuarios")
-                val currentU = auth.currentUser
-                if(currentU != null){
-                    usersRef.document("/${currentU.uid}").get().addOnSuccessListener {
-                        Log.d("uid", currentU.uid)
-                        UserSingleton.setUser(it.toObject<User>())
-                        Log.d("usuario", UserSingleton.getDni().toString())
-                        user.value = auth.currentUser
-                    }
-                }
+                user.value = auth.currentUser
             }
             .addOnFailureListener {
                 Log.d(TAG, "signInWithEmail:error" + it)
