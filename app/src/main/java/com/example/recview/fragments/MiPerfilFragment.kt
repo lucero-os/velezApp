@@ -11,6 +11,8 @@ import android.widget.Button
 import androidx.navigation.findNavController
 import com.example.recview.R
 import com.example.recview.viewmodels.miPerfil.MiPerfilViewModel
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class MiPerfilFragment : Fragment() {
 
@@ -55,6 +57,13 @@ class MiPerfilFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
+
+        btnCerrarSesion.setOnClickListener {
+            Firebase.auth.signOut()
+            val action = MiPerfilFragmentDirections.actionMiPerfilFragmentToCarnetFragment()
+            v.findNavController().navigate(action)
+
+        }
 
         btnCarnet.setOnClickListener {
             val action = MiPerfilFragmentDirections.actionMiPerfilFragmentToCarnetFragment()

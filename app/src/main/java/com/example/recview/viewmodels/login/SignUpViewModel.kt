@@ -14,7 +14,7 @@ import kotlinx.coroutines.tasks.await
 
 class SignUpViewModel : ViewModel() {
     private val db = Firebase.firestore
-    private val auth: FirebaseAuth = Firebase.auth
+    val auth: FirebaseAuth = Firebase.auth
     var signUpResult : MutableLiveData<Boolean> = MutableLiveData()
 
     fun signUp(
