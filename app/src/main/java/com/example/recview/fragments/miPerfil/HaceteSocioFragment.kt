@@ -11,6 +11,8 @@ import android.widget.CheckBox
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.recview.R
+import com.example.recview.entities.User
+import com.example.recview.entities.UserSingleton
 import com.example.recview.viewmodels.miPerfil.HaceteSocioViewModel
 import com.google.android.material.snackbar.Snackbar
 
@@ -52,6 +54,9 @@ class HaceteSocioFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
+
+        rellenarSolicitud(UserSingleton)
+
         btnHaceteSocio.setOnClickListener(){
             val contextView = v
 
@@ -101,4 +106,11 @@ class HaceteSocioFragment : Fragment() {
         return state
     }
 
+    private fun rellenarSolicitud(user: UserSingleton){
+        haceteSocioNombre.text = user.getNombre()
+        haceteSocioApellido.text = user.getApellido()
+        haceteSocioMail.text = user.getEmail()
+        haceteSocioDni.text = user.getDni().toString()
+        haceteSocioCelular.text = user.getTelefono()
+    }
 }
