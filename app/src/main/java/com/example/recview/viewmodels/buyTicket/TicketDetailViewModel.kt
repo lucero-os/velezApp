@@ -11,21 +11,21 @@ import kotlin.properties.Delegates
 class TicketDetailViewModel : ViewModel() {
 
 
-    fun generateTicket(isSocio: Boolean, partido: Partido, idSector : String, idUser: Int) : Ticket?{
+    fun generateTicket(isSocio: Boolean, partido: Partido, idSector : String, idUser: Int?) : Ticket?{
 
         var valor : Double = generateValor(isSocio)
         var ticket : Ticket? = null
 
         if(quedaLugar(idSector, partido)){
-            ticket = Ticket("Velez", partido.id, idUser, idSector, partido.rival, partido.torneo, valor, partido.dia, partido.mes)
+            if(idUser != null){
+                ticket = Ticket("Velez", partido.id, idUser, idSector, partido.rival, partido.torneo, valor, partido.dia, partido.mes)
+            }
         }
 
         return ticket
     }
 
     private fun generateValor(isSocio: Boolean) : Double{
-        Log.d(ContentValues.TAG, "ES SOCIO?" + isSocio)
-
         var valor : Double = if(isSocio){
             1000.0
         } else{

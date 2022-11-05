@@ -36,6 +36,7 @@
     <string name="emailSignUp">Email</string>
     <string name="celularSignUp">Celular</string>
     <string name="passwordSignUp">Contraseña</string>
+    <string name="passwordSignUpCheck">Repita contraseña</string>
     <string name="termsSignUp">Acepto los términos y condiciones</string>
     <string name="registrarseBtn">Registrarse</string>
     <string name="debAu">Deseo débito automático</string>
@@ -64,4 +65,19 @@
     <string name="texto_vs">%1$s VS %2$s</string>
     <string name="texto_fecha">%1$s/%2$s</string>
     <string name="texto_nombre">%1$s %2$s</string>
+    <string name="logo_nombre">LOGO</string>
+    <string name="club">Club Atletico Velez Sarfield</string>
+    <string name="nombre_socio">Mauro Zarate</string>
+    <string name="numero_socio_text">Numero Socio:</string>
+    <string name="numero_socio_data">0000001</string>
+    <string name="validez_text">Validez</string>
+    <string name="validez_data">20/11/2050</string>
+    <string name="dni_data">30155215</string>
+    <string name="dni_text">DNI</string>
+    <string name="tipo_data">Pleno</string>
+    <string name="tipo_text">Tipo:</string>
+    <string name="qr">QR</string>
+    <string name="un_gran_club">UN GRAN CLUB</string>
+    <string name="fecha_nac">Fecha de nacimiento</string>
+
 </resources>

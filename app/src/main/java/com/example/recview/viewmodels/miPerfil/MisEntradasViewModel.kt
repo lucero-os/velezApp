@@ -19,13 +19,13 @@ class MisEntradasViewModel : ViewModel() {
     // Access a Cloud Firestore instance from your Activity
     private val db = Firebase.firestore
 
-    fun getTickets(dni: Int){
+    fun getTickets(dni: Int?){
         viewModelScope.launch {
             tickets.value = getMisTickets(dni).toMutableList()
         }
     }
 
-    private suspend fun getMisTickets(dni: Int): List<Ticket> {
+    private suspend fun getMisTickets(dni: Int?): List<Ticket> {
 
         var ticketList = arrayListOf<Ticket>()
         val ticketRef = db.collection("tickets")

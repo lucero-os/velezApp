@@ -11,6 +11,8 @@ import android.widget.Button
 import androidx.navigation.findNavController
 import com.example.recview.R
 import com.example.recview.viewmodels.miPerfil.MiPerfilViewModel
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class MiPerfilFragment : Fragment() {
 
@@ -37,7 +39,7 @@ class MiPerfilFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         v =                 inflater.inflate(R.layout.fragment_mi_perfil, container, false)
         btnCarnet =         v.findViewById(R.id.btnMiPerfilToCarnet)
         btnMisEntradas =    v.findViewById(R.id.btnMiPerfilToMisEntradas)
@@ -55,6 +57,18 @@ class MiPerfilFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
+
+        btnCerrarSesion.setOnClickListener {
+            Firebase.auth.signOut()
+            val action = MiPerfilFragmentDirections.actionMiPerfilFragmentToLoginActivity()
+            v.findNavController().navigate(action)
+        }
+
+        InfoYNovedades.setOnClickListener {
+            val openURL = Intent(Intent.ACTION_VIEW)
+            openURL.data = Uri.parse("https://velez.com.ar/futbol")
+            startActivity(openURL)
+        }
 
         btnCarnet.setOnClickListener {
             val action = MiPerfilFragmentDirections.actionMiPerfilFragmentToCarnetFragment()
