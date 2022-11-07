@@ -80,5 +80,6 @@
     <string name="un_gran_club">UN GRAN CLUB</string>
     <string name="fecha_nac">Fecha de nacimiento</string>
     <string name="codigo_text">Codigo de compra</string>
+    <string name="email">Email</string>
 
 </resources>
