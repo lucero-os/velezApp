@@ -13,6 +13,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import com.example.recview.R
 import com.example.recview.viewmodels.login.LoginViewModel
+import com.google.android.material.snackbar.Snackbar
 
 class Login : Fragment() {
 
@@ -40,11 +41,7 @@ class Login : Fragment() {
         return v
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-//        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
+
 
     override fun onStart() {
         super.onStart()
@@ -62,11 +59,14 @@ class Login : Fragment() {
         }
 
         loginBtn.setOnClickListener {
+            val contextView = v
             val email = userEmail.text.toString()
             val pass = userPass.text.toString()
 
             if(!email.isNullOrEmpty() && !pass.isNullOrEmpty()){
                 viewModel.login(email, pass)
+            }else{
+                Snackbar.make(contextView, "Email o Contraseña incorrectos, intente de nuevo",Snackbar.LENGTH_LONG).show()
             }
         }
     }
