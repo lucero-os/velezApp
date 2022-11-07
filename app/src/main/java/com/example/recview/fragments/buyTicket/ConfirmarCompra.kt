@@ -63,11 +63,7 @@ class ConfirmarCompra : Fragment() {
         return v
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(ConfirmarCompraViewModel::class.java)
-
-    }
+    
 
     override fun onStart() {
         super.onStart()
@@ -101,6 +97,6 @@ class ConfirmarCompra : Fragment() {
         equipos.text = ticket.equipo + " VS " + ticket.rival
         sector.text = "Sector: " + ticket.idSector
         valor.text = "Precio: $" + ticket.valor.toString()
-        code.text ="Codigo de compra: #" + Random(123).nextInt(10000000).toString()
+        code.text ="Operacion: #" + Random(123).nextInt(10000000).toString()
     }
 }
