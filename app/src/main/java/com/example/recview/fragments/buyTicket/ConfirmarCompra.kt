@@ -165,7 +165,7 @@ class ConfirmarCompra : Fragment() {
         }
 
         if (mes.toString().toInt() in 1..12){
-            if ( mes.toString().toInt() >= month && anio.toString().toInt() >=year){
+            if (anio.toString().toInt() >=year){
                 cardDate.error=null
                 cardDate.isFocusable= false
                 return true
