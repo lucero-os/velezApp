@@ -21,6 +21,7 @@ import com.example.recview.activities.MainActivity
 import com.example.recview.adapters.PartidosAdapter
 import com.example.recview.entities.Partido
 import com.example.recview.viewmodels.VentaEntradasViewModel
+import com.google.android.material.snackbar.Snackbar
 
 class VentaEntradasFragment : Fragment() {
 
@@ -62,12 +63,25 @@ class VentaEntradasFragment : Fragment() {
         linearLayoutManager = LinearLayoutManager(context)
         recPartidos.layoutManager = linearLayoutManager
 
+
         viewModel.partidos.observe(viewLifecycleOwner, Observer { result ->
             partidos = result.toMutableList()
             progessBar.visibility = View.GONE
             partidosAdapter = PartidosAdapter(partidos) { pos ->
-                val action = VentaEntradasFragmentDirections.actionVentaEntradasFragmentToTicketDetail(partidos[pos])
-                v.findNavController().navigate(action)
+
+                viewModel.yaCompro(partidos[pos])
+
+                viewModel.poseeEntrada.observe(viewLifecycleOwner, Observer {
+
+                    if(it){
+                        Snackbar.make(v, "Ya posee entrada para este partido.",
+                            Snackbar.LENGTH_LONG).show()
+                    }
+                    else {
+                        val action = VentaEntradasFragmentDirections.actionVentaEntradasFragmentToTicketDetail(partidos[pos])
+                        v.findNavController().navigate(action)
+                    }
+                })
             }
 
             recPartidos.adapter = partidosAdapter
