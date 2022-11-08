@@ -24,32 +24,7 @@ class ConfirmarCompraViewModel : ViewModel() {
     private var miTicket : MutableList<Ticket> = mutableListOf()
     var compraExitosa = MutableLiveData<Boolean>()
 
-    object DebitCardConstants {
-        const val DEBIT_CARD_LENGTH = 12
-        const val CVV_LENGTH = 3
-    }
-
-    //fun resultadoCompra(debitCardNumber: String, cvv: String): Boolean{
-        //hay que investigar tema fechas y su validación
-        //return validateCard(debitCardNumber, cvv)
-    //}
-
-    private fun validateCard(debitCardNumber: String, cvv: String): Boolean{
-
-        return validateDebitCardNumber(debitCardNumber) && validateCvv(cvv)
-    }
-
-    private fun validateDebitCardNumber(debitCardNumber: String) : Boolean{
-
-        return debitCardNumber.length == DebitCardConstants.DEBIT_CARD_LENGTH
-    }
-
-    private fun validateCvv(cvv: String) : Boolean{
-
-        return cvv.length == DebitCardConstants.CVV_LENGTH
-    }
-
-    private suspend fun checkDisponibilidad(partido: Partido, ticket: Ticket): Boolean{
+   private suspend fun checkDisponibilidad(partido: Partido, ticket: Ticket): Boolean{
         var cantidad = 0
         val partidosRef = db.collection("partidos")
         var resultado = false
@@ -225,30 +200,21 @@ class ConfirmarCompraViewModel : ViewModel() {
         return miPartido[0]
     }
 
-    fun comprar(debitCardNumber: String, cvv: String, partido: Partido, ticket: Ticket) {
+    fun comprar( partido: Partido, ticket: Ticket) {
 
         viewModelScope.launch {
             try {
                 var rtdo2 = validarSiYaCompro(partido)
                 if (!rtdo2) {
-                    rtdo2 = validateCard(debitCardNumber, cvv)
-                    Log.d("RESULTADO_CARD", rtdo2.toString())
-
-                    if (rtdo2) {
-
                         rtdo2 = checkDisponibilidad(partido, ticket)
-                        Log.d("RESULTADO_DISP", rtdo2.toString())
 
                         if (rtdo2) {
-                            confirmarCompra(partido, ticket)
-                            compraExitosa.value = true
-                            Log.d("RESULTADO_COMPRA", rtdo2.toString())
+                                confirmarCompra(partido, ticket)
+                                compraExitosa.value = true
+                                Log.d("RESULTADO_COMPRA", rtdo2.toString())
                         }else{
-                            compraExitosa.value = rtdo2
-                        }
-                    }else{
-                        compraExitosa.value = rtdo2
-                    }
+                                compraExitosa.value = rtdo2
+                            }
                 } else {
                     Log.d("RESULTADO_ENTRADA", "YA POSEE ENTRADA PARA ESTE PARTIDO")
                     compraExitosa.value = !rtdo2

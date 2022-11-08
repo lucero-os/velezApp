@@ -47,7 +47,11 @@ class Login : Fragment() {
         return v
     }
 
-
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+//        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+        // TODO: Use the ViewModel
+    }
 
     override fun onStart() {
         super.onStart()

@@ -49,7 +49,10 @@ class DetalleEntrada : Fragment() {
         return v
     }
 
-
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        viewModel = ViewModelProvider(this).get(DetalleEntradaViewModel::class.java)
+    }
 
     override fun onStart() {
         super.onStart()
