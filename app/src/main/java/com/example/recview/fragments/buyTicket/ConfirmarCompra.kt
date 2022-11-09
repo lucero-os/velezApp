@@ -151,21 +151,22 @@ class ConfirmarCompra : Fragment() {
     private fun validateDate(date : String): Boolean{
 
         var mes =date.subSequence(0, 2)
-        var anio=date.subSequence(2, 6)
+        var anio=date.subSequence(2, 6).toString().toInt()
+        var mesActual : Int = 0
 
         val c = Calendar.getInstance()
 
-        val year = c.get(Calendar.YEAR)
-        var month = c.get(Calendar.MONTH) +1
+        val actualYear = c.get(Calendar.YEAR)
+        val actualMonth = c.get(Calendar.MONTH) + 1
 
-
-
-        if (mes[0].toString().toInt() == 0){
-            mes = mes[1].toString()
+        mesActual = if (mes[0].toString().toInt() == 0){
+            mes[1].toString().toInt()
+        }else {
+            mes.toString().toInt()
         }
 
-        if (mes.toString().toInt() in 1..12){
-            if (anio.toString().toInt() >=year){
+        if (mesActual in 1..12){
+            if (anio >=actualYear && monthValidation(anio,mesActual,actualMonth, actualYear)){
                 cardDate.error=null
                 cardDate.isFocusable= false
                 return true
@@ -181,5 +182,19 @@ class ConfirmarCompra : Fragment() {
             return false
         }
 
+    }
+
+    private fun monthValidation (anio : Int, mes : Int, mesActual : Int, anioActual: Int): Boolean{
+
+        var validation = false
+
+        if (anio == anioActual){
+            if (mes >= mesActual){
+                validation = true
+            }
+        }else if( anio > anioActual){
+            validation = true
+        }
+        return validation
     }
 }
