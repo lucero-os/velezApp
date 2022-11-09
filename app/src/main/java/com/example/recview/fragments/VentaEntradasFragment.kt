@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ProgressBar
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -28,15 +30,11 @@ class VentaEntradasFragment : Fragment() {
         }
     }
     lateinit var v: View
-
     lateinit var recPartidos : RecyclerView
     private lateinit var linearLayoutManager: LinearLayoutManager
-    //TODO: Se podria implementar binding
-    private lateinit var goToComprar: Button
-
     private lateinit var partidosAdapter: PartidosAdapter
-
     var partidos : MutableList<Partido> = ArrayList<Partido>()
+    private lateinit var progessBar : ProgressBar
 
     companion object {
         fun newInstance() = PartidoFragment()
@@ -50,6 +48,7 @@ class VentaEntradasFragment : Fragment() {
     ): View? {
         v =  inflater.inflate(R.layout.fragment_venta_entradas, container, false)
         recPartidos = v.findViewById(R.id.rec_partidos)
+        progessBar = v.findViewById((R.id.progressBar))
         return v
     }
 
@@ -65,7 +64,7 @@ class VentaEntradasFragment : Fragment() {
 
         viewModel.partidos.observe(viewLifecycleOwner, Observer { result ->
             partidos = result.toMutableList()
-
+            progessBar.visibility = View.GONE
             partidosAdapter = PartidosAdapter(partidos) { pos ->
                 val action = VentaEntradasFragmentDirections.actionVentaEntradasFragmentToTicketDetail(partidos[pos])
                 v.findNavController().navigate(action)
@@ -73,6 +72,7 @@ class VentaEntradasFragment : Fragment() {
 
             recPartidos.adapter = partidosAdapter
         })
+
     }
 
 }

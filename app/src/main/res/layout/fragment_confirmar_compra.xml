@@ -139,12 +139,13 @@
                 android:id="@+id/debitCardNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints=""
                 android:hint="@string/nroTarjetaHINT"
                 android:inputType="number"
+                android:maxLength="16"
                 android:minHeight="48dp"
                 android:textColorHint="#757575"
-                android:textSize="12sp"
-                android:autofillHints="" />
+                android:textSize="12sp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -157,15 +158,16 @@
                 tools:layout_editor_absoluteY="378dp" />
 
             <EditText
-                android:id="@+id/expDate"
+                android:id="@+id/expCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints=""
                 android:hint="@string/fecVencimientoHINT"
-                android:inputType="date"
+                android:inputType="number"
+                android:maxLength="6"
                 android:minHeight="48dp"
                 android:textColorHint="#757575"
-                android:textSize="12sp"
-                android:autofillHints="" />
+                android:textSize="12sp" />
 
 
             <TextView
@@ -182,13 +184,14 @@
                 android:id="@+id/cvv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints=""
                 android:ems="10"
                 android:hint="@string/cvvHINT"
                 android:inputType="number"
+                android:maxLength="3"
                 android:minHeight="48dp"
                 android:textColorHint="#757575"
-                android:textSize="12sp"
-                android:autofillHints="" />
+                android:textSize="12sp" />
 
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
