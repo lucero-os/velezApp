@@ -59,12 +59,13 @@ class Login : Fragment() {
         super.onStart()
         val contextView = v
 
-        viewModel.user.observe( viewLifecycleOwner, Observer {
-            if(it != null){
+        viewModel.signUpResult.observe( viewLifecycleOwner, Observer {
+            if(it){
                 progressBar.visibility = View.VISIBLE
                 val action = LoginDirections.actionLoginToMainActivity2()
                 v.findNavController().navigate(action)
             }else{
+                Snackbar.make(contextView,"Usuario no existe",Snackbar.LENGTH_SHORT).show()
                 progressBar.visibility = View.GONE
             }
 
@@ -89,8 +90,6 @@ class Login : Fragment() {
                     userEmail.error= "Email incorrecto"
                     userEmail.isFocusable= true
                 }else{
-                    userEmail.isFocusable= false
-                    userPass.isFocusable= false
                     viewModel.login(email, pass)
                 }
 

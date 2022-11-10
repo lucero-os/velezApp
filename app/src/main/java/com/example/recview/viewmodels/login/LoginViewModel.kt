@@ -17,6 +17,7 @@ import com.google.firebase.ktx.Firebase
 class LoginViewModel : ViewModel() {
     private val auth: FirebaseAuth = Firebase.auth
     var user : MutableLiveData<FirebaseUser?> = MutableLiveData(auth.currentUser)
+    var signUpResult : MutableLiveData<Boolean> = MutableLiveData()
 
     fun login(email : String, pass : String) {
         try {
@@ -24,10 +25,12 @@ class LoginViewModel : ViewModel() {
                 .addOnSuccessListener{
                     Log.d(TAG, "signInWithEmail:success")
                     user.value = auth.currentUser
+                    signUpResult.value = true
                 }
                 .addOnFailureListener {
                     Log.d(TAG, "signInWithEmail:error" + it)
                     user.value = null
+                    signUpResult.value = false
                 }
         }catch (e: Exception){
             Log.d("error", "no se pudo iniciar sesion")
