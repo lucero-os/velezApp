@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">VelezApp</string>
+    <string name="velez">Velez</string>
     <string name="item_entradas_name">Entradas</string>
     <string name="item_perfil_name">Mi Perfil</string>
     <string name="item_home_name">Home</string>
@@ -81,5 +82,9 @@
     <string name="fecha_nac">Fecha de nacimiento</string>
     <string name="codigo_text">Codigo de compra</string>
     <string name="email">Email</string>
+    <string name="apertura_de_puertas">APERTURA DE PUERTAS:</string>
+    <string name="horario_puertas">19:00</string>
+    <string name="nombre_visitante">Boca</string>
+    <string name="seleccione_un_sector">Seleccione un sector</string>
 
 </resources>
