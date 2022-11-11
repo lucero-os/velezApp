@@ -54,7 +54,7 @@ class TicketDetail : Fragment() {
 
     override fun onStart() {
         super.onStart()
-
+        val contextView = v
         equipoName.text = "Velez"
         rivalName.text = partido.rival
 
@@ -72,16 +72,47 @@ class TicketDetail : Fragment() {
 
         agregarCarritoBtn.setOnClickListener {
 
-            var ticket = viewModel.generateTicket(true, partido, spinner.selectedItem.toString(), UserSingleton.getDni())
+            if (quedaLugar(spinner.selectedItem.toString(), partido)){
+                (spinner.selectedView as TextView).error = null
+                spinner.isFocusable= false
+                try {
+                    var ticket = viewModel.generateTicket(true, partido, spinner.selectedItem.toString(), UserSingleton.getDni())
+                    if(ticket != null){
+                        val action = TicketDetailDirections.actionTicketDetailToConfirmarCompra(ticket, partido)
+                        v.findNavController().navigate(action)
+                    }
+                }catch (_: Exception){}
 
-            if(ticket != null){
-                val action = TicketDetailDirections.actionTicketDetailToConfirmarCompra(ticket, partido)
-                v.findNavController().navigate(action)
-            }
-            else{
-                Snackbar.make(v, "No quedan más entradas en el sector seleccionado", Snackbar.LENGTH_SHORT)
-                    .show()
+            }else{
+                (spinner.selectedView as TextView).error = "No hay lugar en el sector seleccionado"
+                spinner.isFocusable= true
+                Snackbar.make(contextView,"No hay lugar en el sector seleccionado",Snackbar.LENGTH_SHORT).show()
             }
         }
+    }
+
+    private fun quedaLugar(idSector: String, partido: Partido) : Boolean {
+        var cantidad = 0
+
+        if(idSector.equals("Norte")){
+            cantidad = partido.sectorNorte
+        }
+        else if(idSector.equals("Este")){
+            cantidad = partido.sectorEste
+        }
+        else if(idSector.equals("Sur Baja")){
+            cantidad = partido.sectorSurBaja
+        }
+        else if(idSector.equals("Sur Alta")){
+            cantidad = partido.sectorSurAlta
+        }
+        else if(idSector.equals("Oeste")){
+            cantidad = partido.sectorOeste
+        }
+        else{
+            cantidad = partido.sectorVisitante
+        }
+
+        return cantidad > 0
     }
 }

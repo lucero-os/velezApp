@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.recview.entities.User
 import com.example.recview.entities.UserSingleton
+import com.google.api.Authentication
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
@@ -15,18 +16,25 @@ import com.google.firebase.ktx.Firebase
 
 class LoginViewModel : ViewModel() {
     private val auth: FirebaseAuth = Firebase.auth
-    private val db = Firebase.firestore
     var user : MutableLiveData<FirebaseUser?> = MutableLiveData(auth.currentUser)
+    var signUpResult : MutableLiveData<Boolean> = MutableLiveData()
 
     fun login(email : String, pass : String) {
-        auth.signInWithEmailAndPassword(email, pass)
-            .addOnSuccessListener{
-                Log.d(TAG, "signInWithEmail:success")
-                user.value = auth.currentUser
-            }
-            .addOnFailureListener {
-                Log.d(TAG, "signInWithEmail:error" + it)
-            }
+        try {
+            auth.signInWithEmailAndPassword(email, pass)
+                .addOnSuccessListener{
+                    Log.d(TAG, "signInWithEmail:success")
+                    user.value = auth.currentUser
+                    signUpResult.value = true
+                }
+                .addOnFailureListener {
+                    Log.d(TAG, "signInWithEmail:error" + it)
+                    user.value = null
+                    signUpResult.value = false
+                }
+        }catch (e: Exception){
+            Log.d("error", "no se pudo iniciar sesion")
+        }
     }
 
     fun logout(){

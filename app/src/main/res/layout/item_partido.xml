@@ -6,146 +6,157 @@
     android:id="@+id/card_package_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
     android:layout_margin="50dp"
     app:cardBackgroundColor="@color/teal_700"
     app:cardCornerRadius="20dp"
-    app:cardElevation="20dp">
+    app:cardElevation="20dp"
+    app:cardMaxElevation="20dp">
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
+        android:id="@+id/alineacion_vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="32dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/velez_logo" />
+        <LinearLayout
+            android:id="@+id/rival"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/txt_rival_item"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="24dp"
-            android:text="Boca"
-            android:textAllCaps="true"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold|italic"
-            app:layout_constraintEnd_toStartOf="@+id/imageView"
-            app:layout_constraintStart_toEndOf="@+id/txt_vs"
-            app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/txt_rival_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Boca"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold|italic" />
 
-        <TextView
-            android:id="@+id/txt_name_item"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="8dp"
-            android:text="Velez"
-            android:textAllCaps="true"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="italic"
-            app:layout_constraintEnd_toStartOf="@+id/txt_vs"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/txt_vs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="@string/vs"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="italic" />
 
-        <TextView
-            android:id="@+id/txt_vs"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="@string/vs"
-            android:textAllCaps="true"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="italic"
-            app:layout_constraintEnd_toStartOf="@+id/txt_rival_item"
-            app:layout_constraintStart_toEndOf="@+id/txt_name_item"
-            app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/txt_name_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Velez"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="italic" />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/txt_dia"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="8dp"
-            android:text="Dia"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            android:textStyle="bold|italic"
-            app:layout_constraintBottom_toTopOf="@+id/txt_torneo"
-            app:layout_constraintStart_toStartOf="parent" />
+        <LinearLayout
+            android:id="@+id/datos2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/txt_mes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="Mes"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            android:textStyle="bold|italic"
-            app:layout_constraintBottom_toTopOf="@+id/txt_torneo"
-            app:layout_constraintStart_toEndOf="@+id/txt_dia" />
+            <LinearLayout
+                android:id="@+id/torneo_fecha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/txt_hora"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="Hora"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            android:textStyle="bold|italic"
-            app:layout_constraintBottom_toTopOf="@+id/txt_fecha"
-            app:layout_constraintStart_toEndOf="@+id/txt_mes" />
+                <TextView
+                    android:id="@+id/txt_torneo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Torneo"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold|italic" />
 
-        <TextView
-            android:id="@+id/txt_torneo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="16dp"
-            android:text="Torneo"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            android:textStyle="bold|italic"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+                <TextView
+                    android:id="@+id/txt_fecha"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="Fecha"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold|italic" />
+            </LinearLayout>
 
-        <TextView
-            android:id="@+id/txt_fecha"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginBottom="16dp"
-            android:text="Fecha"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            android:textStyle="bold|italic"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/txt_torneo" />
+            <LinearLayout
+                android:id="@+id/escudo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:orientation="horizontal">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:adjustViewBounds="false"
+                    android:cropToPadding="false"
+                    app:srcCompat="@drawable/velez_logo" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/datos1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txt_mes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mes"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold|italic" />
+
+            <TextView
+                android:id="@+id/txt_dia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="Dia"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold|italic" />
+
+            <TextView
+                android:id="@+id/txt_hora"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hora"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold|italic" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
 </androidx.cardview.widget.CardView>

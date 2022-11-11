@@ -83,25 +83,30 @@ class SignUp : Fragment() {
 
         btnRegistrarse.setOnClickListener() {
 
-            val name = name.text.toString()
-            val lastname = lastname.text.toString()
-            val email = email.text.toString()
-            val dni = if (dni.text.toString() != ""){
+            val nameForm = name.text.toString()
+            val lastnameForm = lastname.text.toString()
+            val emailForm = email.text.toString()
+            val dniForm = if (dni.text.toString() != ""){
                 dni.text.toString().toInt()
             } else {
                 0
             }
-            val pass = pass.text.toString()
-            val passCheck = passCheck.text.toString()
-            val phone = phone.text.toString()
-            val terms = terms.isChecked
+            val passForm = pass.text.toString()
+            val passCheckpassForm = passCheck.text.toString()
+            val phoneForm = phone.text.toString()
+            val termsForm = terms.isChecked
 
             try{
                 scope.launch {
-                    if (validateForm(name,lastname,email,dni,pass,passCheck,phone) && terms && checkDni(dni)){
-                        viewModel.signUp(name, lastname, email, dni, pass, phone)
+
+                    if(!checkDni(dniForm)){
+                        dni.error= "Usuario ya existe"
+                        dni.isFocusable= true
+                    }else if (!termsForm){
+                        Snackbar.make(contextView,"Debe aceptar terminos y condiciones",Snackbar.LENGTH_SHORT).show()
+                        terms.isFocusable= true
                     }else{
-                        Snackbar.make(contextView,"Debe completar todos los datos solicitados y aceptar terminos y condiciones",Snackbar.LENGTH_SHORT).show()
+                        validateForm(nameForm,lastnameForm,emailForm,dniForm,passForm,passCheckpassForm,phoneForm)
                     }
                 }
             }catch (e: Exception){}
@@ -116,17 +121,70 @@ class SignUp : Fragment() {
 
     }
 
-    fun validateForm(name: String, lastname: String, email: String, dni: Int, pass : String, passCheck : String, phone : String) : Boolean {
+    fun validateForm(newName: String, newLastname: String, newEmail: String, newDni: Int, newPass : String, newPassCheck : String, newPhone : String) : Boolean {
         val pattern: Pattern = Patterns.EMAIL_ADDRESS
-        return name.isNotEmpty() &&
-                lastname.isNotEmpty() &&
-                pattern.matcher(email).matches() &&
-                (dni.absoluteValue.toString().length >= 7 && dni.absoluteValue.toString().length <= 8 ) &&
-                phone.isNotEmpty() &&
-                (pass.length >= 6) &&
-                pass == passCheck
+        var validation = false
+
+        if(newName.isEmpty()){
+            name.error="Ingrese su nombre"
+            name.isFocusable= true
+            return false
+        }else{
+            name.error=null
+            validation = true
+        }
+        if(newLastname.isEmpty()){
+            lastname.error="Ingrese su apellido"
+            lastname.isFocusable= true
+            return false
+        }else{
+            lastname.error=null
+            validation = true
+        }
+        if (!pattern.matcher(newEmail).matches()){
+            email.error="Ingrese un email válido"
+            email.isFocusable= true
+            return false
+        }else{
+            email.error=null
+            validation = true
+        }
+        if (newDni.absoluteValue.toString().length < 7 || newDni.absoluteValue.toString().length > 8){
+            dni.error="Ingrese un DNI válido"
+            dni.isFocusable= true
+            return false
+        }else{
+            dni.error=null
+            validation = true
+        }
+        if (newPhone.isEmpty() || newPhone.length < 8 ){
+            phone.error="Ingrese un número válido"
+            phone.isFocusable= true
+            return false
+        }else{
+            phone.error=null
+            validation = true
+        }
+        if (newPass.length <= 6){
+            pass.error="Debe contener al menos 6 caracteres"
+            pass.isFocusable= true
+            return false
+        }else{
+            pass.error= null
+            validation = true
+        }
+        if (newPass != newPassCheck){
+            passCheck.error="Contraseña no coincide"
+            passCheck.isFocusable= true
+            return false
+        }else{
+            passCheck.error=null
+            validation = true
+        }
+    return validation
     }
 
+    //Devuelve TRUE si el usuario con DNI NO existe
     suspend fun checkDni(dni : Int) : Boolean{
         val usersRef = db.collection("usuarios")
         var state : Boolean = false
