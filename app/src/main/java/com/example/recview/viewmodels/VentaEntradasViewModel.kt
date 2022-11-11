@@ -8,6 +8,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.recview.entities.Partido
+import com.example.recview.entities.SingleLiveEvent
 import com.example.recview.entities.Ticket
 import com.example.recview.entities.UserSingleton
 import com.google.firebase.firestore.ktx.firestore
@@ -22,7 +23,7 @@ class VentaEntradasViewModel : ViewModel() {
     // Access a Cloud Firestore instance from your Activity
     private val db = Firebase.firestore
     private var miTicket : MutableList<Ticket> = mutableListOf()
-    var poseeEntrada = MutableLiveData<Boolean>()
+    var poseeEntrada = SingleLiveEvent<Boolean>()
 
     fun getPartidos(){
         viewModelScope.launch {
