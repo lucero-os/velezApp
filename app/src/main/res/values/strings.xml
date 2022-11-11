@@ -84,7 +84,8 @@
     <string name="email">Email</string>
     <string name="apertura_de_puertas">APERTURA DE PUERTAS:</string>
     <string name="horario_puertas">19:00</string>
-    <string name="nombre_visitante">Boca</string>
+    <string name="nombre_visitante">Argentinos</string>
     <string name="seleccione_un_sector">Seleccione un sector</string>
+    <string name="juegavelez">#JuegaVelez</string>
 
 </resources>
