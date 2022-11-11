@@ -19,10 +19,11 @@ class Partido(var dia: String = "",
               var sectorSurAlta: Int = 0,
               var sectorSurBaja: Int = 0,
               var sectorVisitante: Int = 0,
-              var torneo: String = "", ):
+              var torneo: String = "",
+              var estaDisp: Boolean = false):
     Parcelable{
 
-    constructor() : this("","","","","",0,"","",0,0,0,0,0,0,"")
+    constructor() : this("","","","","",0,"","",0,0,0,0,0,0,"", false)
 
     override fun toString(): String {
         return "Partido(equipo='Velez', rival='$rival', torneo='$torneo',dia='$dia',mes'$mes',hora'$hora',fecha'$fecha')"

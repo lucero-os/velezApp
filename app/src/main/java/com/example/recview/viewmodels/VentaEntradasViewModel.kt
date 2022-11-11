@@ -35,7 +35,10 @@ class VentaEntradasViewModel : ViewModel() {
             val data = partidosRef.get().await()
             for (document in data) {
                 Log.d(ContentValues.TAG, "${document.id} => ${document.data}")
-                partidosList.add(document.toObject<Partido>())
+                val p = document.toObject<Partido>()
+                if(p.estaDisp){
+                    partidosList.add(document.toObject<Partido>())
+                }
             }
         } catch (e: Exception) {
             Log.d(ContentValues.TAG, "Error getting partidos", e)

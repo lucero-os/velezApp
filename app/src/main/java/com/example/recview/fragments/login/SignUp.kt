@@ -106,7 +106,9 @@ class SignUp : Fragment() {
                         Snackbar.make(contextView,"Debe aceptar terminos y condiciones",Snackbar.LENGTH_SHORT).show()
                         terms.isFocusable= true
                     }else{
-                        validateForm(nameForm,lastnameForm,emailForm,dniForm,passForm,passCheckpassForm,phoneForm)
+                        if (validateForm(nameForm,lastnameForm,emailForm,dniForm,passForm,passCheckpassForm,phoneForm)){
+                            viewModel.signUp(nameForm, lastnameForm, emailForm, dniForm, passForm, phoneForm)
+                        }
                     }
                 }
             }catch (e: Exception){}
