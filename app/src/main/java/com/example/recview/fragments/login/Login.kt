@@ -7,10 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.example.recview.R
 import com.example.recview.entities.User
@@ -24,12 +26,12 @@ class Login : Fragment() {
         fun newInstance() = Login()
     }
 
-    private val viewModel: LoginViewModel by viewModels()
+    private lateinit var viewModel: LoginViewModel
     private lateinit var v: View
     private lateinit var signUpBtn: Button
     private lateinit var loginBtn: Button
-    private lateinit var userEmail : TextView
-    private lateinit var userPass : TextView
+    private lateinit var userEmail : EditText
+    private lateinit var userPass : EditText
     private lateinit var progressBar: ProgressBar
 
     override fun onCreateView(
@@ -49,17 +51,22 @@ class Login : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-//        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
         // TODO: Use the ViewModel
     }
 
     override fun onStart() {
         super.onStart()
+        val contextView = v
 
-        viewModel.user.observe( viewLifecycleOwner, Observer {
-            if(it != null){
+        viewModel.signUpResult.observe( viewLifecycleOwner, Observer {
+            if(it){
+                progressBar.visibility = View.VISIBLE
                 val action = LoginDirections.actionLoginToMainActivity2()
                 v.findNavController().navigate(action)
+            }else{
+                Snackbar.make(contextView,"Usuario no existe",Snackbar.LENGTH_SHORT).show()
+                progressBar.visibility = View.GONE
             }
 
         })
@@ -72,17 +79,29 @@ class Login : Fragment() {
         }
 
         loginBtn.setOnClickListener {
-            val contextView = v
+
             val email = userEmail.text.toString()
             val pass = userPass.text.toString()
 
+            android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
 
-
-            if(!email.isNullOrEmpty() && !pass.isNullOrEmpty()){
+            if(email.isNotEmpty() && pass.isNotEmpty()){
+                if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+                    userEmail.error= "Email incorrecto"
+                    userEmail.isFocusable= true
+                }else{
                     viewModel.login(email, pass)
-                    progressBar.visibility = View.VISIBLE
+                }
+
             }else{
-                Snackbar.make(contextView, "Email Y Contraseña INCOMPLETOS, ingrese la informacion para iniciar sesion",Snackbar.LENGTH_LONG).show()
+                if (email.isEmpty()){
+                    userEmail.error= "Ingrese su email"
+                    userEmail.isFocusable= true
+                }
+                if (pass.isEmpty()){
+                    userPass.error= "Ingrese su contraseña"
+                    userPass.isFocusable= true
+                }
             }
 
         }
