@@ -125,7 +125,6 @@ class ConfirmarCompra : Fragment() {
 
         if (debitCard.length == DebitCardConstants.DEBIT_CARD_LENGTH){
             debitCardNumber.error= null
-            debitCardNumber.isFocusable= false
             return true
         }else{
             debitCardNumber.error= "Tarjeta erronea"
@@ -139,7 +138,6 @@ class ConfirmarCompra : Fragment() {
 
         if (cvv1.length == DebitCardConstants.CVV_LENGTH){
             cvv.error = null
-            cvv.isFocusable= false
             return true
         }else{
             cvv.error= "Codigo erroneo"
@@ -168,7 +166,6 @@ class ConfirmarCompra : Fragment() {
         if (mesActual in 1..12){
             if (anio >=actualYear && monthValidation(anio,mesActual,actualMonth, actualYear)){
                 cardDate.error=null
-                cardDate.isFocusable= false
                 return true
             }else{
                 cardDate.error="Tarjeta Vencida"
