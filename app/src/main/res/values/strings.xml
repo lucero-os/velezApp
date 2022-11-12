@@ -87,5 +87,9 @@
     <string name="nombre_visitante">Argentinos</string>
     <string name="seleccione_un_sector">Seleccione un sector</string>
     <string name="juegavelez">#JuegaVelez</string>
+    <string name="ver_detalle">Ver Detalle</string>
+    <string name="fecha_mis_entradas">01/02/2022</string>
+    <string name="campeonato_local">Campeonato Local</string>
+    <string name="detalle_entrada_text">IMPORTANTE:Todos los socios deberán asistir con su Carnet por la puerta indicada, sin excepción. Para Popular Este y Platea Sur Alta no hace falta canjear, se entra directamente con carnet.</string>
 
 </resources>

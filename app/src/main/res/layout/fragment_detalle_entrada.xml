@@ -2,160 +2,216 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout8"
+    android:id="@+id/detalle_entrada"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.miPerfil.DetalleEntrada">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/entrada_card"
+    <LinearLayout
+        android:id="@+id/alineacion_general"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:backgroundTintMode="multiply"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="10dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="30dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <ImageView
+            android:id="@+id/qr_mis_entradas"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:orientation="vertical"
-            android:padding="5dp">
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/qr"
+            android:cropToPadding="false"
+            android:scaleType="center"
+            android:src="@drawable/codigoqr" />
 
-            <!-- Title, secondary and supporting text -->
-            <TextView
-                android:id="@+id/equipoVsRival"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:textAllCaps="true"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="@color/velez"
-                android:textStyle="bold|italic" />
-
-            <TextView
-                android:id="@+id/fecha"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="?android:attr/textColorSecondary" />
-
-            <TextView
-                android:id="@+id/torneo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:paddingBottom="5dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="?android:attr/textColorSecondary" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/entrada_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:backgroundTintMode="multiply"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="10dp">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/socio_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/socio" />
-
-                <TextView
-                    android:id="@+id/socio_data"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/dni_text_2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/dni_text" />
-
-                <TextView
-                    android:id="@+id/dniSocio"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/sector_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/sectorTxt" />
-
-                <TextView
-                    android:id="@+id/sector_data"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/valor_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/valor" />
-
-                <TextView
-                    android:id="@+id/valor_data"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-            </LinearLayout>
-
-            <LinearLayout
+                android:id="@+id/alineacion_card"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/codigo_text"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/codigo_text" />
+                <!-- Title, secondary and supporting text -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/codigo_data"
-                    android:layout_width="0dp"
+                    <TextView
+                        android:id="@+id/equipoVsRival"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/nombre_visitante"
+                        android:textAllCaps="true"
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        android:textColor="@color/velez"
+                        android:textStyle="bold|italic" />
+
+                    <TextView
+                        android:id="@+id/fecha"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fecha_mis_entradas"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="?android:attr/textColorSecondary" />
+
+                    <TextView
+                        android:id="@+id/torneo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/campeonato_local"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/socio_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/socio" />
+
+                    <TextView
+                        android:id="@+id/socio_data"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:text="@string/dni_data"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/dni_text_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@string/dni_text" />
+
+                    <TextView
+                        android:id="@+id/dniSocio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:text="@string/dni_data"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/sector_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/sectorTxt" />
+
+                    <TextView
+                        android:id="@+id/sector_data"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:text="@string/velez"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/valor_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/valor" />
+
+                    <TextView
+                        android:id="@+id/valor_data"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:text="@string/numero_socio_data"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/codigo_text"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/codigo_text" />
+
+                    <TextView
+                        android:id="@+id/codigo_data"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:text="@string/dni_data"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+
             </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+        <ImageView
+            android:id="@+id/escudo_mis_entradas"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:adjustViewBounds="false"
+            android:contentDescription="@string/canchaVelezContentDesc"
+            android:src="@drawable/velez_logo" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif"
+            android:text="@string/detalle_entrada_text"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textSize="14sp" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
