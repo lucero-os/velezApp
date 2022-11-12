@@ -107,5 +107,7 @@
     <string name="monto">monto</string>
     <string name="fecha">fecha</string>
     <string name="signo_pesos">$</string>
+    <string name="hacete_socio_bottom_text">Tu solicitud será enviada a la comisión directiva del club, y queda sujeta a aprobación.</string>
+    <string name="hacete_socio_bottom_text2">Velez te agradece</string>
 
 </resources>
