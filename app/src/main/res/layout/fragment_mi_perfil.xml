@@ -5,223 +5,330 @@
     android:id="@+id/miPerfil"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="15dp"
+    android:layout_marginBottom="45dp"
     tools:context=".fragments.MiPerfilFragment">
 
-    <TextView
-        android:id="@+id/miPerfilTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/item_perfil_name"
-        android:textAllCaps="true"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@color/velez"
-        android:textSize="20sp"
-        android:textStyle="bold|italic"
+    <LinearLayout
+        android:id="@+id/vertical_mi_perfil"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.02" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/btnMiPerfilToCarnet"
-        android:layout_width="115dp"
-        android:layout_height="130dp"
-        android:layout_marginTop="60dp"
-        android:backgroundTint="#F1F3F4"
-        android:text="@string/carnet"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#263238"
-        android:textSize="12sp"
-        android:textStyle="bold|italic"
-        app:cornerRadius="15dp"
-        app:icon="@drawable/carnet"
-        app:iconGravity="top"
-        app:iconSize="50dp"
-        app:iconTint="@color/velez"
-        app:iconTintMode="multiply"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnMiPerfilToMisEntradas"
-        app:layout_constraintTop_toBottomOf="@+id/miPerfilTitle"
-        tools:ignore="TextContrastCheck,TextContrastCheck" />
+        <TextView
+            android:id="@+id/miPerfilTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/item_perfil_name"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/velez"
+            android:textSize="20sp"
+            android:textStyle="bold|italic" />
 
-    <Button
-        android:id="@+id/btnMiPerfilToMisEntradas"
-        android:layout_width="115dp"
-        android:layout_height="130dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginBottom="40dp"
-        android:backgroundTint="#F1F3F4"
-        android:text="@string/mis_entradas"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#263238"
-        android:textSize="12sp"
-        android:textStyle="bold|italic"
-        app:cornerRadius="15dp"
-        app:icon="@drawable/ticket_icon"
-        app:iconGravity="top"
-        app:iconSize="50dp"
-        app:iconTint="@color/velez"
-        app:iconTintMode="src_in"
-        app:layout_constraintBottom_toTopOf="@+id/btnMiPerfilToTiendaVirtual"
-        app:layout_constraintEnd_toStartOf="@+id/btnMiPerfilToCarnet"
-        app:layout_constraintStart_toEndOf="@+id/btnMiPerfilToHaceteSocio"
-        app:layout_constraintTop_toBottomOf="@+id/miPerfilTitle"
-        tools:ignore="TextContrastCheck,TextContrastCheck" />
+        <LinearLayout
+            android:id="@+id/horizontal1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/btnMiPerfilToHaceteSocio"
-        android:layout_width="115dp"
-        android:layout_height="130dp"
-        android:layout_marginTop="60dp"
-        android:backgroundTint="#F1F3F4"
-        android:text="@string/hacete_socio"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#263238"
-        android:textSize="12sp"
-        android:textStyle="bold|italic"
-        app:cornerRadius="15dp"
-        app:icon="@drawable/velez_logo"
-        app:iconGravity="top"
-        app:iconSize="50dp"
-        app:iconTintMode="multiply"
-        app:layout_constraintEnd_toStartOf="@+id/btnMiPerfilToMisEntradas"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/miPerfilTitle"
-        tools:ignore="TextContrastCheck,TextContrastCheck,TextContrastCheck" />
+            <Button
+                android:id="@+id/btnMiPerfilToMisEntradas"
+                android:layout_width="115dp"
+                android:layout_height="match_parent"
+                android:backgroundTint="#F1F3F4"
+                android:text="@string/mis_entradas"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="#263238"
+                android:textSize="12sp"
+                android:textStyle="bold|italic"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/ticket_icon"
+                app:iconGravity="top"
+                app:iconSize="50dp"
+                app:iconTint="@color/velez"
+                app:iconTintMode="src_in" />
 
-    <Button
-        android:id="@+id/btnMiPerfilToMisPagos"
-        android:layout_width="115dp"
-        android:layout_height="130dp"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="#F1F3F4"
-        android:text="@string/mis_pagos"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#263238"
-        android:textSize="12sp"
-        android:textStyle="bold|italic"
-        app:cornerRadius="15dp"
-        app:icon="@drawable/pay_icon"
-        app:iconGravity="top"
-        app:iconSize="50dp"
-        app:iconTint="@color/velez"
-        app:iconTintMode="src_in"
-        app:layout_constraintEnd_toStartOf="@+id/btnMiPerfilToTiendaVirtual"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnMiPerfilToHaceteSocio"
-        tools:ignore="TextContrastCheck,TextContrastCheck" />
+            <Button
+                android:id="@+id/btnMiPerfilToCarnet"
+                android:layout_width="115dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:backgroundTint="#F1F3F4"
+                android:text="@string/carnet"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="#263238"
+                android:textSize="12sp"
+                android:textStyle="bold|italic"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/carnet"
+                app:iconGravity="top"
+                app:iconSize="50dp"
+                app:iconTint="@color/velez"
+                app:iconTintMode="multiply" />
 
-    <Button
-        android:id="@+id/btnMiPerfilToTiendaVirtual"
-        android:layout_width="115dp"
-        android:layout_height="130dp"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="#F1F3F4"
-        android:text="@string/tienda_virtual"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#263238"
-        android:textSize="12sp"
-        android:textStyle="bold|italic"
-        app:cornerRadius="15dp"
-        app:icon="@drawable/cart_icon"
-        app:iconGravity="top"
-        app:iconSize="50dp"
-        app:iconTint="@color/velez"
-        app:iconTintMode="src_in"
-        app:layout_constraintEnd_toStartOf="@+id/btnMiPerfilToInstagram"
-        app:layout_constraintStart_toEndOf="@+id/btnMiPerfilToMisPagos"
-        app:layout_constraintTop_toBottomOf="@+id/btnMiPerfilToMisEntradas"
-        tools:ignore="TextContrastCheck,TextContrastCheck" />
+            <Button
+                android:id="@+id/btnMiPerfilToComprarEntrada"
+                android:layout_width="115dp"
+                android:layout_height="match_parent"
+                android:backgroundTint="#F1F3F4"
+                android:text="@string/comprar_entrada"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="#263238"
+                android:textSize="12sp"
+                android:textStyle="bold|italic"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/stadium_icon"
+                app:iconGravity="top"
+                app:iconSize="50dp"
+                app:iconTint="@color/velez"
+                app:iconTintMode="multiply"
+                tools:ignore="TextContrastCheck,TextContrastCheck" />
 
-    <Button
-        android:id="@+id/btnMiPerfilToInstagram"
-        android:layout_width="115dp"
-        android:layout_height="130dp"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="#F1F3F4"
-        android:text="@string/Instagram"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#263238"
-        android:textSize="12sp"
-        android:textStyle="bold|italic"
-        app:cornerRadius="15dp"
-        app:icon="@drawable/instagram_icon"
-        app:iconGravity="top"
-        app:iconSize="50dp"
-        app:iconTint="@color/velez"
-        app:iconTintMode="src_in"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnMiPerfilToTiendaVirtual"
-        app:layout_constraintTop_toBottomOf="@+id/btnMiPerfilToCarnet"
-        tools:ignore="TextContrastCheck,TextContrastCheck" />
+        </LinearLayout>
 
-    <Button
-        android:id="@+id/btnMiPerfilToComprarEntrada"
-        android:layout_width="115dp"
-        android:layout_height="130dp"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="#F1F3F4"
-        android:text="@string/comprar_entrada"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#263238"
-        android:textSize="12sp"
-        android:textStyle="bold|italic"
-        app:cornerRadius="15dp"
-        app:icon="@drawable/stadium_icon"
-        app:iconGravity="top"
-        app:iconSize="50dp"
-        app:iconTint="@color/velez"
-        app:iconTintMode="multiply"
-        app:layout_constraintEnd_toStartOf="@+id/btnMiPerfilToCerrarSesion"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnMiPerfilToMisPagos"
-        tools:ignore="TextContrastCheck,TextContrastCheck" />
+        <LinearLayout
+            android:id="@+id/horizontal2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/btnMiPerfilToCerrarSesion"
-        android:layout_width="115dp"
-        android:layout_height="130dp"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="#F1F3F4"
-        android:text="@string/cerrar_sesion"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#263238"
-        android:textSize="12sp"
-        android:textStyle="bold|italic"
-        app:cornerRadius="15dp"
-        app:icon="@drawable/sign_out_icon"
-        app:iconGravity="top"
-        app:iconSize="50dp"
-        app:iconTint="@color/velez"
-        app:iconTintMode="src_in"
-        app:layout_constraintEnd_toStartOf="@+id/btnMiPerfilToInfoYNovedades"
-        app:layout_constraintStart_toEndOf="@+id/btnMiPerfilToComprarEntrada"
-        app:layout_constraintTop_toBottomOf="@+id/btnMiPerfilToTiendaVirtual"
-        tools:ignore="TextContrastCheck,TextContrastCheck" />
+            <Button
+                android:id="@+id/btnMiPerfilToMisPagos"
+                android:layout_width="115dp"
+                android:layout_height="match_parent"
+                android:backgroundTint="#F1F3F4"
+                android:text="@string/mis_pagos"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="#263238"
+                android:textSize="12sp"
+                android:textStyle="bold|italic"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/pay_icon"
+                app:iconGravity="top"
+                app:iconSize="50dp"
+                app:iconTint="@color/velez"
+                app:iconTintMode="src_in"
+                tools:ignore="TextContrastCheck,TextContrastCheck" />
 
-    <Button
-        android:id="@+id/btnMiPerfilToInfoYNovedades"
-        android:layout_width="115dp"
-        android:layout_height="130dp"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="#F1F3F4"
-        android:text="@string/info_novedades"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#263238"
-        android:textSize="12sp"
-        android:textStyle="bold|italic"
-        app:cornerRadius="15dp"
-        app:icon="@drawable/info_icon"
-        app:iconGravity="top"
-        app:iconSize="50dp"
-        app:iconTint="@color/velez"
-        app:iconTintMode="src_in"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnMiPerfilToCerrarSesion"
-        app:layout_constraintTop_toBottomOf="@+id/btnMiPerfilToInstagram"
-        tools:ignore="TextContrastCheck,TextContrastCheck" />
+            <Button
+                android:id="@+id/btnMiPerfilToHaceteSocio"
+                android:layout_width="115dp"
+                android:layout_height="match_parent"
+
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:backgroundTint="#F1F3F4"
+                android:text="@string/hacete_socio"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="#263238"
+                android:textSize="12sp"
+                android:textStyle="bold|italic"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/velez_logo"
+                app:iconGravity="top"
+                app:iconSize="50dp"
+                app:iconTintMode="multiply"
+                tools:ignore="TextContrastCheck,TextContrastCheck,TextContrastCheck" />
+
+            <Button
+                android:id="@+id/btnMiPerfilToInfoYNovedades"
+                android:layout_width="115dp"
+                android:layout_height="match_parent"
+                android:backgroundTint="#F1F3F4"
+                android:text="@string/info_novedades"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="#263238"
+                android:textSize="12sp"
+                android:textStyle="bold|italic"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/info_icon"
+                app:iconGravity="top"
+                app:iconSize="50dp"
+                app:iconTint="@color/velez"
+                app:iconTintMode="src_in"
+                tools:ignore="TextContrastCheck,TextContrastCheck" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/horizontal3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnMiPerfilToTiendaVirtual"
+                android:layout_width="115dp"
+                android:layout_height="match_parent"
+                android:backgroundTint="#F1F3F4"
+                android:text="@string/tienda_virtual"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="#263238"
+                android:textSize="12sp"
+                android:textStyle="bold|italic"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/cart_icon"
+                app:iconGravity="top"
+                app:iconSize="50dp"
+                app:iconTint="@color/velez"
+                app:iconTintMode="src_in"
+                tools:ignore="TextContrastCheck,TextContrastCheck" />
+
+            <Button
+                android:id="@+id/btnMiPerfilToInstagram"
+                android:layout_width="115dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:backgroundTint="#F1F3F4"
+                android:text="@string/Instagram"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="#263238"
+                android:textSize="12sp"
+                android:textStyle="bold|italic"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/instagram_icon"
+                app:iconGravity="top"
+                app:iconSize="50dp"
+                app:iconTint="@color/velez"
+                app:iconTintMode="src_in"
+                tools:ignore="TextContrastCheck,TextContrastCheck" />
+
+            <Button
+                android:id="@+id/btnMiPerfilToCerrarSesion"
+                android:layout_width="115dp"
+                android:layout_height="match_parent"
+                android:backgroundTint="#F1F3F4"
+                android:text="@string/cerrar_sesion"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="#263238"
+                android:textSize="12sp"
+                android:textStyle="bold|italic"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/sign_out_icon"
+                app:iconGravity="top"
+                app:iconSize="50dp"
+                app:iconTint="@color/velez"
+                app:iconTintMode="src_in"
+                tools:ignore="TextContrastCheck,TextContrastCheck" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/vertical2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="80dp"
+            android:gravity="bottom"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/horizontal4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/sitio_oficial"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:text="@string/sitio_oficial_text"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/barra_separadora"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:text="@string/barra_separadora" />
+
+                <TextView
+                    android:id="@+id/telefono"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:text="@string/telefono_text"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/horizontal5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/wpp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:text="@string/wpp_text"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/barra_separadora2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:text="@string/barra_separadora" />
+
+                <TextView
+                    android:id="@+id/mail_velez"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:text="@string/mail_text"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/direccion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:text="@string/direccion_text"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

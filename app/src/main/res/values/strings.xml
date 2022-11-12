@@ -95,5 +95,11 @@
     <string name="godin_foto">godin_foto</string>
     <string name="imagen_login">imagen_login</string>
     <string name="terminos_condiciones">Al ingresar acepto los términos y condiciones de navegación.</string>
+    <string name="sitio_oficial_text">Sitio Oficial</string>
+    <string name="direccion_text">Av. Juan B. Justo 9200 - CP 1408 - CABA - Argentina</string>
+    <string name="telefono_text">46499100</string>
+    <string name="mail_text">info@velezsarsfield.com.ar</string>
+    <string name="wpp_text">1122661000</string>
+    <string name="barra_separadora">/</string>
 
 </resources>
