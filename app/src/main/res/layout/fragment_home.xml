@@ -5,63 +5,68 @@
     android:id="@+id/home"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="5dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginTop="15dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginBottom="15dp"
     tools:context=".fragments.HomeFragment">
 
-    <TextView
-        android:id="@+id/homeTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="37dp"
-        android:layout_marginStart="137dp"
-        android:layout_marginEnd="137dp"
-        android:text="@string/homeTitle"
-        android:textAllCaps="true"
-        android:textColor="@color/velez"
-        android:textSize="20sp"
-        android:textStyle="bold|italic"
+    <LinearLayout
+        android:id="@+id/principal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/resumenCompra"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="92dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homeTitle">
+        <TextView
+            android:id="@+id/homeTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/homeTitle"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/velez"
+            android:textSize="20sp"
+            android:textStyle="bold|italic" />
 
         <LinearLayout
+            android:id="@+id/alineacion_noticia_1"
             android:layout_width="match_parent"
-            android:layout_height="310dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:elevation="10dp"
             android:orientation="vertical">
 
             <!-- Media -->
 
             <ImageView
+                android:id="@+id/thiago_foto"
                 android:layout_width="match_parent"
-                android:layout_height="163dp"
-                android:contentDescription="@string/news1MediaDesc"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/boca_velez" />
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/noticia_thiago_titulo"
+                android:src="@drawable/almada_noticia" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:orientation="vertical"
-                android:padding="5dp">
+                android:orientation="vertical">
 
                 <!-- Title, secondary and supporting text -->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/news1Title"
-                    android:textAppearance="?attr/textAppearanceHeadline6" />
+                    android:fontFamily="sans-serif"
+                    android:text="@string/noticia_thiago_titulo"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:textColor="@color/velez"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -69,7 +74,7 @@
                     android:layout_marginTop="8dp"
                     android:text="@string/news1SecTxt"
                     android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="?android:attr/textColorSecondary" />
+                    android:textColor="@color/black" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -77,52 +82,47 @@
                     android:layout_marginTop="16dp"
                     android:text="@string/news1SuppTxt"
                     android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="?android:attr/textColorSecondary" />
+                    android:textColor="@color/black" />
 
             </LinearLayout>
 
         </LinearLayout>
 
-    </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/noticia2"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_margin="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="92dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resumenCompra">
-
         <LinearLayout
+            android:id="@+id/alineacion_noticia2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:elevation="10dp"
             android:orientation="vertical">
 
             <!-- Media -->
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="164dp"
-                android:contentDescription="@string/news1MediaDesc"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/velez_flamengo" />
+                android:id="@+id/godin_foto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/godin_foto"
+                android:src="@drawable/godin_noticia" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="5dp">
+                android:orientation="vertical">
 
                 <!-- Title, secondary and supporting text -->
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
                     android:text="@string/news2Title"
-                    android:textAppearance="?attr/textAppearanceHeadline6" />
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:textColor="@color/velez"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -130,7 +130,7 @@
                     android:layout_marginTop="8dp"
                     android:text="@string/news2SecTxt"
                     android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="?android:attr/textColorSecondary" />
+                    android:textColor="@color/black" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -138,12 +138,12 @@
                     android:layout_marginTop="16dp"
                     android:text="@string/news2SuppTxt"
                     android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="?android:attr/textColorSecondary" />
+                    android:textColor="@color/black" />
 
             </LinearLayout>
 
         </LinearLayout>
 
-    </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

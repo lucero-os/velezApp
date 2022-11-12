@@ -71,7 +71,7 @@ class ResultadoCompra : Fragment() {
             }
             goToHomeBtn.setOnClickListener {
 
-                val action = ResultadoCompraDirections.actionResultadoCompraToConfirmarCompra(ticket, partido)
+                val action = ResultadoCompraDirections.actionResultadoCompraToVentaEntradasFragment()
                 v.findNavController().navigate(action)
             }
         }

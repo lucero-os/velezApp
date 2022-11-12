@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">VelezApp</string>
+    <string name="velez">Velez</string>
     <string name="item_entradas_name">Entradas</string>
     <string name="item_perfil_name">Mi Perfil</string>
     <string name="item_home_name">Home</string>
@@ -16,12 +17,12 @@
     <string name="canchaVelezContentDesc">Cancha de Velez</string>
     <string name="ticketDetailTitle">Detalle de Entrada</string>
     <string name="news1Title">Derrota en la Bombonera</string>
-    <string name="news1SecTxt">El conjunto dirigido por medina, fue derrotado por Boca Juniors por 1 tanto contra 0</string>
-    <string name="news1SuppTxt">Gol del Toro Morales que marcó para el conjunto visitante</string>
+    <string name="news1SecTxt">El orgullo de La Fabrica, fue convocado en la nomina de reserva de los jugadores para Qatar 2022</string>
+    <string name="news1SuppTxt">Restan 9 días para que inicie la tan esperada Copa del Mundo</string>
     <string name="news1MediaDesc">Foto boca velez</string>
-    <string name="news2Title">Pasaje a la final de libertadores</string>
-    <string name="news2SecTxt">Luego de una serie muy apretada, la V azulada vencio al poderoso Flamengo. </string>
-    <string name="news2SuppTxt">Velez espera el rival para la final</string>
+    <string name="news2Title">Con la Celeste en Qatar</string>
+    <string name="news2SecTxt">Diego Godín fue convocado por el entrenador Alonso para ser parte de los futbolistas que representarán a Uruguay en Qatar.</string>
+    <string name="news2SuppTxt">Será su cuarta cita mundialista</string>
     <string name="news2MediaDesc">Foto flamengo velez</string>
     <string name="homeTitle">FUTBOL PROFESIONAL</string>
     <string name="homeSubtitle">Noticias</string>
@@ -58,8 +59,8 @@
     <string name="volver">Volver</string>
     <string name="compraOk"> <b> Compra exitosa.</b></string>
     <string name="compraOk2">En la seccion <b>mis entradas</b> podra observar el detalle de la misma</string>
-    <string name="compraNotOk"> <b> Algo salió mal.</b> Revisa los datos e intentalo nuevamente</string>
-    <string name="compraNotOkBtn">Volver a Comprar</string>
+    <string name="compraNotOk"> <b> ATENCION.</b> Usted ya posee entrada para este partido.</string>
+    <string name="compraNotOkBtn">Volver a los partidos</string>
     <string name="socio">Socio:</string>
     <string name="valor">Valor:</string>
     <string name="texto_vs">%1$s VS %2$s</string>
@@ -81,5 +82,16 @@
     <string name="fecha_nac">Fecha de nacimiento</string>
     <string name="codigo_text">Codigo de compra</string>
     <string name="email">Email</string>
+    <string name="apertura_de_puertas">APERTURA DE PUERTAS:</string>
+    <string name="horario_puertas">19:00</string>
+    <string name="nombre_visitante">Argentinos</string>
+    <string name="seleccione_un_sector">Seleccione un sector</string>
+    <string name="juegavelez">#JuegaVelez</string>
+    <string name="ver_detalle">Ver Detalle</string>
+    <string name="fecha_mis_entradas">01/02/2022</string>
+    <string name="campeonato_local">Campeonato Local</string>
+    <string name="detalle_entrada_text">IMPORTANTE:Todos los socios deberán asistir con su Carnet por la puerta indicada, sin excepción. Para Popular Este y Platea Sur Alta no hace falta canjear, se entra directamente con carnet.</string>
+    <string name="noticia_thiago_titulo">Thiago Orgullo</string>
+    <string name="godin_foto">godin_foto</string>
 
 </resources>

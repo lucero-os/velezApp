@@ -6,80 +6,61 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
-    android:layout_marginTop="10dp"
-    android:layout_marginBottom="5dp"
     android:backgroundTintMode="multiply"
+    app:cardBackgroundColor="@color/velez"
     app:cardCornerRadius="5dp"
     app:cardElevation="10dp">
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/entrada"
+    <LinearLayout
+        android:id="@+id/alineacio"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="8dp"
-        app:cardCornerRadius="5dp"
-        app:layout_constraintBottom_toTopOf="@+id/news2card"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homeTitle">
+        android:layout_margin="5dp"
+        android:background="@color/white"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="5dp">
+        <!-- Title, secondary and supporting text -->
+        <TextView
+            android:id="@+id/equipoRival"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/nombre_visitante"
+            android:textAllCaps="true"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            android:textColor="@color/velez"
+            android:textSize="25sp"
+            android:textStyle="bold|italic" />
 
-            <!-- Title, secondary and supporting text -->
-            <TextView
-                android:id="@+id/equipoRival"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Velez - Boca"
-                android:textAllCaps="true"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="@color/velez"
-                android:textStyle="bold|italic"
-                android:layout_gravity="center"
-                android:textSize="25dp"
-                />
+        <TextView
+            android:id="@+id/fecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/fecha_mis_entradas"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/black" />
 
-            <TextView
-                android:id="@+id/fecha"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="01/02/2022"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="?android:attr/textColorSecondary"
-                android:layout_gravity="center"/>
+        <TextView
+            android:id="@+id/torneo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/campeonato_local"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
 
-            <TextView
-                android:id="@+id/torneo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:paddingBottom="5dp"
-                android:text="Campeonato Local"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="?android:attr/textColorSecondary"
-                android:layout_gravity="center"
-                android:textSize="20dp"/>
+        <TextView
+            android:id="@+id/btn_detalle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/velez"
+            android:text="@string/ver_detalle"
+            android:textColor="@color/velez"
+            android:textSize="15sp" />
 
-            <TextView
-                android:id="@+id/btn_detalle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/velez"
-                android:text="Ver Detalle"
-                android:layout_gravity="center"
-                android:textColor="@color/velez"
-                android:textSize="15dp"
-                />
+    </LinearLayout>
 
-        </LinearLayout>
-
-    </com.google.android.material.card.MaterialCardView>
 </androidx.cardview.widget.CardView>
