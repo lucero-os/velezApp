@@ -74,7 +74,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="25dp"
             android:layout_marginEnd="20dp"
-            android:backgroundTint="#116AFF"
+            android:backgroundTint="@color/velez"
             android:text="@string/btnLogin"
             android:textColor="#FFFFFF"
             app:cornerRadius="30dp" />
@@ -96,7 +96,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="@string/signUpBtn"
-            android:textColor="#1976D2"
+            android:textColor="@color/velez"
             tools:ignore="TextContrastCheck" />
 
         <TextView
