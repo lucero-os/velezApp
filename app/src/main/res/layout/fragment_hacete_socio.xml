@@ -38,7 +38,7 @@
             android:id="@+id/haceteSocioNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:layout_marginBottom="20dp"
             android:autofillHints="@string/texto_nombre"
             android:hint="@string/nombreSignUp"
