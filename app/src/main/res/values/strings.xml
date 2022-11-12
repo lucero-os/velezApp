@@ -67,7 +67,7 @@
     <string name="texto_fecha">%1$s/%2$s</string>
     <string name="texto_nombre">%1$s %2$s</string>
     <string name="logo_nombre">LOGO</string>
-    <string name="club">Club Atletico Velez Sarfield</string>
+    <string name="club">Club Atéltico Vélez Sarsfield</string>
     <string name="nombre_socio">Mauro Zarate</string>
     <string name="numero_socio_text">Numero Socio:</string>
     <string name="numero_socio_data">0000001</string>
@@ -93,5 +93,7 @@
     <string name="detalle_entrada_text">IMPORTANTE:Todos los socios deberán asistir con su Carnet por la puerta indicada, sin excepción. Para Popular Este y Platea Sur Alta no hace falta canjear, se entra directamente con carnet.</string>
     <string name="noticia_thiago_titulo">Thiago Orgullo</string>
     <string name="godin_foto">godin_foto</string>
+    <string name="imagen_login">imagen_login</string>
+    <string name="terminos_condiciones">Al ingresar acepto los términos y condiciones de navegación.</string>
 
 </resources>
