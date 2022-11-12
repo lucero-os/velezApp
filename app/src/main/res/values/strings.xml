@@ -101,5 +101,11 @@
     <string name="mail_text">info@velezsarsfield.com.ar</string>
     <string name="wpp_text">1122661000</string>
     <string name="barra_separadora">/</string>
+    <string name="pendiente_a_la_fecha">Pendiente a la fecha:</string>
+    <string name="pagar">ir a pagar</string>
+    <string name="pendiente_data">$10000</string>
+    <string name="monto">monto</string>
+    <string name="fecha">fecha</string>
+    <string name="signo_pesos">$</string>
 
 </resources>
