@@ -99,15 +99,17 @@ class SignUp : Fragment() {
             try{
                 scope.launch {
 
-                    if(!checkDni(dniForm)){
-                        dni.error= "Usuario ya existe"
-                        dni.isFocusable= true
-                    }else if (!termsForm){
-                        Snackbar.make(contextView,"Debe aceptar terminos y condiciones",Snackbar.LENGTH_SHORT).show()
-                        terms.isFocusable= true
-                    }else{
-                        if (validateForm(nameForm,lastnameForm,emailForm,dniForm,passForm,passCheckpassForm,phoneForm)){
-                            viewModel.signUp(nameForm, lastnameForm, emailForm, dniForm, passForm, phoneForm)
+                    if (validateForm(nameForm,lastnameForm,emailForm,dniForm,passForm,passCheckpassForm,phoneForm)){
+                        if (termsForm){
+                            if (checkDni(dniForm)){
+                                viewModel.signUp(nameForm, lastnameForm, emailForm, dniForm, passForm, phoneForm)
+                            }else{
+                                dni.error= "Usuario ya existe"
+                                dni.isFocusable= true
+                            }
+                        }else{
+                            Snackbar.make(contextView,"Debe aceptar terminos y condiciones",Snackbar.LENGTH_SHORT).show()
+                            terms.isFocusable= true
                         }
                     }
                 }
