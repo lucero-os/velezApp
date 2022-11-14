@@ -153,7 +153,7 @@ class SignUp : Fragment() {
             email.error=null
             validation = true
         }
-        if (newDni.absoluteValue.toString().length < 7 || newDni.absoluteValue.toString().length > 8){
+        if (newDni.absoluteValue.toString().length >= 7 && newDni.absoluteValue.toString().length <= 8){
             dni.error="Ingrese un DNI válido"
             dni.isFocusable= true
             return false
