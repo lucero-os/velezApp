@@ -104,22 +104,6 @@ class ConfirmarCompra : Fragment() {
                     cardDate.isFocusable= true
                 }
             }
-
-
-            /*if (validateDebitCardNumber(d) && (fecha!="" && fecha.length > 5) && validateDate(fecha) && validateCvv(c))
-            {
-                try{
-                    viewModel.comprar(partido, ticket)
-                    viewModel.compraExitosa.observe(viewLifecycleOwner, Observer { result ->
-                        val action = ConfirmarCompraDirections.actionConfirmarCompraToResultadoCompra(result,ticket, partido)
-                        v.findNavController().navigate(action)
-                    })
-                }catch (e: Exception){}
-            }else
-            {
-                Snackbar.make(contextView,"Debe completar todos los datos de la tarjeta", Snackbar.LENGTH_SHORT).show()
-            }*/
-
         }
 
         cancelBtn.setOnClickListener {
