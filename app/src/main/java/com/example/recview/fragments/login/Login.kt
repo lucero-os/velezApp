@@ -65,7 +65,7 @@ class Login : Fragment() {
                 val action = LoginDirections.actionLoginToMainActivity2()
                 v.findNavController().navigate(action)
             }else{
-                Snackbar.make(contextView,"Usuario no existe",Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(contextView,"Credenciales incorrectas",Snackbar.LENGTH_SHORT).show()
                 progressBar.visibility = View.GONE
             }
 

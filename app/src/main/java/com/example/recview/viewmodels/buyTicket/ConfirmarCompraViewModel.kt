@@ -204,7 +204,7 @@ class ConfirmarCompraViewModel : ViewModel() {
 
         viewModelScope.launch {
             try {
-                var rtdo2 = validarSiYaCompro(partido)
+                var rtdo2 = validarSiYaCompro(partido) //devuelve TRUE si ya tiene 1 entrada para ese partido
                 if (!rtdo2) {
                         rtdo2 = checkDisponibilidad(partido, ticket)
 
@@ -220,6 +220,7 @@ class ConfirmarCompraViewModel : ViewModel() {
                     compraExitosa.value = !rtdo2
                 }
             } catch (e: Exception) {
+                Log.d("RESULTADO_COMPRA", "salio por la excepcion de comprar" )
                 compraExitosa.value = false
                 }
         }

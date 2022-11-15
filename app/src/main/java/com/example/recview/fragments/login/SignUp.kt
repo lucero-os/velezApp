@@ -169,7 +169,7 @@ class SignUp : Fragment() {
             phone.error=null
             validation = true
         }
-        if (newPass.length <= 6){
+        if (newPass.length < 6){
             pass.error="Debe contener al menos 6 caracteres"
             pass.isFocusable= true
             return false
