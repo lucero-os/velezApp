@@ -88,7 +88,25 @@ class ConfirmarCompra : Fragment() {
             val c = cvv.text.toString()
             val fecha = cardDate.text.toString()
 
-            if (validateDebitCardNumber(d) && (fecha!="" && fecha.length > 5) && validateDate(fecha) && validateCvv(c))
+            if (validateDebitCardNumber(d)){
+                if (fecha!="" && fecha.length > 5){
+                    if (validateDate(fecha) && validateCvv(c)){
+                        try{
+                            viewModel.comprar(partido, ticket)
+                            viewModel.compraExitosa.observe(viewLifecycleOwner, Observer { result ->
+                                val action = ConfirmarCompraDirections.actionConfirmarCompraToResultadoCompra(result,ticket, partido)
+                                v.findNavController().navigate(action)
+                            })
+                        }catch (e: Exception){}
+                    }
+                }else{
+                    cardDate.error= "Revise la fecha ingresada"
+                    cardDate.isFocusable= true
+                }
+            }
+
+
+            /*if (validateDebitCardNumber(d) && (fecha!="" && fecha.length > 5) && validateDate(fecha) && validateCvv(c))
             {
                 try{
                     viewModel.comprar(partido, ticket)
@@ -100,7 +118,7 @@ class ConfirmarCompra : Fragment() {
             }else
             {
                 Snackbar.make(contextView,"Debe completar todos los datos de la tarjeta", Snackbar.LENGTH_SHORT).show()
-            }
+            }*/
 
         }
 
@@ -140,7 +158,7 @@ class ConfirmarCompra : Fragment() {
             cvv.error = null
             return true
         }else{
-            cvv.error= "Codigo erroneo"
+            cvv.error= "Debe contener 3 dígitos"
             cvv.isFocusable= true
             return false
         }
