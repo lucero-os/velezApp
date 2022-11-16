@@ -38,6 +38,7 @@ class MainActivity : AppCompatActivity() {
         val scope = CoroutineScope(
             Job() + Dispatchers.Main
         )
+
         scope.launch {
             try{
                 val usersRef = db.collection("usuarios")

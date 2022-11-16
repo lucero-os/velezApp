@@ -72,6 +72,7 @@
             android:ems="10"
             android:hint="@string/dniSignUp"
             android:inputType="number"
+            android:maxLength="8"
             android:minHeight="48dp" />
 
         <EditText
