@@ -1,5 +1,6 @@
 package com.example.recview.fragments.login
 
+import android.content.ContentValues
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
@@ -113,13 +114,17 @@ class SignUp : Fragment() {
                         }
                     }
                 }
-            }catch (e: Exception){}
+            }catch (_: Exception){
+            }
         }
 
         viewModel.signUpResult.observe( viewLifecycleOwner, Observer {
             if(it){
                 val action = SignUpDirections.actionSignUpToLogin()
                 findNavController().navigate(action)
+            }else{
+                email.error="Ingrese un email válido"
+                email.isFocusable= true
             }
         })
 
