@@ -134,7 +134,7 @@ class SignUp : Fragment() {
         val pattern: Pattern = Patterns.EMAIL_ADDRESS
         var validation = false
 
-        if(newName.isEmpty()){
+        if(newName.isEmpty() || !isLetters(newName) ){
             name.error="Ingrese su nombre"
             name.isFocusable= true
             return false
@@ -142,7 +142,7 @@ class SignUp : Fragment() {
             name.error=null
             validation = true
         }
-        if(newLastname.isEmpty()){
+        if(newLastname.isEmpty() || !isLetters(newLastname)){
             lastname.error="Ingrese su apellido"
             lastname.isFocusable= true
             return false
@@ -212,5 +212,9 @@ class SignUp : Fragment() {
 
         }
     return state
+    }
+
+    fun isLetters(string: String): Boolean {
+        return string.all { it.isLetter() }
     }
 }
