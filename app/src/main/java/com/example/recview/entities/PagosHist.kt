@@ -4,4 +4,4 @@ class PagosHist(
     var fecha: String,
     var monto: Int,
 ) {
-}
+} 

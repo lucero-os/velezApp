@@ -40,6 +40,7 @@ class VentaEntradasFragment : Fragment() {
         fun newInstance() = PartidoFragment()
     }
 
+    //trae el viewmodel
     private val viewModel: VentaEntradasViewModel by viewModels()
 
     override fun onCreateView(
@@ -47,8 +48,8 @@ class VentaEntradasFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         v =  inflater.inflate(R.layout.fragment_venta_entradas, container, false)
-        recPartidos = v.findViewById(R.id.rec_partidos)
-        progessBar = v.findViewById((R.id.progressBar))
+        recPartidos = v.findViewById(R.id.rec_partidos) // binding recyclerview
+        progessBar = v.findViewById((R.id.progressBar)) // binding barra de progreso
         return v
     }
 
@@ -56,17 +57,23 @@ class VentaEntradasFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        viewModel.getPartidos()
+        viewModel.getPartidos() // trae la lista de partidos
 
         recPartidos.setHasFixedSize(true)
         linearLayoutManager = LinearLayoutManager(context)
+        //inicializo el recyclerview
         recPartidos.layoutManager = linearLayoutManager
 
+        //observer: está monitoreando la variable partidos, trae la lista desde el viewmodel, actualiza los cambios en el momento
+        // por eso partidos es una mutablelist
         viewModel.partidos.observe(viewLifecycleOwner, Observer { result ->
             partidos = result.toMutableList()
             progessBar.visibility = View.GONE
+
             partidosAdapter = PartidosAdapter(partidos) { pos ->
                 val action = VentaEntradasFragmentDirections.actionVentaEntradasFragmentToTicketDetail(partidos[pos])
+                //pasa del fragment venta de entradas al ticketdetail
+                // para seguir con la compra
                 v.findNavController().navigate(action)
             }
 
